@@ -227,6 +227,9 @@
             background: #e9fbe9;
         }
 
+        .trans {
+          background:pink
+        }
     </style>
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/W3C-REC"><!--[if lt IE 9]><script src='https://www.w3.org/2008/site/js/html5shiv.js'></script><![endif]--><!--[if lt IE 9]><script src='https://www.w3.org/2008/site/js/html5shiv.js'></script><![endif]-->
 </head>
@@ -234,7 +237,7 @@
   <aside class="notice" style="border-radius: 20px; border: solid lightpink 3px;padding:0 1em;margin-bottom:2em;padding:1em;">
     <p>
 
-      この文書は「<a href="http://www.w3.org/TR/json-ld/">JSON-LD 1.0</a>」の日本語訳です。日本語訳は参考情報であって、公式な文書ではありません。
+      この文書は「<a href="http://www.w3.org/TR/json-ld/">JSON-LD 1.0</a>」の日本語訳です。日本語訳は参考情報であって、公式な文書ではありません。この文書は只今翻訳中です。
     </p>
   </aside>
     <div class="head" role="contentinfo" id="respecHeader">
@@ -658,43 +661,44 @@
         <h2 aria-level="1" role="heading" id="h2_design-goals-and-rationale"><span class="secno">2. </span>設計目標と理論的根拠</h2>
         <p><em>このセクションは参考情報である。</em></p>
         <p>JSON-LDは次の設計目標を満たしている。:</p>
-        <dl>
-            <dt>簡素</dt>
-            <dd>
-                特別な処理プログラムやソフトウェア・ライブラリは基本的にJSON-LDを使用するために必要としない。
-                言語は非常に容易な学習曲線を開発者に提供する。開発者はJSONとJSON-LD中の基本的な機能を使用するための2つの<a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>(<code>@context</code>
-                and <code>@id</code>) を知る必要があるのみである。
-            </dd>
-            <dt>互換性</dt>
-            <dd>
-                JSON-LDは常に正当なJSON文書である。これはすべての標準的なJSONライブラリがJSON-LDにおいてもシームレスに動作することを保証する。
-            </dd>
-            <dt>表現力Expressiveness</dt>
-            <dd>
-                構文は有向グラフをシリアル化する。これはほとんどすべての現実世界のデータモデルを表現することを保証する。
-            </dd>
-            <dt>簡潔さ</dt>
-            <dd>
-                JSON-LD構文は開発者から可能な限り負担を減らすため、とても簡潔で人が可読可能である。
-            </dd>
-            <dt>ほとんどの場合において修正不要</dt>
-            <dd>
-                JSON-LDは、既存のJSONベースのシステムからのスムーズかつシンプルな移行を保証する。
-                多くの場合、JSONドキュメントは修正不要でHTTPレスポンスへ一行の追加で事足りる(<a class="sectionRef sec-ref" href="#interpreting-json-as-json-ld">セクション 6.8 JSON-LDとしてJSONを解釈する</a>参照)。                
-                これは巨大なJSONベースのインフラすでに展開してい組織が、日々のオペレーションを混乱させることなくかつ利用者に透過的にJSON-LDの機能を利用可能にする。
-                しかしながら、JSONをグラフ表現にマッピングすることは複雑な作業であることもある。
-              　これらの場合複雑なユースケースをサポートするためにJSON-LDを拡張するのではなく、ユースケースをサポートしないことを選択する。無編集が設計目標であるが、それらは言語に複雑さを追加することなしには不可能であるためである。JSON-LDは可能な限りシンプルさに焦点を当てている。
-            </dd>
-            <dt>RDFとしての利用</dt>
-            <dd>
-                JSON-LD is usable by developers as
-                idiomatic JSON, with no need to understand RDF [<cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>].
-                JSON-LD is also usable as RDF, so people intending to use JSON-LD
-                with RDF tools will find it can be used like any other RDF syntax.
-                Complete details of how JSON-LD relates to RDF are in section
-                <a href="#relationship-to-rdf" class="sec-ref"><span class="secno">9.</span> <span class="sec-title">Relationship to RDF</span></a>.
-            </dd>
-        </dl>
+      <dl>
+        <dt>簡素</dt>
+        <dd>
+          特別な処理プログラムやソフトウェア・ライブラリは基本的にJSON-LDを使用するために必要としない。
+          言語は非常に容易な学習曲線を開発者に提供する。開発者はJSONとJSON-LD中の基本的な機能を使用するための2つの<a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>(<code>@context</code>
+          and <code>@id</code>) を知る必要があるのみである。
+        </dd>
+        <dt>互換性</dt>
+        <dd>
+          JSON-LDは常に正当なJSON文書である。これはすべての標準的なJSONライブラリがJSON-LDにおいてもシームレスに動作することを保証する。
+        </dd>
+        <dt>表現力Expressiveness</dt>
+        <dd>
+          構文は有向グラフをシリアル化する。これはほとんどすべての現実世界のデータモデルを表現することを保証する。
+        </dd>
+        <dt>簡潔さ</dt>
+        <dd>
+          JSON-LD構文は開発者から可能な限り負担を減らすため、とても簡潔で人が可読可能である。
+        </dd>
+        <dt>ほとんどの場合において修正不要</dt>
+        <dd>
+          JSON-LDは、既存のJSONベースのシステムからのスムーズかつシンプルな移行を保証する。
+          多くの場合、JSONドキュメントは修正不要でHTTPレスポンスへ一行の追加で事足りる(<a class="sectionRef sec-ref" href="#interpreting-json-as-json-ld">セクション 6.8 JSON-LDとしてJSONを解釈する</a>参照)。
+          これは巨大なJSONベースのインフラすでに展開してい組織が、日々のオペレーションを混乱させることなくかつ利用者に透過的にJSON-LDの機能を利用可能にする。
+          しかしながら、JSONをグラフ表現にマッピングすることは複雑な作業であることもある。
+          これらの場合複雑なユースケースをサポートするためにJSON-LDを拡張するのではなく、ユースケースをサポートしないことを選択する。無編集が設計目標であるが、それらは言語に複雑さを追加することなしには不可能であるためである。JSON-LDは可能な限りシンプルさに焦点を当てている。
+        </dd>
+        <dt>RDFとしての利用</dt>
+        <dd class="trans">
+          <p>
+            JSON-LD is also usable as RDF, so people intending to use JSON-LD
+            with RDF tools will find it can be used like any other RDF syntax.
+            Complete details of how JSON-LD relates to RDF are in section
+            <a href="#relationship-to-rdf" class="sec-ref"><span class="secno">9.</span> <span class="sec-title">Relationship to RDF</span></a>.
+          </p>
+          <p>JSON-LDはRDF[<cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>]を理解することなしに慣用JSONとして開発者によって利用可能である。JSON-LDはRDFとして利用可能であり、RDFツールともにJSON-LDの利用を意図している人は他のRDF文法のように使えることがわかるだろう。どのようにJSON-LDがRDFと関係しているか完全な詳細は「9.RDFとの関係」セクションにある。</p>
+        </dd>
+      </dl>
     </section>
     <section class="normative" id="terminology">
         <!--OddPage-->
