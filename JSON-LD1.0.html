@@ -341,7 +341,7 @@
         <h2 aria-level="1" role="heading" id="h2_sotd">この文書の位置づけ</h2>
         <p>
             <em>
-                このセクションでは公開時点のこの文書の位置づけについて説明する。
+                この章では公開時点のこの文書の位置づけについて説明する。
                 他の文書がより優れたものとしてこの文書と入れ替わるかもしれない。
                 現在の<abbr title="World Wide Web Consortium">W3C</abbr>発行物と、<abbr title="World Wide Web Consortium">
                     W3C
@@ -585,7 +585,7 @@
     <section class="informative" id="introduction">
         <!--OddPage-->
         <h2 aria-level="1" role="heading" id="h2_introduction"><span class="secno">1. </span>導入</h2>
-        <p><em>このセクションは参考情報である。</em></p>
+        <p><em>この章は参考情報である。</em></p>
         <p>リンクト・データは[<cite><a class="bibref" href="#bib-LINKED-DATA">LINKED-DATA</a></cite>] は、他のドキュメントおよびWebサイト間でコンピューターで解釈が可能なデータの標準的なネットワークを作成する方法である。これはアプリケーションがリンクト・データの一部分で開始し、Web上の異なるサイトにホストされているリンクト・データの他の部分に埋め込まれたリンクをたどることができる。
         </p>
         <p>JSON-LDはJSON[<cite><a class="bibref" href="#bib-RFC4627">RFC4627</a></cite>]でリンクト・データをシリアル化するための簡単な構文である。
@@ -615,13 +615,13 @@
         </ul>
         <p>
             JSON-LDはRDF[<cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>]の知識がなくてもとりあえずJSONとして使用できるように設計されている。また必要に応じてSPARQLのようなリンクト・データデータ技術と一緒に使用するためにRDFとして使用できるように設計されている。
-            以上の機能が必要かもしくはJSONベースの構文中にRDFグラフやRDFデータ・セットをシリアル化する必要がある開発者はJSON-LDに興味を持つだろう。RDFツールとともにJSON-LDを使用することを意図している方は、例えばTurtle[<cite><a class="bibref" href="#bib-TURTLE">TURTLE</a></cite>]のような別のRDF構文としてJSON-LDを使用可能であることがわかるだろう。JSON-LDがどのようにRDFと関連するのかの完全な詳細は<a href="#relationship-to-rdf" class="sec-ref"><span class="secno">9.</span> <span class="sec-title">RDFとの関係</span></a>セクションにある.
+            以上の機能が必要かもしくはJSONベースの構文中にRDFグラフやRDFデータ・セットをシリアル化する必要がある開発者はJSON-LDに興味を持つだろう。RDFツールとともにJSON-LDを使用することを意図している方は、例えばTurtle[<cite><a class="bibref" href="#bib-TURTLE">TURTLE</a></cite>]のような別のRDF構文としてJSON-LDを使用可能であることがわかるだろう。JSON-LDがどのようにRDFと関連するのかの完全な詳細は<a href="#relationship-to-rdf" class="sec-ref"><span class="secno">9.</span> <span class="sec-title">RDFとの関係</span></a>章にある.
         </p>
         <p>構文は既にJSONを使用して稼働しているシステムを妨げず、JSONからJSON-LDへスムースにアップグレードするためのパスを提供するように設計されている。そのようなデータの形状は大きく異なるので、JSON-LDはその処理を簡素化し確定的構造にドキュメントを再生成するメカニズムを備えている。
         </p>
         <section class="informative" id="how-to-read-this-document">
             <h3 aria-level="2" role="heading" id="h3_how-to-read-this-document"><span class="secno">1.1 </span>この文書の読み方</h3>
-            <p><em>このセクションは参考情報である。</em></p>
+            <p><em>この章は参考情報である。</em></p>
             <p>
                 この文書はJSONでリンクト・データをシリアル化するための詳細仕様である。この文書は主に下記の読者を対象にしている。
             </p>
@@ -659,7 +659,7 @@
     <section class="informative" id="design-goals-and-rationale">
         <!--OddPage-->
         <h2 aria-level="1" role="heading" id="h2_design-goals-and-rationale"><span class="secno">2. </span>設計目標と理論的根拠</h2>
-        <p><em>このセクションは参考情報である。</em></p>
+        <p><em>この章は参考情報である。</em></p>
         <p>JSON-LDは次の設計目標を満たしている。:</p>
       <dl>
         <dt>簡素</dt>
@@ -683,151 +683,111 @@
         <dt>ほとんどの場合において修正不要</dt>
         <dd>
           JSON-LDは、既存のJSONベースのシステムからのスムーズかつシンプルな移行を保証する。
-          多くの場合、JSONドキュメントは修正不要でHTTPレスポンスへ一行の追加で事足りる(<a class="sectionRef sec-ref" href="#interpreting-json-as-json-ld">セクション 6.8 JSON-LDとしてJSONを解釈する</a>参照)。
+          多くの場合、JSONドキュメントは修正不要でHTTPレスポンスへ一行の追加で事足りる(<a class="sectionRef sec-ref" href="#interpreting-json-as-json-ld">章 6.8 JSON-LDとしてJSONを解釈する</a>参照)。
           これは巨大なJSONベースのインフラすでに展開してい組織が、日々のオペレーションを混乱させることなくかつ利用者に透過的にJSON-LDの機能を利用可能にする。
           しかしながら、JSONをグラフ表現にマッピングすることは複雑な作業であることもある。
           これらの場合複雑なユースケースをサポートするためにJSON-LDを拡張するのではなく、ユースケースをサポートしないことを選択する。無編集が設計目標であるが、それらは言語に複雑さを追加することなしには不可能であるためである。JSON-LDは可能な限りシンプルさに焦点を当てている。
         </dd>
         <dt>RDFとしての利用</dt>
-        <dd class="trans">
-          <a name="trans" />
-          <p>
-            JSON-LD is also usable as RDF, so people intending to use JSON-LD
-            with RDF tools will find it can be used like any other RDF syntax.
-            Complete details of how JSON-LD relates to RDF are in section
-            <a href="#relationship-to-rdf" class="sec-ref"><span class="secno">9.</span> <span class="sec-title">Relationship to RDF</span></a>.
-          </p>
-          <p>JSON-LDはRDF[<cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>]を理解することなしに慣用JSONとして開発者によって利用可能である。JSON-LDはRDFとして利用可能であり、RDFツールともにJSON-LDの利用を意図している人は他のRDF文法のように使えることがわかるだろう。どのようにJSON-LDがRDFと関係しているか完全な詳細は「9.RDFとの関係」セクションにある。</p>
+        <dd>
+            <p>JSON-LDはRDF[<cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>]を理解することなしに慣用JSONとして開発者によって利用可能である。JSON-LDはRDFとして利用可能であり、RDFツールともにJSON-LDの利用を意図している人は他のRDF文法のように使えることがわかるだろう。どのようにJSON-LDがRDFと関係しているか完全な詳細は「<a href="#relationship-to-rdf" class="sec-ref"><span class="secno">9.</span> <span class="sec-title">RDFとの関係</span></a>」章にある。</p>
         </dd>
       </dl>
     </section>
     <section class="normative" id="terminology">
         <!--OddPage-->
-        <h2 aria-level="1" role="heading" id="h2_terminology"><span class="secno">3. </span>Terminology</h2>
+        <h2 aria-level="1" role="heading" id="h2_terminology"><span class="secno">3. </span>用語</h2>
         <section class="normative" id="general-terminology">
-            <h3 aria-level="2" role="heading" id="h3_general-terminology"><span class="secno">3.1 </span>General Terminology</h3>
+            <h3 aria-level="2" role="heading" id="h3_general-terminology"><span class="secno">3.1 </span>一般的な用語</h3>
             <p>
-                This document uses the following terms as defined in JSON [
-                <cite><a class="bibref" href="#bib-RFC4627">RFC4627</a></cite>]. Refer
-                to the
-                <em>JSON Grammar</em> section in [
-                <cite><a class="bibref" href="#bib-RFC4627">RFC4627</a></cite>] for formal definitions.
+                このドキュメントはJSON[
+                <cite><a class="bibref" href="#bib-RFC4627">RFC4627</a></cite>]中で定義されている次の用語を使用する。
+                正式な定義については[
+<cite><a class="bibref" href="#bib-RFC4627">RFC4627</a></cite>]中の<em>JSON Grammar</em>章を参照すること。
             </p>
             <dl>
-                <dt><dfn title="json-object" id="dfn-json-object">JSON object</dfn></dt>
+                <dt><dfn title="json-object" id="dfn-json-object">JSONオブジェクト</dfn></dt>
                 <dd>
-                    An object structure is represented as a pair of curly brackets surrounding
-                    zero or more key-value pairs. A key is a <a class="tref internalDFN" title="string" href="#dfn-string">string</a>.
-                    A single colon comes after each key, separating the key from the value.
-                    A single comma separates a value from a following key. In contrast to JSON,
-                    in JSON-LD the keys in an object must be unique.
+                    オブジェクト構造は、ゼロ以上のキーと値のペアを囲む中括弧の対として表される。 キーは<a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>である 。単一のコロンが値とキーを分離するためにキーの後に続く。 単一のコンマは、続くキーから値を分離する。JSONとは対照的にJSON-LDではオブジェクトのキーは一意である必要がある。
                 </dd>
-                <dt><dfn title="array" id="dfn-array">array</dfn></dt>
+                <dt><dfn title="array" id="dfn-array">配列</dfn></dt>
                 <dd>
-                    An array structure is represented as square brackets surrounding zero
-                    or more values. Values are separated by commas.
-                    In JSON, an array is an <em>ordered</em> sequence of zero or more values.
-                    While JSON-LD uses the same array representation as JSON,
-                    the collection is <em>unordered</em> by default. While order is
-                    preserved in regular JSON arrays, it is not in regular JSON-LD arrays
-                    unless specifically defined (see <a class="sectionRef sec-ref" href="#sets-and-lists">section 6.11 Sets and Lists</a>).
+                    配列は0個以上の値を囲む角括弧として表される。値はコンマによって分離される。
+                    JSON中では配列はゼロ以上の値の<em>順序付けられた列</em>であるが。
+                    JSON-LDはJSONのように同じ配列表現を使用すると同時に、配列集合は規定では<em>順序付けられていない</em>。
+                    順序は正規のJSON配列では維持されるのに対して、特別に定義されない限り正規のJSON-LDは順序を維持しない(<a class="sectionRef sec-ref" href="#sets-and-lists">6.11章のセットとリスト</a>を参照)。
                 </dd>
-                <dt><dfn title="string" id="dfn-string">string</dfn></dt>
+                <dt><dfn title="string" id="dfn-string">文字列</dfn></dt>
                 <dd>
-                    A string is a sequence of zero or more Unicode characters,
-                    wrapped in double quotes, using backslash escapes (if necessary).
+                    文字列は0個以上のUnicode文字の列で、ダブルクォートで囲まれ、（必要であれば）バックスラッシュ・エスケープを使用する。
                 </dd>
-                <dt><dfn title="number" id="dfn-number">number</dfn></dt>
+                <dt><dfn title="number" id="dfn-number">数値</dfn></dt>
                 <dd>
-                    A number is similar to that used in most programming languages, except
-                    that the octal and hexadecimal formats are not used and leading zeros
-                    are not allowed.
+                    数値は8進・16進フォーマットは使用せず、先行ゼロが許されていない以外は大抵のプログラミング言語で使用されるものと同様である。
                 </dd>
-                <dt><dfn title="true" id="dfn-true">true</dfn> and <dfn title="false" id="dfn-false">false</dfn></dt>
+                <dt><dfn title="true" id="dfn-true">true</dfn>と<dfn title="false" id="dfn-false">false</dfn></dt>
                 <dd>
-                    Values that are used to express one of two possible boolean states.
+                    2つのブーリアン状態の１つを表現するための使用される値。
                 </dd>
                 <dt><dfn title="null" id="dfn-null">null</dfn></dt>
                 <dd>
-                    The <a class="tref internalDFN" title="null" href="#dfn-null">null</a> value, which is typically used to clear or forget
-                    data. For example, a key-value pair in the
-                    <code>@context</code> where the value is <a class="tref internalDFN" title="null" href="#dfn-null">null</a> explicitly
-                    decouples a <a class="tref internalDFN" title="term" href="#dfn-term">term</a>'s association with an <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>.
-                    A key-value pair in the body of a JSON-LD document whose
-                    value is <a class="tref internalDFN" title="null" href="#dfn-null">null</a> has the same meaning as if the key-value pair
-                    was not defined. If <code>@value</code>, <code>@list</code>, or
-                    <code>@set</code> is set to <a class="tref internalDFN" title="null" href="#dfn-null">null</a> in expanded form, then
-                    the entire <a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSON object</a> is ignored.
-                </dd>
+                    一般的には空もしくは無視データを使用するための<a class="tref internalDFN" title="null" href="#dfn-null">null</a>値。例えば値が<a class="tref internalDFN" title="null" href="#dfn-null">null</a>である<code>@context</code>中のキー・値ペアは<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>と<a class="tref internalDFN" title="term" href="#dfn-term">
+    用語</a>の関連を明確に切り離す。
+   　値が<a class="tref internalDFN" title="null" href="#dfn-null">null</a>であるJSON-LDドキュメント中のキー・値ペアは、キー・値ペアが定義されていないのと同じ意味である。
+                    もし<code>@value</code>, <code>@list</code>, 
+<code>@set</code>が展開形式中で<a class="tref internalDFN" title="null" href="#dfn-null">null</a>がセットされている場合は<a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>全体が無視される。
+</dd>
             </dl>
         </section>
         <section class="informative" id="data-model-overview">
-            <h3 aria-level="2" role="heading" id="h3_data-model-overview"><span class="secno">3.2 </span>Data Model Overview</h3>
-            <p><em>This section is non-normative.</em></p>
+            <h3 aria-level="2" role="heading" id="h3_data-model-overview"><span class="secno">3.2 </span>データモデル概要</h3>
+            <p><em>この章は参考情報である。</em></p>
             <p>
-                Generally speaking, the data model used for JSON-LD is a labeled,
-                directed
-                <a class="tref internalDFN" title="graph" href="#dfn-graph">graph</a>. The graph contains
-                <a class="tref internalDFN" title="node" href="#dfn-node">nodes</a>, which are connected by
-                <a class="tref internalDFN" title="edge" href="#dfn-edge">edges</a>. A
-                <a class="tref internalDFN" title="node" href="#dfn-node">node</a> is typically data
-                such as a
-                <a class="tref internalDFN" title="string" href="#dfn-string">string</a>,
-                <a class="tref internalDFN" title="number" href="#dfn-number">number</a>,
-                <a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">typed values</a> (like dates and times)
-                or an
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>.
-                There is also a special class of
-                <a class="tref internalDFN" title="node" href="#dfn-node">node</a> called a
-                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">blank node</a>, which is typically used to express data that does
-                not have a global identifier like an
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>.
-                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">Blank nodes</a> are identified using a
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">blank node identifier</a>. This simple data model is incredibly
-                flexible and powerful, capable of modeling almost any kind of
-                data. For a deeper explanation of the data model, see
-                section
-                <a href="#data-model" class="sec-ref"><span class="secno">7.</span> <span class="sec-title">Data Model</span></a>.
+                一般的に言えば、JSON-LDで使用されるデータモデルは名前付き有向<a class="tref internalDFN" title="graph" href="#dfn-graph">グラフ</a>である。グラフは端が接続された<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>を含む。
+
+
+                <a class="tref internalDFN" title="node" href="#dfn-node">ノードは</a>通常
+                <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>・
+                <a class="tref internalDFN" title="number" href="#dfn-number">数値</a>・
+                <a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a> (日付や時刻のような)・
+                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>のようなデータである。
+                通常<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>のようなグローバル識別子を持たないデータを表現するために使用する<a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">
+                    空白ノード
+                </a>と呼ばれる特別な<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>・クラスがある。
+                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>は<a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>を使用して定義される。この簡素なデータモデルはほとんどどんな種類のデータでもモデル化が可能で信じられないほど柔軟かつ強力である。
+                データモデルのより深い説明については「<a href="#data-model" class="sec-ref"><span class="secno">7.</span> <span class="sec-title">データ・モデル</span></a>」を参照すること。
             </p>
             <p>
-                Developers who are familiar with Linked Data technologies will
-                recognize the data model as the RDF Data Model. To dive deeper into how
-                JSON-LD and RDF are related, see
-                section
-                <a href="#relationship-to-rdf" class="sec-ref"><span class="secno">9.</span> <span class="sec-title">Relationship to RDF</span></a>.
+                リンク・データ技術に精通している開発者はRDFデータ・モデルと同様にデータ・モデルを理解するだろう。
+                JSON-LDとRDFがどのように関連しているか深く探るだめには「<a href="#relationship-to-rdf" class="sec-ref"><span class="secno">9.</span> <span class="sec-title">RDFとの関係</span></a>」を参照すること。
             </p>
         </section>
         <section class="normative" id="syntax-tokens-and-keywords">
-            <h3 aria-level="2" role="heading" id="h3_syntax-tokens-and-keywords"><span class="secno">3.3 </span>Syntax Tokens and Keywords</h3>
+            <h3 aria-level="2" role="heading" id="h3_syntax-tokens-and-keywords"><span class="secno">3.3 </span>文法トークンとキーワード</h3>
             <p>
-                JSON-LD specifies a number of syntax tokens and <dfn title="keyword" id="dfn-keyword">keywords</dfn>
-                that are a core part of the language:
+                JSON-LDは言語のコア部分となるいくつかの文法トークンと<dfn title="keyword" id="dfn-keyword">キーワード</dfn>を定める。
             </p>
             <dl>
                 <dt><code>@context</code></dt>
                 <dd>
-                    Used to define the short-hand names that are used throughout a JSON-LD
-                    document. These short-hand names are called <a class="tref internalDFN" title="term" href="#dfn-term">terms</a> and help
-                    developers to express specific identifiers in a compact manner. The
-                    <code>@context</code> keyword is described in detail in
-                    <a class="sectionRef sec-ref" href="#the-context">section 5.1 The Context</a>.
-                </dd>
+                    JSON-LD文書の全体で使用される省略名を定義するために使用する。
+                    これらの省略名は<a class="tref internalDFN" title="term" href="#dfn-term">
+    用語</a>と呼ばれ、開発者がコンパクトな方法で特定の識別子を表現する助けとなる。
+    <code>@context</code>キーワードは「<a class="sectionRef sec-ref" href="#the-context">section 5.1 The Context</a>」中で詳細に記述する。
+</dd>
                 <dt><code>@id</code></dt>
                 <dd>
-                    Used to uniquely identify <em>things</em> that are being described in the document
-                    with <a class="tref internalDFN" title="iri" href="#dfn-iri">IRIs</a> or
-                    <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">blank node identifiers</a>. This keyword
-                    is described in <a class="sectionRef sec-ref" href="#node-identifiers">section 5.3 Node Identifiers</a>.
-                </dd>
+                    <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>や<a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">
+    空白ノード識別子</a>を用いてドキュメント中で記述される一意な<em>物</em>のために使用される。
+このキーワードは「<a class="sectionRef sec-ref" href="#node-identifiers">5.3 ノード識別子</a>」で記述する.
+</dd>
                 <dt><code>@value</code></dt>
-                <dd>
-                    Used to specify the data that is associated with a particular
-                    <a class="tref internalDFN" title="property" href="#dfn-property">property</a> in the graph. This keyword is described in
-                    <a class="sectionRef sec-ref" href="#string-internationalization">section 6.9 String Internationalization</a> and
-                    <a class="sectionRef sec-ref" href="#typed-values">section 6.4 Typed Values</a>.
-                </dd>
-                <dt><code>@language</code></dt>
-                <dd>
+                <dd>グラフ中の特定の<a class="tref internalDFN" title="property" href="#dfn-property">
+    属性</a>にまつわるデータを定めるために使用する。このキーワードは「<a class="sectionRef sec-ref" href="#string-internationalization">6.9 国際化文字列</a>」章と「<a class="sectionRef sec-ref" href="#typed-values">6.4 型付された値</a>」章で記述する。
+</dd>
+                <dt><a name="trans" /><code>@language</code></dt>
+                
+                <dd class="trans">
                     Used to specify the language for a particular string value or the default
                     language of a JSON-LD document. This keyword is described in
                     <a class="sectionRef sec-ref" href="#string-internationalization">section 6.9 String Internationalization</a>.
