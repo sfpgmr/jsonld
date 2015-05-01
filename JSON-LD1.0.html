@@ -772,87 +772,101 @@
                 <dd>
                     JSON-LD文書の全体で使用される省略名を定義するために使用する。
                     これらの省略名は<a class="tref internalDFN" title="term" href="#dfn-term">
-    用語</a>と呼ばれ、開発者がコンパクトな方法で特定の識別子を表現する助けとなる。
-    <code>@context</code>キーワードは「<a class="sectionRef sec-ref" href="#the-context">section 5.1 The Context</a>」中で詳細に記述する。
-</dd>
+                        用語
+                    </a>と呼ばれ、開発者がコンパクトな方法で特定の識別子を表現する助けとなる。
+                    <code>@context</code>キーワードは「<a class="sectionRef sec-ref" href="#the-context">section 5.1 The Context</a>」中で詳細に記述する。
+                </dd>
                 <dt><code>@id</code></dt>
                 <dd>
                     <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>や<a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">
-    空白ノード識別子</a>を用いてドキュメント中で記述される一意な<em>物</em>のために使用される。
-このキーワードは「<a class="sectionRef sec-ref" href="#node-identifiers">5.3 ノード識別子</a>」で記述する.
-</dd>
+                        空白ノード識別子
+                    </a>を用いてドキュメント中で記述される一意な<em>物</em>のために使用される。
+                    このキーワードは「<a class="sectionRef sec-ref" href="#node-identifiers">5.3 ノード識別子</a>」で記述する.
+                </dd>
                 <dt><code>@value</code></dt>
-                <dd>グラフ中の特定の<a class="tref internalDFN" title="property" href="#dfn-property">
-    属性</a>にまつわるデータを定めるために使用する。このキーワードは「<a class="sectionRef sec-ref" href="#string-internationalization">6.9 国際化文字列</a>」章と「<a class="sectionRef sec-ref" href="#typed-values">6.4 型指定された値</a>」章で記述する。
-</dd>
-                <dt><a name="trans" /><code>@language</code></dt>
-                
-                <dd class="trans">
-                    Used to specify the language for a particular string value or the default
-                    language of a JSON-LD document. This keyword is described in
-                    <a class="sectionRef sec-ref" href="#string-internationalization">section 6.9 String Internationalization</a>.
+                <dd>
+                    グラフ中の特定の<a class="tref internalDFN" title="property" href="#dfn-property">
+                        属性
+                    </a>にまつわるデータを指定するために使用する。このキーワードは「<a class="sectionRef sec-ref" href="#string-internationalization">6.9 国際化文字列</a>」章と「<a class="sectionRef sec-ref" href="#typed-values">6.4 型指定された値</a>」章で記述する。
+                </dd>
+                <dt><code>@language</code></dt>
+
+                <dd>
+                    特定の文字列値のための言語もしくはJSON-LDドキュメントの既定言語を指定するために使用する。
+                    このキーワードは「
+                    <a class="sectionRef sec-ref" href="#string-internationalization">6.9 文字列の国際化</a>」章で説明する。
                 </dd>
                 <dt><code>@type</code></dt>
                 <dd>
-                    Used to set the data type of a <a class="tref internalDFN" title="node" href="#dfn-node">node</a> or
-                    <a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">typed value</a>. This keyword is described in
-                    <a class="sectionRef sec-ref" href="#typed-values">section 6.4 Typed Values</a>.
-                </dd>
+                    <a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>や<a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">
+    型指定された値</a>のデータ型を指定するときに使用する。このキーワードは「<a class="sectionRef sec-ref" href="#typed-values">6.4 型指定された値</a>」で説明する。
+</dd>
                 <dt><code>@container</code></dt>
                 <dd>
-                    Used to set the default container type for a <a class="tref internalDFN" title="term" href="#dfn-term">term</a>.
-                    This keyword is described in <a class="sectionRef sec-ref" href="#sets-and-lists">section 6.11 Sets and Lists</a>.
-                </dd>
+                    用語のための既定<a class="tref internalDFN" title="term" href="#dfn-term">
+    コンテナ型</a>を指定する。このキーワードは「<a class="sectionRef sec-ref" href="#sets-and-lists">6.11 セットとリスト</a>」章で説明する。
+</dd>
                 <dt><code>@list</code></dt>
-                <dd>
-                    Used to express an ordered set of data.
-                    This keyword is described in <a class="sectionRef sec-ref" href="#sets-and-lists">section 6.11 Sets and Lists</a>.
+                <dd>順序付けされたデータのセットを表現する。
+                このキーワードは「<a class="sectionRef sec-ref" href="#sets-and-lists">6.11 セットとリスト</a>」章で説明する。
                 </dd>
                 <dt><code>@set</code></dt>
-                <dd>
-                    Used to express an unordered set of data and to ensure that values are always
-                    represented as arrays. This keyword is described in
-                    <a class="sectionRef sec-ref" href="#sets-and-lists">section 6.11 Sets and Lists</a>.
+                <dd>順不同のデータセットを表現するためと常に配列として表現される値を保証するために使用する。
+                このキーワードは「<a class="sectionRef sec-ref" href="#sets-and-lists">6.11 セットとリスト</a>」章で説明する。
                 </dd>
                 <dt><code>@reverse</code></dt>
                 <dd>
-                    Used to express reverse properties. This keyword is described in
-                    <a class="sectionRef sec-ref" href="#reverse-properties">section 6.12 Reverse Properties</a>.
+                    逆順属性を表現するために使用する。このキーワードは「<a class="sectionRef sec-ref" href="#reverse-properties">6.12 逆順属性</a>」で説明する。
                 </dd>
                 <dt><code>@index</code></dt>
                 <dd>
+                    コンテナが情報をインデクスするために使用されかつ処理がJSONデータ構造の奥深くで継続すべきときに指定する。
                     Used to specify that a container is used to index information and
                     that processing should continue deeper into a JSON data structure.
-                    This keyword is described in <a class="sectionRef sec-ref" href="#data-indexing">section 6.16 Data Indexing</a>.
+                    キーワードは「<a class="sectionRef sec-ref" href="#data-indexing">6.16 データ索引</a>」章で説明する。
                 </dd>
                 <dt><code>@base</code></dt>
                 <dd>
-                    Used to set the base <abbr title="Internationalized Resource Identifier">IRI</abbr> against which <a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">relative IRIs</a>
-                    are resolved. This keyword is described in <a class="sectionRef sec-ref" href="#base-iri">section 6.1 Base IRI</a>.
-                </dd>
+                    <a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">
+                        相対IRI</a>が解決されるためのベース<abbr title="Internationalized Resource Identifier">IRI</abbr>を指定するために使用する。
+                        このキーワードは「<a class="sectionRef sec-ref" href="#base-iri">6.1 ベースIRI</a>」章で説明する。
+                        Used to set the base <abbr title="Internationalized Resource Identifier">IRI</abbr> against which <a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">relative IRIs</a>
+                        are resolved. This keyword is described in <a class="sectionRef sec-ref" href="#base-iri">section 6.1 Base IRI</a>.
+</dd>
                 <dt><code>@vocab</code></dt>
                 <dd>
+                    特性と共通プリフィクス<a class="tref internalDFN" title="iri" href="#dfn-iri">
+                        <abbr title="Internationalized Resource Identifier">
+                            IRI
+                        </abbr>
+                    </a>を伴う<code>@type</code>中の値を拡張するために使用する。
+                    このキーワードは「<a class="sectionRef sec-ref" href="#default-vocabulary">6.2 既定の語彙</a>」章で説明する。
                     Used to expand properties and values in <code>@type</code> with a common prefix
                     <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>. This keyword is described in <a class="sectionRef sec-ref" href="#default-vocabulary">section 6.2 Default Vocabulary</a>.
                 </dd>
                 <dt><code>@graph</code></dt>
                 <dd>
-                    Used to express a <a class="tref internalDFN" title="graph" href="#dfn-graph">graph</a>.
-                    This keyword is described in <a class="sectionRef sec-ref" href="#named-graphs">section 6.13 Named Graphs</a>.
-                </dd>
+                    <a class="tref internalDFN" title="graph" href="#dfn-graph">
+                        グラフ</a>を表現するために使用する。
+                    このキーワードは「<a class="sectionRef sec-ref" href="#named-graphs">6.13 名前付きグラフ</a>」章で説明する。
+                        Used to express a <a class="tref internalDFN" title="graph" href="#dfn-graph">graph</a>.
+                        This keyword is described in <a class="sectionRef sec-ref" href="#named-graphs">section 6.13 Named Graphs</a>.
+</dd>
                 <dt><code>:</code></dt>
                 <dd>
+                    短縮IRIを使用するJSONキーと値のセパレータである。
                     The separator for JSON keys and values that use
                     <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">compact IRIs</a>.
                 </dd>
             </dl>
-            <p>All keys, <a class="tref internalDFN" title="keyword" href="#dfn-keyword">keywords</a>, and values in JSON-LD are case-sensitive.</p>
+            <p>JSON-LD中のすべてのキー、 <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>、 値は大文字と小文字が区別される。</p>
         </section>
     </section>
     <section class="normative" id="conformance">
         <!--OddPage-->
         <h2 aria-level="1" role="heading" id="h2_conformance"><span class="secno">4. </span>Conformance</h2>
-        <p>
+        <a name="trans" />
+        <p class="trans">
             This specification describes the conformance criteria for JSON-LD documents.
             This criteria is relevant to authors and authoring tool implementers. As well
             as sections marked as non-normative, all authoring guidelines, diagrams, examples,
