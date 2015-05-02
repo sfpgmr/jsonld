@@ -803,7 +803,7 @@
                 <dt><code>@value</code></dt>
                 <dd>
                     グラフ中の特定の<a class="tref internalDFN" title="property" href="#dfn-property">
-                        特性
+                        プロパティ
                     </a>にまつわるデータを指定するために使用する。このキーワードは「<a class="sectionRef sec-ref" href="#string-internationalization">6.9 国際化文字列</a>」節と「<a class="sectionRef sec-ref" href="#typed-values">6.4 型指定された値</a>」節で記述する。
                 </dd>
                 <dt><code>@language</code></dt>
@@ -837,7 +837,7 @@
                 </dd>
                 <dt><code>@reverse</code></dt>
                 <dd>
-                    逆順特性を表現するために使用する。このキーワードは「<a class="sectionRef sec-ref" href="#reverse-properties">6.12 逆順特性</a>」節で説明する。
+                    逆順プロパティを表現するために使用する。このキーワードは「<a class="sectionRef sec-ref" href="#reverse-properties">6.12 逆順プロパティ</a>」節で説明する。
                 </dd>
                 <dt><code>@index</code></dt>
                 <dd>
@@ -857,7 +857,7 @@
                 </dd>
                 <dt><code>@vocab</code></dt>
                 <dd>
-                    特性と共通プリフィクス<a class="tref internalDFN" title="iri" href="#dfn-iri">
+                    プロパティと共通プリフィクス<a class="tref internalDFN" title="iri" href="#dfn-iri">
                         <abbr title="Internationalized Resource Identifier">
                             IRI
                         </abbr>
@@ -898,7 +898,7 @@
                 JSON-LD文書
             </a>は付録「<a href="#json-ld-grammar" class="sec-ref"><span class="secno">8.</span> <span class="sec-title">JSON-LD 文法</span></a>」中の規範的記述に従う場合この仕様に準拠する。
             JSON文書は「<a class="sectionRef sec-ref" href="#interpreting-json-as-json-ld">6.8 JSON-LDとしてJSONを解釈する</a>」節中の規範的記述に従いJSON-LDとして解釈することができる。
-            便宜上、文書のための規範的記述がしばしば文書の特性上の記述として表現される。
+            便宜上、文書のための規範的記述がしばしば文書のプロパティ上の記述として表現される。
         </p>
         <p>
             仕様中の
@@ -942,7 +942,7 @@
         </div>
 
         <p>
-            <code>name</code>が"Manu Sporny"で<code>homepage</code>特性が個人のホームページのURLを含む人物についてのデータであることが人間にとってあきらかである。
+            <code>name</code>が"Manu Sporny"で<code>homepage</code>プロパティが個人のホームページのURLを含む人物についてのデータであることが人間にとってあきらかである。
             マシンはこのような直感的な理解ができない、そしてときどき人間でさえも表現の曖昧さを解決することは困難である。
             この問題は"name"や"homepage"やその他の単語の代わりに異なるコンセプトで示すための明確な識別子を使用することによって解決することができる。
             A machine doesn't have such an intuitive understanding and sometimes,
@@ -972,7 +972,7 @@
   "<span class="highlight">http://schema.org/image</span>": <span class="highlight">{ "@id": </span>"http://manu.sporny.org/images/manu.png" <span class="highlight">}</span>
 }</pre>
         </div>
-        <p>上記の例では、すべての特性は<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>によって明確に定義され、<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>によって表現するすべての値は<code>@id</code>キーワードで明示的にマークされている。
+        <p>上記の例では、すべてのプロパティは<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>によって明確に定義され、<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>によって表現するすべての値は<code>@id</code>キーワードで明示的にマークされている。
         これはそのデータについてとても特定的である正しいJSON-LD文書である限り、文書はあまりに冗長で人間である開発者にとって作業することが非常に困難である。この問題を解決するにはJSON-LD は次の節で説明しているように<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>の概念を導入する。
         </p>
         <section class="informative" id="the-context">
@@ -1044,7 +1044,7 @@
 }</pre>
             </div>
             <p>
-                参照コンテキストはSchema.org中の<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>と用語をどのように結びつけるかを特定するだけではなく、<code>homepage</code>と<code>image</code>特性が<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> (
+                参照コンテキストはSchema.org中の<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>と用語をどのように結びつけるかを特定するだけではなく、<code>homepage</code>と<code>image</code>プロパティが<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> (
 <code>"@type": "@id"</code>,
                 詳細は「<a class="sectionRef sec-ref" href="#iris">5.2 IRIs</a>」参照)として解釈できるように結びつける文字列値を特定する。
                 この情報により開発者がサイト間においてデータの相互運用方法について合意形成することなしに互いのデータを再利用することが可能となる。外部JSON-LDコンテキスト文書は、定義された<a class="tref internalDFN" title="term" href="#dfn-term">
@@ -1093,36 +1093,18 @@
             <p>
                 <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a> (Internationalized Resource Identifiers
                 [
-                <cite><a class="bibref" href="#bib-RFC3987">RFC3987</a></cite>]) はare fundamental to Linked Data as that is how most
-                <a class="tref internalDFN" title="node" href="#dfn-node">nodes</a> and
-                <a class="tref internalDFN" title="property" href="#dfn-property">properties</a>
-                are identified. In JSON-LD, IRIs may be represented as an
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">absolute <abbr title="Internationalized Resource Identifier">IRI</abbr></a> or a
-                <a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">relative <abbr title="Internationalized Resource Identifier">IRI</abbr></a>. An
-                <dfn title="absolute-iri" id="dfn-absolute-iri">absolute <abbr title="Internationalized Resource Identifier">IRI</abbr></dfn> is defined in [
-                <cite><a class="bibref" href="#bib-RFC3987">RFC3987</a></cite>] as containing a
-                <em>scheme</em> along with
-                <em>path</em> and optional
-                <em>query</em> and
-                <em>fragment</em> segments. A
-                <dfn title="relative-iri" id="dfn-relative-iri">relative <abbr title="Internationalized Resource Identifier">IRI</abbr></dfn> is an
-                <abbr title="Internationalized Resource Identifier">IRI</abbr>
-                that is relative to some other
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">absolute <abbr title="Internationalized Resource Identifier">IRI</abbr></a>.
-                In JSON-LD all
-                <a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">relative IRIs</a> are resolved
-                relative to the
-                <dfn title="base-iri" id="dfn-base-iri">base <abbr title="Internationalized Resource Identifier">IRI</abbr></dfn>.
+                <cite><a class="bibref" href="#bib-RFC3987">RFC3987</a></cite>]) はほとんどの<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>と<a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a>が識別される方法であり、リンク・データの基本である。
+                JSON-LD中では、IRIは絶対<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>もしくは相対<a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>として表現される。
+                <dfn title="absolute-iri" id="dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></dfn>は<em>パス</em>、オプションである<em>クエリ</em>、<em>フラグメント</em>セグメントとともに<em>スキーム</em>を含むものとして. [<cite><a class="bibref" href="#bib-RFC3987">RFC3987</a></cite>] で定義される。
+
+                <dfn title="relative-iri" id="dfn-relative-iri">相対<abbr title="Internationalized Resource Identifier">IRI</abbr></dfn>は他の<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>に対して相対である<abbr title="Internationalized Resource Identifier">IRI</abbr>である。
+                JSON-LD中では<a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対IRI</a>は<dfn title="base-iri" id="dfn-base-iri">ベース<abbr title="Internationalized Resource Identifier">IRI</abbr></dfn>に対して相対的に解決される。
             </p>
             <p>
-                A
-                <a class="tref internalDFN" title="string" href="#dfn-string">string</a> is interpreted as an
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> when it is the
-                value of an
-                <code>@id</code> member:
+                <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>は<code>@id</code>メンバーの値であるときに<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>として解釈される。
             </p>
             <div class="example">
-                <div class="example-title"><span>Example 6</span>: Values of @id are interpreted as IRI</div>
+                <div class="example-title"><span>例 6</span>: @id値はIRIとして解釈される。</div>
 <pre class="example">{
 ...
   "homepage": { "<span class="highlight">@id</span>": "http://example.com/" }
@@ -1130,22 +1112,11 @@
 }</pre>
             </div>
             <p>
-                Values that are interpreted as
-                <a class="tref internalDFN" title="iri" href="#dfn-iri">IRIs</a>, can also be
-                expressed as
-                <a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">relative IRIs</a>. For example,
-                assuming that the following document is located at
-                <code>http://example.com/about/</code>, the
-                <a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">relative <abbr title="Internationalized Resource Identifier">IRI</abbr></a>
-                <code>../</code> would expand to
-                <code>http://example.com/</code> (for more
-                information on where
-                <a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">relative IRIs</a> can be
-                used, please refer to section
-                <a href="#json-ld-grammar" class="sec-ref"><span class="secno">8.</span> <span class="sec-title">JSON-LD Grammar</span></a>).
+                <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>として解釈される値は、<a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対URL</a>で表現することができる。
+                例えば次の文書が<code>http://example.com/about/</code>に位置していると仮定すると、<a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対<abbr title="Internationalized Resource Identifier">IRI</abbr></a><code>../</code>は<code>http://example.com/</code>に拡張される（どこで<a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対URI</a>が使用することができるかの詳細は「<a href="#json-ld-grammar" class="sec-ref"><span class="secno">8.</span> <span class="sec-title">JSON-LD文法</span></a>」を参照）。
             </p>
             <div class="example">
-                <div class="example-title"><span>Example 7</span>: IRIs can be relative</div>
+                <div class="example-title"><span>例 7</span>: IRIは相対にできる</div>
 <pre class="example">{
 ...
   "homepage": { "<span class="highlight">@id</span>": "../" }
@@ -1153,11 +1124,10 @@
 }</pre>
             </div>
             <p>
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">Absolute IRIs</a> can be expressed directly
-                in the key position like so:
+                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対IRI</a>は下のようにキーの位置に直接表現することができる。
             </p>
             <div class="example">
-                <div class="example-title"><span>Example 8</span>: IRI as a key</div>
+                <div class="example-title"><span>例 8</span>: キーとしてのIRI</div>
 <pre class="example">{
 ...
   "<span class="highlight">http://schema.org/name</span>": "Manu Sporny",
@@ -1165,20 +1135,15 @@
 }</pre>
             </div>
             <p>
-                In the example above, the key
-                <code>http://schema.org/name</code>
-                is interpreted as an
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">absolute <abbr title="Internationalized Resource Identifier">IRI</abbr></a>.
+                上の例では、キー<code>http://schema.org/name</code>が<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>として解釈される。
             </p>
             <p>
-                Term-to-
-                <abbr title="Internationalized Resource Identifier">IRI</abbr> expansion occurs if the key matches a
-                <a class="tref internalDFN" title="term" href="#dfn-term">term</a> defined
-                within the
-                <a class="tref internalDFN" title="active-context" href="#dfn-active-context">active context</a>:
-            </p>
+                用語から
+                <abbr title="Internationalized Resource Identifier">IRI</abbr>への拡張はキーが<a class="tref internalDFN" title="active-context" href="#dfn-active-context">
+    アクティブ・コンテキスト</a>内で定義されている<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>にマッチする場合に発生する。
+</p>
             <div class="example">
-                <div class="example-title"><span>Example 9</span>: Term expansion from context definition</div>
+                <div class="example-title"><span>例 9</span>: 用語はコンテキスト定義から拡張される。</div>
 <pre class="example">{
   "<span class="highlight">@context</span>":
   {
@@ -1189,22 +1154,14 @@
 }</pre>
             </div>
             <p>
-                JSON keys that do not expand to an
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>, such as
-                <code>status</code>
-                in the example above, are not Linked Data and thus ignored when processed.
+                上の例の<code>status</code>のようなIRIに拡張されないJSONキーはリンク・データではないので処理時に無視される。
             </p>
-            <p>
-                If type
-                <a class="tref internalDFN" title="coercion" href="#dfn-coercion">coercion</a> rules are specified in the
-                <code>@context</code> for
-                a particular
-                <a class="tref internalDFN" title="term" href="#dfn-term">term</a> or property
-                <abbr title="Internationalized Resource Identifier">IRI</abbr>, an
-                <abbr title="Internationalized Resource Identifier">IRI</abbr> is generated:
-            </p>
-            <div class="example">
-                <div class="example-title"><span>Example 10</span>: Type coercion</div>
+            <p>型<a class="tref internalDFN" title="coercion" href="#dfn-coercion">
+    強制</a>ルールが特定の<a class="tref internalDFN" title="term" href="#dfn-term">
+    用語</a>やプロパティ<abbr title="Internationalized Resource Identifier">IRI</abbr>のために@context中で明示されている場合は<abbr title="Internationalized Resource Identifier">IRI</abbr>は生成される。
+</p>
+<div class="example">
+<div class="example-title"><span>例 10</span>: 型強制</div>
 <pre class="example">{<span class="highlight">
   "@context":
   {
@@ -1222,31 +1179,17 @@
 }</pre>
             </div>
             <p>
-                In the example above, since the value
-                <code>http://manu.sporny.org/</code>
-                is expressed as a JSON
-                <a class="tref internalDFN" title="string" href="#dfn-string">string</a>, the type
-                <a class="tref internalDFN" title="coercion" href="#dfn-coercion">coercion</a>
-                rules will transform the value into an
-                <abbr title="Internationalized Resource Identifier">IRI</abbr> when processing the data.
-                See
-                <a class="sectionRef sec-ref" href="#type-coercion">section 6.5 Type Coercion</a> for more
-                details about this feature.
-            </p>
-            <p>
-                In summary, <a class="tref internalDFN" title="iri" href="#dfn-iri">IRIs</a> can be expressed in a variety of
-                different ways in JSON-LD:
+                上記の例では値<code>http://manu.sporny.org/</code>がJSON<a class="tref internalDFN" title="string" href="#dfn-string">
+    文字列</a>として表現された時から、型<a class="tref internalDFN" title="coercion" href="#dfn-coercion">
+    強制</a>ルールがデータ処理時に<abbr title="Internationalized Resource Identifier">IRI</abbr>に値を変換する。この機能についての詳細は「<a class="sectionRef sec-ref" href="#type-coercion">6.5 型強制</a>」節を見ること。
+</p>
+            <p>要約すると、<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>はJSON-LD中で種々の異なる方法で表現することができる。
             </p>
             <ol>
                 <li>
-                    <a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSON object</a> keys that have a
-                    <a class="tref internalDFN" title="term" href="#dfn-term">term</a> mapping in
-                    the
-                    <a class="tref internalDFN" title="active-context" href="#dfn-active-context">active context</a> expand to an
-                    <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>
-                    (only applies outside of the
-                    <a class="tref internalDFN" title="context-definition" href="#dfn-context-definition">context definition</a>).
-                </li>
+                    <a class="tref internalDFN" title="active-context" href="#dfn-active-context">
+                        アクティブ・コンテキスト</a>中にマッピングされた<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>を持つ<a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>・キーは<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>(<a class="tref internalDFN" title="context-definition" href="#dfn-context-definition">コンテキスト定義</a>以外にのみ適用)に拡張する。
+</li>
                 <li>
                     An
                     <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> is generated for the
