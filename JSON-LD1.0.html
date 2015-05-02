@@ -1037,7 +1037,7 @@
             <div class="example">
                 <div class="example-title"><span>例 4</span>: JSON-LDコンテキストの参照</div>
 <pre class="example">{
-                <span class="highlight">"@context": "http://json-ld.org/contexts/person.jsonld",</span>
+<span class="highlight">"@context": "http://json-ld.org/contexts/person.jsonld",</span>
   "name": "Manu Sporny",
   "homepage": "http://manu.sporny.org/",
   "image": "http://manu.sporny.org/images/manu.png"
@@ -1059,18 +1059,13 @@
 </p>
             <p>
                 <a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD文書</a>中では<a class="tref internalDFN" title="context" href="#dfn-context">
-    コンテキスト</a>はインラインで明示するだろう。これは
-    In
-    <a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD documents</a>,
-    <a class="tref internalDFN" title="context" href="#dfn-context">contexts</a> may also be specified inline.
-    This has the advantage that documents can be processed even in the
-    absence of a connection to the Web. Ultimately, this is a modeling decision
-    and different use cases may require different handling.
+    コンテキスト</a>はインラインで明示する。これは文書がウェブへの接続がなくても処理できる利点がある。最終的には、これはモデリング上の決定であり、異なるユースケースでは異なるハンドリングを必要とするだろう。
+
 </p>
             <div class="example">
-                <div class="example-title"><span>Example 5</span>: In-line context definition</div>
+                <div class="example-title"><span>例 5</span>: インライン・コンテキスト定義</div>
 <pre class="example">{
-                <span class="highlight">"@context":
+<span class="highlight">"@context":
   {
     "name": "http://schema.org/name",
     "image": {
@@ -1088,15 +1083,13 @@
 }</pre>
             </div>
             <p>
-                This section only covers the most basic features of the JSON-LD
-                Context. More advanced features related to the JSON-LD Context are covered
-                in section
-                <a href="#advanced-concepts" class="sec-ref"><span class="secno">6.</span> <span class="sec-title">Advanced Concepts</span></a>.
+                この節はJSON-LDコンテキストの最も基本的な機能のみをカバーしている。
+                JSON-KDコンテキスト関するさらに高度な機能は「<a href="#advanced-concepts" class="sec-ref"><span class="secno">6.</span> <span class="sec-title">高度な概念</span></a>」節中でカバーしている。
             </p>
         </section>
         <section class="informative" id="iris">
-            <h3 aria-level="2" role="heading" id="h3_iris"><span class="secno">5.2 </span>IRIs</h3>
-            <p><em>This section is non-normative.</em></p>
+            <h3 aria-level="2" role="heading" id="h3_iris"><span class="secno">5.2 </span>IRI</h3>
+            <p><em>この節は非規範的である。</em></p>
             <p>
                 <a class="tref internalDFN" title="iri" href="#dfn-iri">IRIs</a> (Internationalized Resource Identifiers
                 [
