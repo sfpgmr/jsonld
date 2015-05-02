@@ -248,7 +248,7 @@
             <a href="http://www.w3.org/"><img width="72" height="48" src="https://www.w3.org/Icons/w3c_home" alt="W3C"></a>
         </p>
         <h1 class="title p-name" id="title" property="dcterms:title">JSON-LD 1.0</h1>
-        <h2 property="bibo:subtitle" id="subtitle">リンクト・データのためのJSONベースのシリアル化</h2>
+        <h2 property="bibo:subtitle" id="subtitle">リンク・データのためのJSONベースのシリアル化</h2>
         <h2 property="dcterms:issued" datatype="xsd:dateTime" content="2014-01-15T23:00:00.000Z" id="w3c-recommendation-16-january-2014">
             <abbr title="World Wide Web Consortium">W3C</abbr> 勧告
             <time class="dt-published" datetime="2014-01-16">2014年1月16日</time>
@@ -336,9 +336,9 @@
     <section id="abstract" class="introductory" property="dcterms:abstract" datatype="" typeof="bibo:Chapter" resource="#abstract" rel="bibo:chapter">
         <h2 aria-level="1" role="heading" id="h2_abstract">要約</h2>
         <p>
-            JSONはデータのシリアル化・送受信に便利なフォーマットである。この仕様はリンクト・データをシリアル化するためのJSONベースのフォーマットを定義する。
+            JSONはデータのシリアル化・送受信に便利なフォーマットである。この仕様はリンク・データをシリアル化するためのJSONベースのフォーマットを定義する。
             構文は既にJSONを使用して展開しているシステムに簡単に統合できるように設計され、JSONからJSON-LDにスムースにアップグレードするための機能を提供する。
-            Webベースのプログラミング環境中でのリンクト・データの使用、相互運用可能なWebサービスの構築、JSONベースのストレージ・エンジン内へのリンクト・データの格納においての利用を主に意図している。
+            Webベースのプログラミング環境中でのリンク・データの使用、相互運用可能なWebサービスの構築、JSONベースのストレージ・エンジン内へのリンク・データの格納においての利用を主に意図している。
         </p>
     </section>
     <section id="sotd" class="introductory" typeof="bibo:Chapter" resource="#sotd" rel="bibo:chapter">
@@ -550,7 +550,7 @@
                 </ul>
             </li>
             <li class="tocline">
-                <a href="#relationship-to-other-linked-data-formats" class="tocxref"><span class="secno">A. </span>他のリンクト・データフォーマットとの連携</a>
+                <a href="#relationship-to-other-linked-data-formats" class="tocxref"><span class="secno">A. </span>他のリンク・データフォーマットとの連携</a>
                 <ul class="toc">
                     <li class="tocline">
                         <a href="#turtle" class="tocxref"><span class="secno">A.1 </span>Turtle</a>
@@ -591,12 +591,12 @@
         <h2 aria-level="1" role="heading" id="h2_introduction"><span class="secno">1. </span>導入</h2>
         <p><em>この節は非規範的である。</em></p>
         <p>
-            リンクト・データは[<cite><a class="bibref" href="#bib-LINKED-DATA">LINKED-DATA</a></cite>] は、他のドキュメントおよびWebサイト間でコンピューターで解釈が可能なデータの標準的なネットワークを作成する方法である。これはアプリケーションがリンクト・データの一部分で開始し、Web上の異なるサイトにホストされているリンクト・データの他の部分に埋め込まれたリンクをたどることができる。
+            リンク・データは[<cite><a class="bibref" href="#bib-LINKED-DATA">LINKED-DATA</a></cite>] は、他のドキュメントおよびWebサイト間でコンピューターで解釈が可能なデータの標準的なネットワークを作成する方法である。これはアプリケーションがリンク・データの一部分で開始し、Web上の異なるサイトにホストされているリンク・データの他の部分に埋め込まれたリンクをたどることができる。
         </p>
         <p>
-            JSON-LDはJSON[<cite><a class="bibref" href="#bib-RFC4627">RFC4627</a></cite>]でリンクト・データをシリアル化するための簡単な構文である。
-            それは既存のJSONを最小の変更でリンクト・データとして解釈させることが可能である。
-            JSON-LDはWebベースのプログラミング環境中でのリンクト・データの使用、相互運用可能なWebサービスの構築、JSONベースのストレージ・エンジン内へのリンクト・データの格納においての利用を主に意図している。
+            JSON-LDはJSON[<cite><a class="bibref" href="#bib-RFC4627">RFC4627</a></cite>]でリンク・データをシリアル化するための簡単な構文である。
+            それは既存のJSONを最小の変更でリンク・データとして解釈させることが可能である。
+            JSON-LDはWebベースのプログラミング環境中でのリンク・データの使用、相互運用可能なWebサービスの構築、JSONベースのストレージ・エンジン内へのリンク・データの格納においての利用を主に意図している。
             JSON-LDはJSONと100%互換性があるため、現在公開されている大量のJSONパーサーやライブラリが再利用可能である。
             JSONが提供するすべての機能に加えてJSON-LDは以下の機能を導入する。
         </p>
@@ -627,7 +627,7 @@
             </li>
         </ul>
         <p>
-            JSON-LDはRDF[<cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>]の知識がなくてもとりあえずJSONとして使用できるように設計されている。また必要に応じてSPARQLのようなリンクト・データデータ技術と一緒に使用するためにRDFとして使用できるように設計されている。
+            JSON-LDはRDF[<cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>]の知識がなくてもとりあえずJSONとして使用できるように設計されている。また必要に応じてSPARQLのようなリンク・データデータ技術と一緒に使用するためにRDFとして使用できるように設計されている。
             以上の機能が必要かもしくはJSONベースの構文中にRDFグラフやRDFデータ・セットをシリアル化する必要がある開発者はJSON-LDに興味を持つだろう。RDFツールとともにJSON-LDを使用することを意図している方は、例えばTurtle[<cite><a class="bibref" href="#bib-TURTLE">TURTLE</a></cite>]のような別のRDF構文としてJSON-LDを使用可能であることがわかるだろう。JSON-LDがどのようにRDFと関連するのかの完全な詳細は「<a href="#relationship-to-rdf" class="sec-ref"><span class="secno">9.</span> <span class="sec-title">RDFとの関係</span></a>」節にある.
         </p>
         <p>
@@ -637,11 +637,11 @@
             <h3 aria-level="2" role="heading" id="h3_how-to-read-this-document"><span class="secno">1.1 </span>この文書の読み方</h3>
             <p><em>この節は非規範的である。</em></p>
             <p>
-                この文書はJSONでリンクト・データをシリアル化するための詳細仕様である。この文書は主に下記の読者を対象にしている。
+                この文書はJSONでリンク・データをシリアル化するための詳細仕様である。この文書は主に下記の読者を対象にしている。
             </p>
             <ul>
                 <li>
-                    JSONを使用できるさまざなプログラム言語中でリンクト・データをエンコードしたいソフトウェア開発者
+                    JSONを使用できるさまざなプログラム言語中でリンク・データをエンコードしたいソフトウェア開発者
                 </li>
                 <li>JSONから既存のJSON-LDにコンバートしたいソフトウェア開発者</li>
                 <li>
@@ -651,7 +651,7 @@
                     JSON-LD用のAPIや処理プログラムを実装したいソフトウェア開発者
                 </li>
                 <li>
-                    JSON構文でリンクト・データ・RDFグラフ・RDFデータセットを生成もしくは使用したいソフトウェア開発者
+                    JSON構文でリンク・データ・RDFグラフ・RDFデータセットを生成もしくは使用したいソフトウェア開発者
                 </li>
             </ul>
             <p>
@@ -1091,9 +1091,9 @@
             <h3 aria-level="2" role="heading" id="h3_iris"><span class="secno">5.2 </span>IRI</h3>
             <p><em>この節は非規範的である。</em></p>
             <p>
-                <a class="tref internalDFN" title="iri" href="#dfn-iri">IRIs</a> (Internationalized Resource Identifiers
+                <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a> (Internationalized Resource Identifiers
                 [
-                <cite><a class="bibref" href="#bib-RFC3987">RFC3987</a></cite>]) are fundamental to Linked Data as that is how most
+                <cite><a class="bibref" href="#bib-RFC3987">RFC3987</a></cite>]) はare fundamental to Linked Data as that is how most
                 <a class="tref internalDFN" title="node" href="#dfn-node">nodes</a> and
                 <a class="tref internalDFN" title="property" href="#dfn-property">properties</a>
                 are identified. In JSON-LD, IRIs may be represented as an
