@@ -1053,23 +1053,20 @@
 </p>
             <p class="trans">
                 <a name="trans" />
-
-                JSON documents can be interpreted as JSON-LD without having to be modified by
-                referencing a
-                <a class="tref internalDFN" title="context" href="#dfn-context">context</a> via an HTTP Link Header
-                as described in
-                <a class="sectionRef sec-ref" href="#interpreting-json-as-json-ld">section 6.8 Interpreting JSON as JSON-LD</a>. It is also
-                possible to apply a custom context using the JSON-LD API [
-                <cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>].
-            </p>
+                JSON文書は「<a class="sectionRef sec-ref" href="#interpreting-json-as-json-ld">6.8 JSON-LDとしてJSONを解釈させる</a>」節に記載されているように、HTTPリンクヘッダを経由して<a class="tref internalDFN" title="context" href="#dfn-context">
+    コンテキスト</a>を参照することによって修正することなしJSON-LDとして解釈させることができる。
+                JSON-LD API [<cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>]を使用してカスタムコンテキストを適用することが可能となる。
+</p>
             <p>
-                In
-                <a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD documents</a>,
-                <a class="tref internalDFN" title="context" href="#dfn-context">contexts</a> may also be specified inline.
-                This has the advantage that documents can be processed even in the
-                absence of a connection to the Web. Ultimately, this is a modeling decision
-                and different use cases may require different handling.
-            </p>
+                <a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD文書</a>中では<a class="tref internalDFN" title="context" href="#dfn-context">
+    コンテキスト</a>はインラインで明示するだろう。これは
+    In
+    <a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD documents</a>,
+    <a class="tref internalDFN" title="context" href="#dfn-context">contexts</a> may also be specified inline.
+    This has the advantage that documents can be processed even in the
+    absence of a connection to the Web. Ultimately, this is a modeling decision
+    and different use cases may require different handling.
+</p>
             <div class="example">
                 <div class="example-title"><span>Example 5</span>: In-line context definition</div>
 <pre class="example">{
