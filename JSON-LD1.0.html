@@ -1892,15 +1892,17 @@ JSON-LDは値の特定のデータ型への強制をサポートする。
 
 <a name="trans" />
 
-All extra 情報located outside of the <code>@context</code> subtree in the referenced document <em class="rfc2119" title="MUST">MUST</em> be discarded. Effectively this means that the <a class="tref internalDFN" title="active-context" href="#dfn-active-context">アクティブ・コンテキスト</a> is initialized with the referenced external <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>. 
+参照ドキュメントの<code>@context</code>サブツリーの外部に位置しているすべての特別な情報は破棄されなくてはならない( <em class="rfc2119" title="MUST">MUST</em>)。
+
+このことは事実上
+<a class="tref internalDFN" title="active-context" href="#dfn-active-context">アクティブ・コンテキスト</a>は外部参照<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>とともに初期化されることを意味している。
 
 A response <em class="rfc2119" title="MUST NOT">MUST NOT</em> contain more than one HTTP Link Header [ <cite><a class="bibref" href="#bib-RFC5988">RFC5988</a></cite>] を使用することによって <code>http://www.w3.org/ns/json-ld#context</code> link relation.             </p>
             <p>
-                次の例 demonstrates the use of an 外部コンテキスト with an
-                ordinary JSON文書:
+次の例は通常のJSON文書と外部コンテキストの使用方法を示している。
             </p>
             <div class="example">
-                <div class="example-title"><span>例 30</span>: Referencing a JSON-LD context from a JSON文書 via an HTTP Link Header</div>
+                <div class="example-title"><span>例 30</span>: HTTPリンクヘッダを通じてJSON文書からJSON-LD contextを参照する。</div>
 <pre class="example">GET /ordinary-json-document.json HTTP/1.1
 Host: example.com
 Accept: application/ld+json,application/json,*/*;q=0.1
@@ -1916,20 +1918,15 @@ Content-Type: <span class="highlight">application/json</span>
 }</pre>
             </div>
             <p>
-                Please note that
-                <a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD文書s</a>
-                served with the
-                <code>application/ld+json</code>
-                media type
-                <em class="rfc2119" title="MUST">MUST</em> have all context information, including references to external
-                contexts, within the body of the document. Contexts linked via a
-                <code>http://www.w3.org/ns/json-ld#context</code> HTTP Link Header
-                <em class="rfc2119" title="MUST">MUST</em> be
-                ignored for such documents.
-            </p>
+
+<code>application/ld+json</code> メディア・タイプで供給される<a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD文書</a>は
+文書の本文内に外部コンテキストへの参照を含めたすべてのコンテキスト情報がなければならない（<em class="rfc2119" title="MUST">MUST</em>）ことに注意されたい。
+
+<code>http://www.w3.org/ns/json-ld#context</code>HTTP リンク・ヘッダを通じてリンクされたコンテキストはそのような文書のために無視されなければならない（<em class="rfc2119" title="MUST">MUST</em>）。
+</p>
         </section>
         <section class="informative" id="string-internationalization">
-            <h3 aria-level="2" role="heading" id="h3_string-internationalization"><span class="secno">6.9 </span>String Internationalization</h3>
+            <h3 aria-level="2" role="heading" id="h3_string-internationalization"><span class="secno">6.9 </span>文字列の国際化</h3>
             <p><em>このセクションは非規範的である。</em></p>
             <p>
                 ときどき, it is important to annotate a
