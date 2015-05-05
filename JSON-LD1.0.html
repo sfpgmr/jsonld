@@ -245,6 +245,12 @@
     h1,h2,h3,h4,h5,h6,table,th,td {
     	font-family:"游ゴシック",san-selif
     }
+    h1 abbr,h2 abbr,h3 abbr,h4 abbr,h5 abbr,h6 abbr,
+    h1 span.secno,h2 span.secno,h3 span.secno,h4 span.secno,h5 span.secno,h6 span.secno 
+     {
+    	font-size:inherit;
+    	font-family:"游ゴシック",san-selif;
+    }
     </style>
 </head>
 <body class="h-entry" role="document" id="respecDocument">
@@ -889,7 +895,6 @@
                 <dt><code>:</code></dt>
                 <dd>
                     短縮IRIを使用するJSONキーと値のセパレータである。
-                    The separator for JSON keys and 値 that use
                     <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮IRI</a>.
                 </dd>
             </dl>
@@ -935,13 +940,6 @@
             JSON [
             <cite><a class="bibref" href="#bib-RFC4627">RFC4627</a></cite>] は軽量で言語独立なデータ交換フォーマットである。
             JSONは解析が容易であり、生成も容易である。しかしながら、他のデータソースと競合するキーを含むかもしれないさまざまなソースをJSONに統合することは困難である。さらにまたJSONはウェブ上の基礎的要素であるハイパーリンクの組み込みサポートがない。この節の残りを使用して例を見てみることにしよう。
-
-            It is easy to parse and easy to generate. However, it is difficult to integrate JSON
-            from different sources as the data may contain keys that conflict with other
-            data sources. Furthermore, JSON has no
-            built-in supportbuilt-in support for hyperlinks, which are a fundamental building block on
-            the Web. Let's start by looking at an example that we will be using for the
-            rest of this section:
         </p>
         <div class="example">
             <div class="example-title"><span>例 1</span>: JSON文書サンプル</div>
@@ -953,13 +951,9 @@
         </div>
 
         <p>
-            <code>name</code>が"Manu Sporny"で<code>homepage</code>プロパティが個人のホームページのURLを含む人物についてのデータであることが人間にとってあきらかである。
-            マシンはこのような直感的な理解ができない、そしてときどき人間でさえも表現の曖昧さを解決することは困難である。
-            この問題は"name"や"homepage"やその他の単語の代わりに異なるコンセプトで示すための明確な識別子を使用することによって解決することができる。
-            A machine doesn't have such an intuitive understanding and sometimes,
-            even for humans, it is difficult to resolve ambiguities in such representations. This problem
-            can be solved by using unambiguous 識別子to denote the different concepts instead of
-            tokens のように "name", "homepage", etc.
+<code>name</code>が"Manu Sporny"で<code>homepage</code>プロパティが個人のホームページのURLを含む人物についてのデータであることが人間にとってあきらかである。
+マシンはこのような直感的な理解ができない、そしてときどき人間でさえも表現の曖昧さを解決することは困難である。
+この問題は"name"や"homepage"やその他の単語の代わりに異なるコンセプトで示すための明確な識別子を使用することによって解決することができる。
         </p>
         <p>
             リンク・データそして一般的にWebでは明確な識別のために<a class="tref internalDFN" title="iri" href="#dfn-iri">
@@ -996,15 +990,14 @@
 
             </p>
             <p>
-                簡単に言うと、<dfn title="context" id="dfn-context">コンテキスト</dfn>は<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>を<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>へマップするために使用される。
+簡単に言うと、<dfn title="context" id="dfn-context">コンテキスト</dfn>は<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>を<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>へマップするために使用される。
 
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>は大文字・小文字を区別し、JSON-LD<a class="tref internalDFN" title="keyword" href="#dfn-keyword">
-                    キーワード
-                </a>として予約されていない任意の<a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>はすべて<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>として使用することができる。
-            </p>
-            <p>
-                前の節のサンプル文書の<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>はこのようになる。
-            </p>
+<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>は大文字・小文字を区別し、JSON-LD<a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>として予約されていない任意の<a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>はすべて<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>として使用することができる。
+</p>
+
+<p>
+前の節のサンプル文書の<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>はこのようになる。
+</p>
             <div class="example">
                 <div class="example-title"><span>例 3</span>: 前節のサンプル文書のコンテキスト</div>
 <pre class="example">{
@@ -1878,7 +1871,7 @@ JSON-LDは値の特定のデータ型への強制をサポートする。
             <h3 aria-level="2" role="heading" id="h3_interpreting-json-as-json-ld"><span class="secno">6.8 </span>JSON-LDとしてJSONを解釈する</h3>
             <p>
 
-通常のJSON文書はJSON-LD by referencing a document in an HTTPリンクヘッダー中のJSON-LD<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>文書を参照することによってJSON-LDを解釈することができる.
+通常のJSON文書はHTTPリンクヘッダー中のJSON-LD<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>文書を参照することによってJSON-LDを解釈することができる.
 
 そうすることは開発者が文書に大幅な変更をすることなしに明確に機械が読み取り可能にすることができ、[ <cite><a class="bibref" href="#bib-RFC6839">RFC6839</a></cite>]で定義されているような<code>application/json</code>メディア・タイプもしくはメディア・タイプ<code>+json</code>サフィックスに依存する既存クライアントを破壊することなしに、既存インフラ用のアップグレード・パスを提供する。</p>
 <p>
@@ -1897,7 +1890,7 @@ JSON-LDは値の特定のデータ型への強制をサポートする。
 このことは事実上
 <a class="tref internalDFN" title="active-context" href="#dfn-active-context">アクティブ・コンテキスト</a>は外部参照<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>とともに初期化されることを意味している。
 
-A response <em class="rfc2119" title="MUST NOT">MUST NOT</em> contain more than one HTTP Link Header [ <cite><a class="bibref" href="#bib-RFC5988">RFC5988</a></cite>] を使用することによって <code>http://www.w3.org/ns/json-ld#context</code> link relation.             </p>
+レスポンスは<code>http://www.w3.org/ns/json-ld#context</code>リンク・リレーションを使用することによって１つ以上のHTTPリンク・ヘッダ[ <cite><a class="bibref" href="#bib-RFC5988">RFC5988</a></cite>]を含んではならない（<em class="rfc2119" title="MUST NOT">MUST NOT</em>）。</p>
             <p>
 次の例は通常のJSON文書と外部コンテキストの使用方法を示している。
             </p>
@@ -1929,18 +1922,16 @@ Content-Type: <span class="highlight">application/json</span>
             <h3 aria-level="2" role="heading" id="h3_string-internationalization"><span class="secno">6.9 </span>文字列の国際化</h3>
             <p><em>このセクションは非規範的である。</em></p>
             <p>
-                ときどき, it is important to annotate a
-                <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>
-                with its language. In JSON-LD this is possible in a variety of ways.
-                First, it is possible to define a default language for a JSON-LD文書
-                by setting the
-                <code>@language</code> キー in the
-                <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>:
-            </p>
+ときどき、言語のために<a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>に注記することは重要である。
+
+JSON-LDではさまざまな方法で可能である。
+
+最初に、<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>に<code>@language</code>キーを設定することによってJSON-LD文書のための既定言語を定義することが可能である。
+</p>
             <div class="example">
                 <div class="example-title"><span>例 31</span>: Setting the default language of a JSON-LD文書</div>
 <pre class="example">{
-                <span class="highlight">"@context":
+  <span class="highlight">"@context":
   {
     ...
     "@language": "ja"
@@ -1950,24 +1941,13 @@ Content-Type: <span class="highlight">application/json</span>
 }</pre>
             </div>
             <p>
-                The example 上のwould associate the
-                <code>ja</code> language
-                code with the two
-                <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>
-                <em>花澄</em> and
-                <em>科学者</em>.
-                Languages codes are defined in [
-                <cite><a class="bibref" href="#bib-BCP47">BCP47</a></cite>]. The default language applies to all
-                <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a> 値 that are not
-                <a href="#type-coercion">type coerced</a>.
-            </p>
-            <p>
-                To clear the default language for a subtree,
-                <code>@language</code> can
-                be set to
-                <code>null</code> in a
-                <a class="tref internalDFN" title="local-context" href="#dfn-local-context">ローカル・コンテキスト</a> as follows:
-            </p>
+上の例は2つの<a class="tref internalDFN" title="string" href="#dfn-string">文字列</a><em>花澄</em>と<em>科学者</em>の言語コードを<code>ja</code>に関連付けている。
+
+言語コードは[ <cite><a class="bibref" href="#bib-BCP47">BCP47</a></cite>]で定義されている。
+
+既定の言語はすべての<a href="#type-coercion">型強制</a>されていない<a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>値に適用される。
+              </p>
+<p>サブ・ツリーにおいて既定の言語をクリアするために、<code>@language</code>は次のように<a class="tref internalDFN" title="local-context" href="#dfn-local-context">ローカル・コンテキスト</a>中に<code>null</code>を設定することができる。</p>
             <div class="example">
                 <div class="example-title"><span>例 32</span>: Clearing default language</div>
 <pre class="example">{
@@ -1985,11 +1965,7 @@ Content-Type: <span class="highlight">application/json</span>
 }</pre>
             </div>
             <p>
-                Second, it is possible to associate a language with a specific
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>
-                using an
-                <a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>:
-            </p>
+2つ目に、<a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>を使用して特定の<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>に言語を関連付けることができる。</p>
             <div class="example">
                 <div class="example-title"><span>例 33</span>: Expanded term definition with language</div>
 <pre class="example">{
@@ -2002,7 +1978,7 @@ Content-Type: <span class="highlight">application/json</span>
     "occupation_en": { "@id": "ex:occupation", <span class="highlight">"@language": "en"</span> },
     "occupation_cs": { "@id": "ex:occupation", <span class="highlight">"@language": "cs"</span> }
   },
-                <span class="highlight">"name": "Yagyū Muneyoshi",
+  <span class="highlight">"name": "Yagyū Muneyoshi",
   "occupation": "忍者",
   "occupation_en": "Ninja",
   "occupation_cs": "Nindža",</span>
@@ -2010,42 +1986,28 @@ Content-Type: <span class="highlight">application/json</span>
 }</pre>
             </div>
             <p>
-                The example 上のwould associate
-                <em>忍者</em> with the specified default
-                language code
-                <code>ja</code>,
-                <em>Ninja</em> with the language code
-                <code>en</code>, and
-                <em>Nindža</em> with the language code
-                <code>cs</code>.
-                The value of
-                <code>name</code>,
-                <em>Yagyū Muneyoshi</em> wouldn't be
-                に関連する any language code since
-                <code>@language</code> was reset to
-                <a class="tref internalDFN" title="null" href="#dfn-null">null</a> in the
-                <a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>.
-            </p>
+上の例は<em>忍者</em>に既定の言語コード<code>ja</code>を、<em>Ninja</em>に言語コード<code>en</code>を、<em>Nindža</em>に言語コード<code>cs</code>指定している。
+
+  <code>name</code>値<em>Yagyū Muneyoshi</em>は<a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>で<a class="tref internalDFN" title="null" href="#dfn-null">null</a>にリセットされているのでいずれの言語コードにも関連しない。
+
+              </p>
             <div class="note">
                 <div class="note-title" aria-level="3" role="heading" id="h_note_6"><span>注</span></div>
                 <p class="">
-                    Language associations are only applied to plain
-                    <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>.
-                    <a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a>
-                    or 値 that are subject to
-                    <a href="#type-coercion">型強制</a>
-                    are not language tagged.
-                </p>
+言語の関連付けはプレーン<a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>のみ適用される。
+
+ <a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a>もしくは<a href="#type-coercion">型強制</a>の対象である値は言語をつけられない。
+</p>
             </div>
             <p>
-                Just as 上の例では, systems often need to express の値 a
-                property in multiple languages. Typically, such systems also try to ensure that
-                開発者have a programmatically easy way to navigate the data structures for
-                the language-specific data. In this case, <a class="tref internalDFN" title="language-map" href="#dfn-language-map">言語マップ</a>
-                may be utilized.
+上の例の通り、システムはしばしば複数の言語のプロパティ値を表すことを必要とする。
+            property in multiple languages. 
+            
+一般的に、そのようなシステムは、開発者が言語固有データのデータ構造操作のためのプログラム的に容易な手段を保証するか試みる。
+このような場合、 <a class="tref internalDFN" title="language-map" href="#dfn-language-map">言語マップ</a>が役にたつ。
             </p>
             <div class="example">
-                <div class="example-title"><span>例 34</span>: Language map expressing a property in three languages</div>
+                <div class="example-title"><span>例 34</span>: 3つの言語のプロパティで表わされた言語マップ</div>
 <pre class="example">{
   "@context":
   {
@@ -2054,29 +2016,26 @@ Content-Type: <span class="highlight">application/json</span>
   },
   "name": "Yagyū Muneyoshi",
   "occupation":
-                <span class="highlight">{
+    <span class="highlight">{
     "ja": "忍者",
     "en": "Ninja",
     "cs": "Nindža"
-  }</span>
+   }</span>
   ...
 }</pre>
             </div>
-            <p>
-                The example 上のexpresses exactly the same 情報as the previous
-                example but consolidates all 値 in a single property. To access the
-                value in a specific language in a programming language supporting dot-notation
-                accessors for object properties, a developer may use the
-                <code>property.language</code> pattern. 例えば, to access the occupation
-                in English, a developer would use the following code snippet:
-                <code>obj.occupation.en</code>.
-            </p>
-            <p>
-                Third, it is possible to override the default language by using a
-                <a class="tref internalDFN" title="value-object" href="#dfn-value-object">値オブジェクト</a>:
+<p>
+上の例はひとつ前の例と正確に同じ情報を表しているが、1つのプロパティにすべての値がまとめられている。
+
+オブジェクト・プロパティのためのドット表記のをサポートするプログラム言語中で固有の言語にアクセスするために、開発者は<code>property.language</code>パターン使用することができる。
+
+  例えば、英語の職業にアクセスするには、開発者は次のコードを使用する： <code>obj.occupation.en</code>。
+  </p>
+        <p>
+3つ目に、 it is possible to override the default language by using a <a class="tref internalDFN" title="value-object" href="#dfn-value-object">値オブジェクト</a>を使用することによって既定の言語を再定義することができる。
             </p>
             <div class="example">
-                <div class="example-title"><span>例 35</span>: Overriding default language using an expanded value</div>
+                <div class="example-title"><span>例 35</span>: 拡張された値を使用した既定の言語の再定義</div>
 <pre class="example">{
   "@context": {
     ...
@@ -2090,14 +2049,10 @@ Content-Type: <span class="highlight">application/json</span>
 }</pre>
             </div>
             <p>
-                This makes it possible to 指定する a plain string by omitting the
-                <code>@language</code> tag or setting it to
-                <code>null</code> when expressing
-                it using a
-                <a class="tref internalDFN" title="value-object" href="#dfn-value-object">値オブジェクト</a>:
-            </p>
+<code>@language</code>タグを省略するか tag or setting it to when expressing it using a <a class="tref internalDFN" title="value-object" href="#dfn-value-object">値オブジェクト</a>を使用して表す時に<code>null</code>を設定することでプレーン文字列を指定することが可能である。
+             </p>
             <div class="example">
-                <div class="example-title"><span>例 36</span>: Removing language 情報using an expanded value</div>
+                <div class="example-title"><span>例 36</span>: 拡張された値を使用した言語情報の除去</div>
 <pre class="example">{
   "@context": {
     ...
@@ -2121,25 +2076,18 @@ Content-Type: <span class="highlight">application/json</span>
             </h3>
             <p><em>このセクションは非規範的である。</em></p>
             <p>
-                In general, normal
-                <abbr title="Internationalized Resource Identifier">IRI</abbr> expansion rules apply
-                anywhere an
-                <abbr title="Internationalized Resource Identifier">IRI</abbr> is expected (see
-                <a class="sectionRef sec-ref" href="#iris">section 5.2 IRIs</a>). Within
-                a
-                <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a> definition, this can mean that terms defined
-                within the context may also be used within that context as long as
-                there are no circular dependencies. 例えば, it is 共通to use
-                the
-                <code>xsd</code> namespace when defining
-                <a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a>s:
-            </p>
+一般的に、通常の<abbr title="Internationalized Resource Identifier">IRI</abbr>拡張ルールは<abbr title="Internationalized Resource Identifier">IRI</abbr>として予想される(<a class="sectionRef sec-ref" href="#iris">section 5.2 IRIs</a>参照）ところであればどこでも適用される。
+
+<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>定義内では、コンテキスト内で定義された用語は循環依存がない限りコンテキスト内で使用できることを意味する。
+
+  例えば、<a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a>を定義するとき<code>xsd</code>名前空間を使用することが一般的である。
+</p>
             <div class="example">
                 <div class="example-title"><span>例 37</span>: IRI expansion within a context</div>
 <pre class="example">{
   "@context":
   {
-                <span class="highlight">"xsd": "http://www.w3.org/2001/XMLSchema#"</span>,
+    <span class="highlight">"xsd": "http://www.w3.org/2001/XMLSchema#"</span>,
     "name": "http://xmlns.com/foaf/0.1/name",
     "age":
     {
@@ -2155,27 +2103,18 @@ Content-Type: <span class="highlight">application/json</span>
   ...
 }</pre>
             </div>
-            <p>
-                In this example, the
-                <code>xsd</code>
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a> is defined
-                and used as a
-                <a class="tref internalDFN" title="prefix" href="#dfn-prefix">プリフィクス</a> for the
-                <code>@type</code> coercion
-                of the
-                <code>age</code> property.
-            </p>
-            <p>
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a> may also be used when defining the
-                <abbr title="Internationalized Resource Identifier">IRI</abbr> of another
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>:
-            </p>
-            <div class="example">
-                <div class="example-title"><span>例 38</span>: Using a term to define the IRI of another term within a context</div>
+<p>
+この例では、<code>xsd</code><a class="tref internalDFN" title="term" href="#dfn-term">用語</a>は<code>age</code>プロパティの<code>@type</code>強制用の<a class="tref internalDFN" title="prefix" href="#dfn-prefix">プリフィクス</a>として定義され使用されている。
+</p>
+<p>
+<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>はまた他の<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>の<abbr title="Internationalized Resource Identifier">IRI</abbr>を定義するときに使用することができる。
+</p>
+<div class="example">
+<div class="example-title"><span>例 38</span>: コンテキスト内の他の用語のIRIを定義するための用語の使用</div>
 <pre class="example">{
   "@context":
   {
-                <span class="highlight">"foaf": "http://xmlns.com/foaf/0.1/"</span>,
+    <span class="highlight">"foaf": "http://xmlns.com/foaf/0.1/"</span>,
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "name": <span class="highlight">"foaf:name"</span>,
     "age":
@@ -2193,17 +2132,14 @@ Content-Type: <span class="highlight">application/json</span>
 }</pre>
             </div>
             <p>
-                <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮IRI</a>
-                and
-                <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a> may be used on the left-hand side of a
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a> definition.
-            </p>
+<a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮IRI</a>と<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>は<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>定義の左辺で使用することができる。
+</p>
             <div class="example">
-                <div class="example-title"><span>例 39</span>: Using a 短縮IRI as a term</div>
+                <div class="example-title"><span>例 39</span>: 用語として短縮IRIを使用</div>
 <pre class="example">{
   "@context":
   {
-                <span class="highlight">"foaf": "http://xmlns.com/foaf/0.1/"</span>,
+    <span class="highlight">"foaf": "http://xmlns.com/foaf/0.1/"</span>,
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "name": "foaf:name",
     "<span class="highlight">foaf:age</span>":
@@ -2211,39 +2147,27 @@ Content-Type: <span class="highlight">application/json</span>
       "@type": "xsd:integer"
     },
     "<span class="highlight">foaf:homepage</span>":
-                <span class="highlight">{
+    <span class="highlight">{
       "@type": "@id"
     }</span>
   },
   ...
 }</pre>
             </div>
-            <p>
-                In this example, the
-                <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a> form is used in two different
-                ways.
-                In the first approach,
-                <code>foaf:age</code> declares both the
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> for the
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a> (using short-form) as well as the
-                <code>@type</code> に関連する the
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>. In the second
-                approach, only the
-                <code>@type</code> に関連する the
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a> is
-                specified. The full
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> for
-                <code>foaf:homepage</code> is determined by looking up the
-                <code>foaf</code>
-                <a class="tref internalDFN" title="prefix" href="#dfn-prefix">プリフィクス</a> in the
-                <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>.
-            </p>
-            <p>
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対IRI</a> may also be used in the キー position in a
-                <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>:
-            </p>
+<p>
+この例では, <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>形式は2つの異なる手段で使用される。
+
+最初のアプローチは、<code>foaf:age</code><code>@type</code> <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>に関連する<code>@type</code>はもちろん<a class="tref internalDFN" title="term" href="#dfn-term">用語</a> (短縮形式を使用して)のための<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>の両方を宣言する。
+
+2つ目のアプローチは、<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>に関連する<code>@type</code>のみを指定する。
+
+<code>foaf:homepage</code>のフル<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a><a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>内で<code>foaf</code><a class="tref internalDFN" title="prefix" href="#dfn-prefix">プリフィクス</a>を探索することによって決定する。
+</p>
+<p>
+<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対IRI</a>は<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>内のキー位置で使用できる。
+</p>
             <div class="example">
-                <div class="example-title"><span>例 40</span>: Associating context definitions with absolute IRIs</div>
+                <div class="example-title"><span>例 40</span>: 絶対IRIとコンテキスト定義の関連付け</div>
 <pre class="example">{
   "@context":
   {
@@ -2263,64 +2187,39 @@ Content-Type: <span class="highlight">application/json</span>
   ...
 }</pre>
             </div>
-            <p>
-                In order for the
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a> to match above, the
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>
-                needs to be used in the
-                <a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD 文書</a>. Also note that
-                <code>foaf:homepage</code>
-                will not use the
-                <code>{ "@type": "@id" }</code> declaration because
-                <code>foaf:homepage</code> is not the same as
-                <code>http://xmlns.com/foaf/0.1/homepage</code>.
-                That is,
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a> are looked up in a
-                <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a> using
-                direct string comparison before the
-                <a class="tref internalDFN" title="prefix" href="#dfn-prefix">プリフィクス</a> lookup mechanism is applied.
-            </p>
+<p>
+上の<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>がマッチするためには、<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>は<a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD 文書</a>中で使用される必要がある。
+
+また<code>foaf:homepage</code>は<code>http://xmlns.com/foaf/0.1/homepage</code>と同じではないので<code>{ "@type": "@id" }</code>宣言を使用することができないことに注意する。
+
+すなわち、<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>は<a class="tref internalDFN" title="prefix" href="#dfn-prefix">プリフィクス</a>検索メカニズムが適用される前に直接文字列比較を使用して<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>内を検索する。
+</p>
             <div class="note">
                 <div class="note-title" aria-level="3" role="heading" id="h_note_7"><span>注</span></div>
                 <p class="">
-                    While it is possible to define a
-                    <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, or
-                    an
-                    <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a> to expand to some other unrelated
-                    <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>
-                    (例えば,
-                    <code>foaf:name</code> expanding to
-                    <code>http://example.org/unrelated#species</code>), such usage is strongly
-                    discouraged.
-                </p>
+<a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>や<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>を他の関連のない <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> (例えば <code>foaf:name</code>を<code>http://example.org/unrelated#species</code>に拡張する)に拡張するように定義することができるとはいえ、そのような用法は強く非推奨である。
+</p>
             </div>
             <p>
-                The only exception for using terms in the
-                <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a> is that
-                circular definitions are not allowed. That is,
-                a definition of
-                <em>term1</em> cannot depend on the
-                definition of
-                <em>term2</em> if
-                <em>term2</em> also depends on
-                <em>term1</em>. 例えば, the following
-                <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a> definition
-                is illegal:
-            </p>
+            
+The only exception for using terms in the <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>内で用語使用するときの唯一の例外は循環定義が許されていないことでである。
+
+すなわち、 <em>term2</em>が<em>term1</em>に依存している場合は<em>term1</em>の定義は<em>term2</em>の定義に依存することはできない。
+ 例えば、次の<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>定義は不正である。</p>
             <div class="example">
-                <div class="example-title"><span>例 41</span>: Illegal circular definition of terms within a context</div>
+                <div class="example-title"><span>例 41</span>: 不正なコンテキスト内の用語の循環定義</div>
 <pre class="example">{
   "@context":
   {
-                <span class="highlight">"term1": "term2:foo",
+    <span class="highlight">"term1": "term2:foo",
     "term2": "term1:bar"</span>
   },
   ...
 }</pre>
-            </div>
+</div>
         </section>
         <section class="informative" id="sets-and-lists">
-            <h3 aria-level="2" role="heading" id="h3_sets-and-lists"><span class="secno">6.11 </span>Sets and Lists</h3>
+            <h3 aria-level="2" role="heading" id="h3_sets-and-lists"><span class="secno">6.11 </span>セットとリスト</h3>
             <p><em>このセクションは非規範的である。</em></p>
             <p>
                 A JSON-LD 作成者can express multiple 値 in a compact way by using
@@ -2642,7 +2541,7 @@ Content-Type: <span class="highlight">application/json</span>
 }</pre>
             </div>
             <p>
-                The example 上のexpresses a
+                上の例はexpresses a
                 <a class="tref internalDFN" title="named-graph" href="#dfn-named-graph">named graph</a> that 識別される
                 by the
                 <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>
@@ -2824,7 +2723,7 @@ Content-Type: <span class="highlight">application/json</span>
 }</pre>
             </div>
             <p>
-                The example 上のcontains 情報について two secret agents that cannot be identified
+                上の例はcontains 情報について two secret agents that cannot be identified
                 with an
                 <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>. While expressing that
                 <em>agent&nbsp;1</em> knows
@@ -3917,7 +3816,7 @@ Content-Type: <span class="highlight">application/json</span>
                 <em class="rfc2119" title="MUST">MUST</em> be
                 <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a> representing
                 [
-                <cite><a class="bibref" href="#bib-BCP47">BCP47</a></cite>] language codes and the values
+                <cite><a class="bibref" href="#bib-BCP47">BCP47</a></cite>] 言語コードs and the values
                 <em class="rfc2119" title="MUST">MUST</em> be any of the following types:
             </p>
             <ul>
