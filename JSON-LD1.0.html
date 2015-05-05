@@ -2219,16 +2219,15 @@ The only exception for using terms in the <a class="tref internalDFN" title="con
 </div>
         </section>
         <section class="informative" id="sets-and-lists">
-            <h3 aria-level="2" role="heading" id="h3_sets-and-lists"><span class="secno">6.11 </span>セットとリスト</h3>
-            <p><em>このセクションは非規範的である。</em></p>
-            <p>
-                A JSON-LD 作成者can express multiple 値 in a compact way by using
-                <a class="tref internalDFN" title="array" href="#dfn-array">arrays</a>. Since graphs do not describe ordering for links
-                between nodes, arrays in JSON-LD do not provide an ordering of the
-                contained elements by default. This is exactly the opposite from regular JSON
-                arrays, which are ordered by default. 例えば, consider the following
-                simple document:
-            </p>
+            <h3 aria-level="2" role="heading" id="h3_sets-and-lists"><span class="secno">
+             </span>セットとリスト</h3>
+            <p><em>このセクションは非規範的である。</em></p>            <p>
+JSON-LD作成者は <a class="tref internalDFN" title="array" href="#dfn-array">配列</a>を使用することによって簡潔な手法で複数の値を表すことができる。 
+
+グラフはノード間のリンクのための順序を記述することができないので、JSON-LD中の配列は既定では含まれている要素の順序づけを提供しない。 
+
+これは正規の既定では順序付けされるJSON配列と正反対である。 例えば次の簡単な文書を考えてみる。
+</p>
             <div class="example">
                 <div class="example-title"><span>例 42</span>: Multiple 値 with no inherent order</div>
 <pre class="example">{
@@ -2239,15 +2238,15 @@ The only exception for using terms in the <a class="tref internalDFN" title="con
 }</pre>
             </div>
             <p>
-                The example shown 上のwould result in the following data being generated,
-                each relating the ノード to an individual value, with no inherent order:
+上で表される例では、各々は個別の値としてノードに関連付けられ、固有の順序がなく、 生成されるデータは次の結果となる。
+
             </p>
             <table class="example">
                 <thead>
                     <tr>
-                        <th>Subject</th>
-                        <th>Property</th>
-                        <th>Value</th>
+                        <th>対象</th>
+                        <th>プロパティ</th>
+                        <th>値</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -2268,7 +2267,7 @@ The only exception for using terms in the <a class="tref internalDFN" title="con
                     </tr>
                 </tbody>
             </table>
-            <p>Multiple 値 may also be expressed を使用することによって expanded form:</p>
+            <p>複数値は拡張形式を使用することによって表現することが可能である。</p>
             <div class="example">
                 <div class="example-title"><span>例 43</span>: Using an expanded form to set multiple values</div>
 <pre class="example">{
@@ -2287,8 +2286,7 @@ The only exception for using terms in the <a class="tref internalDFN" title="con
 }</pre>
             </div>
             <p>
-                The example shown 上のwould generate the following data, again with
-                no inherent order:
+               上の例も固有の順序のない次のデータが生成される。
             </p>
             <table class="example">
                 <thead>
@@ -2315,12 +2313,10 @@ The only exception for using terms in the <a class="tref internalDFN" title="con
                 </tbody>
             </table>
             <p>
-                As the notion of ordered collections is rather important in data
-                modeling, it is useful to have specific language support. In JSON-LD,
-                a list may be represented を使用することによって
-                <code>@list</code>
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> as follows:
-            </p>
+順序付けされたコレクションの概念はデータ・モデリングではかなり重要であるとして、特別な言語サポートを持つことは有用である。
+
+JSON-LDでは、リストは次のように<code>@list</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>を使用することによって表現することができる。
+</p>
             <div class="example">
                 <div class="example-title"><span>例 44</span>: An ordered collection of 値 in JSON-LD</div>
 <pre class="example">{
@@ -2334,19 +2330,14 @@ The only exception for using terms in the <a class="tref internalDFN" title="con
 }</pre>
             </div>
             <p>
-                This describes the use of this
-                <a class="tref internalDFN" title="array" href="#dfn-array">配列</a> as being ordered,
-                and order is maintained when processing a document. If every use of a given multi-valued
-                property is a list, this may be abbreviated by setting
-                <code>@container</code>
-                to
-                <code>@list</code> in the
-                <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>:
-            </p>
+            順序付けされた<a class="tref internalDFN" title="array" href="#dfn-array">配列</a>を使用すると記述し、順序は文書を処理するときも維持される。
+
+すべての複数値を与えられるプロパティがリストである場合、<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>の<code>@container</code>に<code>@list</code>を設定することによって短縮することができる。
+</p>
             <div class="example">
-                <div class="example-title"><span>例 45</span>: Specifying that a collection is ordered in the context</div>
+                <div class="example-title"><span>例 45</span>: コンテキストに順序付けられたコレクションを指定する</div>
 <pre class="example">{
-                <span class="highlight">"@context":
+  <span class="highlight">"@context":
   {
     ...
     "nick":
@@ -2364,35 +2355,23 @@ The only exception for using terms in the <a class="tref internalDFN" title="con
             <div class="note">
                 <div class="note-title" aria-level="3" role="heading" id="h_note_8"><span>注</span></div>
                 <p class="">
-                    List of lists in the form of <a class="tref internalDFN" title="list-object" href="#dfn-list-object">list objects</a>
-                    are not allowed in this version of JSON-LD. This decision was made due to the
-                    extreme amount of added complexity when processing lists of lists.
-                </p>
+<a class="tref internalDFN" title="list-object" href="#dfn-list-object">listオブジェクト</a>形式のリストのリストは現在のバージョンのJSON-LDでは許されていない。
+この決定はリストのリストを処理するとき複雑さが大量に追加されるためである。
+
+</p>
             </div>
             <p>
-                While
-                <code>@list</code> is used to describe
-                <em>ordered lists</em>,
-                the
-                <code>@set</code> キーワードis used to describe
-                <em>unordered sets</em>.
-                The use of
-                <code>@set</code> in the body of a JSON-LD文書
-                is optimized away when processing the document, as it is just syntactic
-                sugar. However,
-                <code>@set</code> is helpful when used within the context
-                of a document.
-                値 of terms に関連する an
-                <code>@set</code> or
-                <code>@list</code> container
-                are always represented in the form of an
-                <a class="tref internalDFN" title="array" href="#dfn-array">配列</a>,
-                even if there is just a single value that would otherwise be optimized to
-                a non-array form in compact form (see
-                <a class="sectionRef sec-ref" href="#compacted-document-form">section 6.18 Compacted Document Form</a>). This makes post-processing of
-                JSON-LD文書s easier as the data is always in array form, even if the
-                array only contains a single value.
-            </p>
+<code>@list</code>は<em>順序付けられたリスト</em>を記述するために使用される一方、<code>@set</code>キーワードは<em>順不同のセット</em>を記述するために使用される。
+
+JSON-LD文書の本文に<code>@set</code>を使用することは、それはちょうど糖衣構文のように、文書を処理するときに最適化により削除される。
+
+しかしながら、<code>@set</code>は文書のコンテキスト内で使用するときには有益である。
+
+<code>@set</code>もしくは<code>@list</code>コンテナに関連付けられた用語の値は通常であれば短縮形式 (<a class="sectionRef sec-ref" href="#compacted-document-form">section 6.18 短縮された文書形式</a>参照)で配列でない形式に最適化され単一の値になる場合でも、常に<a class="tref internalDFN" title="array" href="#dfn-array">配列</a>の形式で表現される。
+ 
+
+ このことはたとえ配列がただ１つの値しか含まれなかったとしても、データがいつも配列形式であることでJSON-LD文書の後処理を容易にさせる。
+ </p>
         </section>
         <section class="informative" id="reverse-properties">
             <h3 aria-level="2" role="heading" id="h3_reverse-properties"><span class="secno">6.12 </span>Reverse Properties</h3>
