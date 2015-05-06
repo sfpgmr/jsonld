@@ -1211,7 +1211,7 @@
             <p>
                 <a class="tref internalDFN" title="graph" href="#dfn-graph">グラフ</a>中の<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>外部参照可能となるためには、<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>が識別子を持つことが重要である。
                 <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>は
-                <a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>が正しくリンクするために、 識別子の逆参照が<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>表現の結果となるリンク・データの基本的な概念である。これはアプリケーションに<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>についての情報をさらに引き出すことが可能となる。
+                <a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>が正しくリンクするために、 識別子の参照解除が<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>表現の結果となるリンク・データの基本的な概念である。これはアプリケーションに<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>についての情報をさらに引き出すことが可能となる。
             </p>
             <p>
 JSON-LDでは, <a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>は<code>@id</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>を使用することによって識別される。
@@ -1416,7 +1416,7 @@ JSON-LDでは, <a class="tref internalDFN" title="node" href="#dfn-node">ノー�
 <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>は<em>プリフィクス</em>がマップされた<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>と(空白可能な)<em>サフィックス</em>を連結することによって拡張される。
 もし<em>プリフィクス</em>が<a class="tref internalDFN" title="active-context" href="#dfn-active-context">アクティブ・コンテキスト</a>内で定義されていないかサフィックスが2つのスラッシュ(<code>http://example.com</code>のように)で始まっている場合は、値は<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>として解釈される。
 
-もしプリフィクスがアンダースコア(<code>_</code>)の場合、値は<a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">ブランク・ノード定義子</a>として解釈される。
+もしプリフィクスがアンダースコア(<code>_</code>)の場合、値は<a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>として解釈される。
 </p>
 
 <p>
@@ -2667,7 +2667,7 @@ JSON-LD文書のトップレベル構造が<a class="tref internalDFN" title="js
             <p>
 空ノード識別子が処理中に再度ラベル付けできることは注目に値しない。 
 
-もし開発者が1つ以上の<a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空ノード</a>を参照しているのを見つけたら、他のドキュメントから参照されるために<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>を逆参照を使用するノードに命名することを考慮すべきである。
+もし開発者が1つ以上の<a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空ノード</a>を参照しているのを見つけたら、他のドキュメントから参照されるために<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>を参照解除を使用するノードに命名することを考慮すべきである。
 
 </p>
         </section>
@@ -3022,114 +3022,35 @@ JSON-LDがRDFデータモデルとどのように関連するかの正確な詳�
         </p>
         <ul>
             <li>
-                A
-                <dfn title="json-ld-document" id="dfn-json-ld-document">JSON-LD文書</dfn> serializes a
-                <a href="http://www.w3.org/TR/rdf11-concepts/#dfn-generalized-rdf-dataset" class="externalDFN">generalized RDF Dataset</a>
-                [
-                <cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>], which is a collection of
-                <a class="tref internalDFN" title="graph" href="#dfn-graph">graphs</a>
-                that comprises exactly one
-                <dfn title="default-graph" id="dfn-default-graph"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-default-graph" class="externalDFN">default graph</a></dfn>
-                and zero or more
-                <dfn title="named-graph" id="dfn-named-graph"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-named-graph" class="externalDFN">named graphs</a></dfn>.
+<dfn title="json-ld-document" id="dfn-json-ld-document">JSON-LD文書</dfn>は<a class="tref internalDFN" title="graph" href="#dfn-graph">graphs</a>正確に1個の<dfn title="default-graph" id="dfn-default-graph"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-default-graph" class="externalDFN">既定のグラフ</a></dfn>と0個以上の<dfn title="named-graph" id="dfn-named-graph"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-named-graph" class="externalDFN">名前付きグラフ</a></dfn>で構成されたグラフのコレクションである<a href="http://www.w3.org/TR/rdf11-concepts/#dfn-generalized-rdf-dataset" class="externalDFN">生成されたRDFデータセット</a> [ <cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>]をシリアル化する。             </li>
+            <li>
+                <a class="tref internalDFN" title="default-graph" href="#dfn-default-graph">既定のグラフは</a>名前を持たず空であるかもしれない（<em class="rfc2119" title="MAY">MAY</em>）。
             </li>
             <li>
-                The
-                <a class="tref internalDFN" title="default-graph" href="#dfn-default-graph">default graph</a> does not have a name and
-                <em class="rfc2119" title="MAY">MAY</em> be empty.
+各<a class="tref internalDFN" title="named-graph" href="#dfn-named-graph">名前付きグラフは</a>一致する<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>または<a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード定義子</a> (<dfn title="graph-name" id="dfn-graph-name"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-graph-name" class="externalDFN">グラフ名</a></dfn>)と<a class="tref internalDFN" title="graph" href="#dfn-graph">グラフ</a>のペアである。
+実際上は常に、<a class="tref internalDFN" title="graph-name" href="#dfn-graph-name">グラフ名</a>
+は<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>にすべきである（<em class="rfc2119" title="SHOULD">SHOULD</em>）.
             </li>
             <li>
-                Each
-                <a class="tref internalDFN" title="named-graph" href="#dfn-named-graph">named graph</a> is a pair consisting of an
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> or
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">ブランク・ノード定義子</a> (the
-                <dfn title="graph-name" id="dfn-graph-name"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-graph-name" class="externalDFN">graph name</a></dfn>)
-                and a
-                <a class="tref internalDFN" title="graph" href="#dfn-graph">グラフ</a>. Whenever practical, the
-                <a class="tref internalDFN" title="graph-name" href="#dfn-graph-name">graph name</a>
-                <em class="rfc2119" title="SHOULD">SHOULD</em> be an
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>.
+            <dfn title="graph" id="dfn-graph"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-generalized-rdf-graph" class="externalDFN">グラフ</a></dfn>は、ラベル付き有向グラフ、すなわち<a class="tref internalDFN" title="edge" href="#dfn-edge">エッジ</a>によって接続された<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>の集合である。
             </li>
             <li>
-                A
-                <dfn title="graph" id="dfn-graph"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-generalized-rdf-graph" class="externalDFN">graph</a></dfn>
-                is a labeled directed graph, i.e., a set of
-                <a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>
-                connected by
-                <a class="tref internalDFN" title="edge" href="#dfn-edge">edges</a>.
+すべての<dfn title="edge" id="dfn-edge">エッジ</dfn>は、それに関連付けられた方向を有しており、<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>または<a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>でラベル付けされている。 JSON-LDの構文の中で、これらのエッジのラベルは、<dfn title="property" id="dfn-property"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-property" class="externalDFN">プロパティ</a></dfn>と呼ばれる。
+実際には常に、<a class="tref internalDFN" title="edge" href="#dfn-edge">エッジ</a>は<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>でラベル付けされるべきである（<em class="rfc2119" title="SHOULD">SHOULD</em>） 。
+</li>
+            <li>すべての<dfn title="node" id="dfn-node"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-node" class="externalDFN">ノード</a></dfn>は、<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>・<a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>・<a class="tref internalDFN" title="json-ld-value" href="#dfn-json-ld-value">JSON-LD値</a>または<a class="tref internalDFN" title="list" href="#dfn-list">リスト</a>である。
             </li>
             <li>
-                Every
-                <dfn title="edge" id="dfn-edge">edge</dfn> has a direction に関連する it and is labeled with
-                an
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> or a
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">ブランク・ノード定義子</a>. Within the JSON-LD syntax
-                these edge labels are called
-                <dfn title="property" id="dfn-property"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-property" class="externalDFN">properties</a></dfn>.
-                Whenever practical, an
-                <a class="tref internalDFN" title="edge" href="#dfn-edge">edge</a>
-                <em class="rfc2119" title="SHOULD">SHOULD</em> be labeled with an
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>.
+            外向きのエッジを有する<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>は、<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>または<a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>でなければならない(<em class="rfc2119" title="MUST">MUST</em>)            </li>
+            <li>
+<a class="tref internalDFN" title="graph" href="#dfn-graph">グラフ</a>は接続されていない<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>、すなわち未接続<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>、他の<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>に<a class="tref internalDFN" title="edge" href="#dfn-edge">エッジ</a>で接続されていない<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>を含めることはできない（<em class="rfc2119" title="MUST NOT">MUST NOT</em>）。            
             </li>
             <li>
-                Every
-                <dfn title="node" id="dfn-node"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-node" class="externalDFN">node</a></dfn>
-                is an
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a
-                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">blank node</a>, a
-                <a class="tref internalDFN" title="json-ld-value" href="#dfn-json-ld-value">JSON-LD value</a>,
-                or a
-                <a class="tref internalDFN" title="list" href="#dfn-list">list</a>.
+            <dfn title="iri" id="dfn-iri"><abbr title="Internationalized Resource Identifier"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-iri" class="externalDFN">IRI</a></abbr></dfn>（Internationalized Resource Identifier）は、[<cite><a class="bibref" href="#bib-RFC3987">RFC3987</a></cite>]で定義された構文に準拠する文字列である。<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>は参照解除されたときに、その<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>を付したリソースを記述したリンク・データ文書を返すべき<a class="tref internalDFN" title="graph" href="#dfn-graph">グラフ</a>内で使用される。
+           </li>
+            <li><dfn title="blank-node" id="dfn-blank-node"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-blank-node" class="externalDFN">空白ノード</a></dfn>は、<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>でも<a class="tref internalDFN" title="json-ld-value" href="#dfn-json-ld-value">JSON-LD value</a>値で<a class="tref internalDFN" title="list" href="#dfn-list">リスト</a>でもない<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>である。空白ノードは、空白ノード識別子を使用して同定することができる（<em class="rfc2119" title="MAY">MAY</em>）。
             </li>
-            <li>
-                A
-                <a class="tref internalDFN" title="node" href="#dfn-node">ノード</a> having an outgoing edge
-                <em class="rfc2119" title="MUST">MUST</em> be an
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> or a
-                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">blank node</a>.
-            </li>
-            <li>
-                A
-                <a class="tref internalDFN" title="graph" href="#dfn-graph">グラフ</a>
-                <em class="rfc2119" title="MUST NOT">MUST NOT</em> contain unconnected
-                <a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>,
-                i.e., nodes which are not connected by an
-                <a class="tref internalDFN" title="edge" href="#dfn-edge">edge</a> to any other
-                <a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>.
-            </li>
-            <li>
-                An
-                <dfn title="iri" id="dfn-iri"><abbr title="Internationalized Resource Identifier"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-iri" class="externalDFN">IRI</a></abbr></dfn>
-                (Internationalized Resource Identifier) is a string that conforms to the syntax
-                defined in [
-                <cite><a class="bibref" href="#bib-RFC3987">RFC3987</a></cite>].
-                <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a> used within a
-                <a class="tref internalDFN" title="graph" href="#dfn-graph">グラフ</a>
-                <em class="rfc2119" title="SHOULD">SHOULD</em> return a リンク・データ document describing
-                the resource denoted by that
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> when being dereferenced.
-            </li>
-            <li>
-                A
-                <dfn title="blank-node" id="dfn-blank-node"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-blank-node" class="externalDFN">blank node</a></dfn>
-                is a
-                <a class="tref internalDFN" title="node" href="#dfn-node">ノード</a> which is neither an
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>,
-                nor a
-                <a class="tref internalDFN" title="json-ld-value" href="#dfn-json-ld-value">JSON-LD value</a>, nor a
-                <a class="tref internalDFN" title="list" href="#dfn-list">list</a>. A blank node
-                <em class="rfc2119" title="MAY">MAY</em> be identified
-                using a
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">ブランク・ノード定義子</a>.
-            </li>
-            <li>
-                A
-                <dfn title="blank-node-identifier" id="dfn-blank-node-identifier"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-blank-node-identifier" class="externalDFN">blank ノード identifier</a></dfn>
-                is a string that can be used as an 識別子for a
-                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">blank node</a> within
-                the scope of a
-                <a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD 文書</a>. Blank ノード 識別子begin with
-                <code>_:</code>.
+            <li><dfn title="blank-node-identifier" id="dfn-blank-node-identifier"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-blank-node-identifier" class="externalDFN">空白ノード識別子</a></dfn>は<a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD 文書</a>の範囲内で<a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>の識別子として使用できる文字列である。空白ノード識別子は<code>_:</code>で始まる。
             </li>
             <li>
                 A
@@ -3193,10 +3114,10 @@ JSON-LDがRDFデータモデルとどのように関連するかの正確な詳�
             is that プロパティwhich are not mapped to an
             <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>,
             a
-            <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">blank node</a>, or
+            <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>, or
             <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> will be ignored.
         </p>
-        <p style="text-align: center"><img src="linked-data-graph.png" title="An illustration of the data model" alt="An illustration of the data model"></p>
+        <p style="text-align: center"><img src="http://www.w3.org/TR/json-ld/linked-data-graph.png" title="An illustration of the data model" alt="An illustration of the data model"></p>
         <p style="text-align: center">Figure&nbsp;1: An illustration of the data model.</p>
     </section>
     <section class="normative" id="json-ld-grammar">
@@ -3258,7 +3179,7 @@ JSON-LDがRDFデータモデルとどのように関連するかの正確な詳�
                 <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a> that expands
                 to an
                 <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> or a
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">ブランク・ノード定義子</a>.
+                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>.
             </p>
             <p>
                 A
@@ -3375,7 +3296,7 @@ JSON-LDがRDFデータモデルとどのように関連するかの正確な詳�
                 <a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>,
                 or a
                 <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a> (including
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">blank ノード identifiers</a>).
+                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子s</a>).
                 See
                 <a class="sectionRef sec-ref" href="#node-identifiers">section 5.3 ノード Identifiers</a>,
                 <a class="sectionRef sec-ref" href="#compact-iris">section 6.3 短縮IRI</a>, and
@@ -3425,7 +3346,7 @@ JSON-LDがRDFデータモデルとどのように関連するかの正確な詳�
                 <a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a
                 <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>
                 (including
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">blank ノード identifiers</a>),
+                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子s</a>),
                 a
                 <a class="tref internalDFN" title="term" href="#dfn-term">用語</a> defined in the
                 <a class="tref internalDFN" title="active-context" href="#dfn-active-context">アクティブ・コンテキスト</a> expanding into an
@@ -3449,7 +3370,7 @@ JSON-LDがRDFデータモデルとどのように関連するかの正確な詳�
                 a
                 <a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a
                 <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">ブランク・ノード定義子</a>,
+                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>,
                 a
                 <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> or an
                 <a class="tref internalDFN" title="array" href="#dfn-array">配列</a> containing a combination of these.
@@ -3573,7 +3494,7 @@ JSON-LDがRDFデータモデルとどのように関連するかの正確な詳�
             <h3 aria-level="2" role="heading" id="h3_lists-and-sets"><span class="secno">8.4 </span>Lists and Sets</h3>
             <p>
                 A
-                <a class="tref internalDFN" title="list" href="#dfn-list">list</a> represents an
+                <a class="tref internalDFN" title="list" href="#dfn-list">リスト</a> represents an
                 <em>ordered</em> set of values. A set
                 represents an
                 <em>unordered</em> set of values. Unless otherwise specified,
@@ -3754,7 +3675,7 @@ JSON-LDがRDFデータモデルとどのように関連するかの正確な詳�
                 <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a
                 <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>,
                 a
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">ブランク・ノード定義子</a>, a
+                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>, a
                 <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>, or
                 <a class="tref internalDFN" title="null" href="#dfn-null">null</a>.
             </p>
@@ -3766,7 +3687,7 @@ JSON-LDがRDFデータモデルとどのように関連するかの正確な詳�
                 <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a
                 <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>,
                 a
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">ブランク・ノード定義子</a>, a
+                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>, a
                 <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>,
                 <a class="tref internalDFN" title="null" href="#dfn-null">null</a>,
                 or an
@@ -3829,7 +3750,7 @@ JSON-LDがRDFデータモデルとどのように関連するかの正確な詳�
                 <a class="tref internalDFN" title="null" href="#dfn-null">null</a>, an
                 <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>,
                 a
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">ブランク・ノード定義子</a>, a
+                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>, a
                 <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a
                 <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>,
                 or a
