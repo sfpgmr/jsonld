@@ -510,10 +510,10 @@
                         <a href="#identifying-blank-nodes" class="tocxref"><span class="secno">6.14 </span>空白ノードの識別</a>
                     </li>
                     <li class="tocline">
-                        <a href="#aliasing-keywords" class="tocxref"><span class="secno">6.15 </span>エイリアス・キーワード</a>
+                        <a href="#aliasing-keywords" class="tocxref"><span class="secno">6.15 </span>キーワードの別名</a>
                     </li>
                     <li class="tocline">
-                        <a href="#data-indexing" class="tocxref"><span class="secno">6.16 </span>データのインデックス化</a>
+                        <a href="#data-indexing" class="tocxref"><span class="secno">6.16 </span>データの索引付け</a>
                     </li>
                     <li class="tocline">
                         <a href="#expanded-document-form" class="tocxref"><span class="secno">6.17 </span>文書フォームの拡張</a>
@@ -551,7 +551,7 @@
                         <a href="#language-maps" class="tocxref"><span class="secno">8.5 </span>言語マップ</a>
                     </li>
                     <li class="tocline">
-                        <a href="#index-maps" class="tocxref"><span class="secno">8.6 </span>インデックスマップ</a>
+                        <a href="#index-maps" class="tocxref"><span class="secno">8.6 </span>索引マップ</a>
                     </li>
                     <li class="tocline">
                         <a href="#context-definitions" class="tocxref"><span class="secno">8.7 </span>コンテキスト定義</a>
@@ -1021,7 +1021,7 @@
             <p><a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>が用語と結びつけられるとき、それは<dfn title="expanded-term-definition" id="dfn-expanded-term-definition">拡張用語定義</dfn>と呼ばれる。上の例では<code>image</code>と<code>homepage</code>の値は文字列であれば<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>として解釈されることを指定する。
                 <a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">
                     拡張用語定義</a>は用語を<a href="#data-indexing">
-    インデックス・マップ</a>として使用することを可能とし、配列値かどうか指定することは<a href="#sets-and-lists">
+    索引マップ</a>として使用することを可能とし、配列値かどうか指定することは<a href="#sets-and-lists">
     セットかリスト</a>として解釈されるためにある。
 
                 <a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">
@@ -2218,7 +2218,7 @@ The only exception for using terms in the <a class="tref internalDFN" title="con
 </div>
         </section>
         <section class="informative" id="sets-and-lists">
-            <h3 aria-level="2" role="heading" id="h3_sets-and-lists"><span class="secno">
+            <h3 aria-level="2" role="heading" id="h3_sets-and-lists"><span class="secno">6.11 
              </span>セットとリスト</h3>
             <p><em>このセクションは非規範的である。</em></p>            <p>
 JSON-LD作成者は <a class="tref internalDFN" title="array" href="#dfn-array">配列</a>を使用することによって簡潔な手法で複数の値を表すことができる。 
@@ -2373,61 +2373,50 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
  </p>
         </section>
         <section class="informative" id="reverse-properties">
-<a name="trans" />
-            <h3 aria-level="2" role="heading" id="h3_reverse-properties"><span class="secno">6.12 </span>Reverse Properties</h3>
+            <h3 aria-level="2" role="heading" id="h3_reverse-properties"><span class="secno">6.12 </span>逆プロパティ</h3>
             <p><em>このセクションは非規範的である。</em></p>
-            <p>
-                JSON-LD serializes directed
-                <a class="tref internalDFN" title="graph" href="#dfn-graph">graphs</a>. That means that
-                every
-                <a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a> points from a
-                <a class="tref internalDFN" title="node" href="#dfn-node">ノード</a> to another
-                <a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>
-                or
-                <a class="tref internalDFN" title="json-ld-value" href="#dfn-json-ld-value">value</a>. However, in some cases, it is desirable
-                to serialize in the reverse direction. Consider 例えば the case where a person
-                and its children should be described in a document. If the used 語彙does not
-                provide a
-                <em>children</em>
-                <a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a> but just a
-                <em>parent</em>
-                <a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a>, every
-                <a class="tref internalDFN" title="node" href="#dfn-node">ノード</a> representing a child would have to
-                be expressed with a
-                <a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a> pointing to the parent as in the following
-                example.
-            </p>
+<p>
+JSON-LDは有向<a class="tref internalDFN" title="graph" href="#dfn-graph">グラフ</a>をシリアル化する。
+
+それは
+  That means that すべての<a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a>は<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>から他の<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>か<a class="tref internalDFN" title="json-ld-value" href="#dfn-json-ld-value">値</a>へ向いている。
+
+しかしながら、ときとして、逆方向にシリアライズすることが望ましいことがある。
+
+例えば親と子が文書に記載されるケースを考えてみてほしい。
+  
+使用する語彙が<em>親</em><a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a>だけでなく<em>子</em><a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a>も規定されない場合、すべての子を表現する<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>は次のように親を指す<a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a>を表現しなくてはならない。
+
+
+  </p>
             <div class="example">
-                <div class="example-title"><span>例 46</span>: A document with children linking to their parent</div>
+                <div class="example-title"><span>例 46</span>: 子供を親にリンクした文書</div>
 <pre class="example">[
   {
-                <span class="highlight">"@id": "#homer"</span>,
+    <span class="highlight">"@id": "#homer"</span>,
     "http://example.com/vocab#name": "Homer"
   },
   {
     "@id": "#bart",
     "http://example.com/vocab#name": "Bart",
-                <span class="highlight">"http://example.com/vocab#parent": { "@id": "#homer" }</span>
+    <span class="highlight">"http://example.com/vocab#parent": { "@id": "#homer" }</span>
   },
   {
     "@id": "#lisa",
     "http://example.com/vocab#name": "Lisa",
-                <span class="highlight">"http://example.com/vocab#parent": { "@id": "#homer" }</span>
+    <span class="highlight">"http://example.com/vocab#parent": { "@id": "#homer" }</span>
   }
 ]</pre>
             </div>
-            <p>
-                Expressing such data is much simpler by using JSON-LD's
-                <code>@reverse</code>
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>:
+            <p>そのようなデータの表現はJSON-LDの<code>@reverse</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>の使用でとても簡素になる。
             </p>
             <div class="example">
-                <div class="example-title"><span>例 47</span>: A person and its children using a reverse property</div>
+                <div class="example-title"><span>例 47</span>: 逆プロパティを使用した親子</div>
 <pre class="example">{
   "@id": "#homer",
   "http://example.com/vocab#name": "Homer",
-                <span class="highlight">"@reverse"</span>: {
-                <span class="highlight">"http://example.com/vocab#parent"</span>: [
+      <span class="highlight">"@reverse"</span>: {
+      <span class="highlight">"http://example.com/vocab#parent"</span>: [
       {
         "@id": "#bart",
         "http://example.com/vocab#name": "Bart"
@@ -2441,23 +2430,19 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
 }</pre>
             </div>
             <p>
-                The
-                <code>@reverse</code>
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> can also be used in
-                <a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">expanded term definitions</a>
-                to create reverse プロパティas shown in 次の例:
-            </p>
+<code>@reverse</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>はまた次の例で示されるように逆プロパティを作成することで<a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>中で使用することができる。
+</p>
 
             <div class="example">
-                <div class="example-title"><span>例 48</span>: Using @reverse to define reverse properties</div>
+                <div class="example-title"><span>例 48</span>: 逆プロパティを定義するための@reverseの使用</div>
 <pre class="example">{
   "@context": {
     "name": "http://example.com/vocab#name",
-                <span class="highlight">"children": { "@reverse": "http://example.com/vocab#parent" }</span>
+    <span class="highlight">"children": { "@reverse": "http://example.com/vocab#parent" }</span>
   },
   "@id": "#homer",
   "name": "Homer",
-                <span class="highlight">"children"</span>: [
+    <span class="highlight">"children"</span>: [
     {
       "@id": "#bart",
       "name": "Bart"
@@ -2472,24 +2457,17 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
         </section>
 
         <section class="informative" id="named-graphs">
-            <h3 aria-level="2" role="heading" id="h3_named-graphs"><span class="secno">6.13 </span>Named Graphs</h3>
+            <h3 aria-level="2" role="heading" id="h3_named-graphs"><span class="secno">6.13 </span>名前付きグラフ</h3>
             <p><em>このセクションは非規範的である。</em></p>
             <p>
-                ときどき, it is necessary to make statements について a
-                <a class="tref internalDFN" title="graph" href="#dfn-graph">グラフ</a>
-                itself, rather than just a single
-                <a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>. This can be done by
-                grouping a set of
-                <a class="tref internalDFN" title="node" href="#dfn-node">ノード</a> を使用することによって
-                <code>@graph</code>
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>. A developer may also name data expressed を使用することによって
-                <code>@graph</code>
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> by pairing it with an
-                <code>@id</code>
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> as shown in 次の例:
-            </p>
+ときどき, 単一の<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>よりもむしろ<a class="tref internalDFN" title="graph" href="#dfn-graph">グラフ</a>自身の文を作成する必要がある。
+
+  これは<code>@graph</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>を使用することによって<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>のセットをグループ化することによって行うことができる。
+
+開発者は次の例で示すように by pairing it with an<code>@id</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>とペアで<code>@graph</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>を使用することによってデータを命名することができる。
+</p>
             <div class="example">
-                <div class="example-title"><span>例 49</span>: Identifying and making statements について a graph</div>
+                <div class="example-title"><span>例 49</span>: グラフについての文を作成し識別する</div>
 <pre class="example">{
   "@context": {
     "generatedAt": {
@@ -2500,7 +2478,7 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
     "name": "http://xmlns.com/foaf/0.1/name",
     "knows": "http://xmlns.com/foaf/0.1/knows"
   },
-                <span class="highlight">"@id": "http://example.org/graphs/73",
+  <span class="highlight">"@id": "http://example.org/graphs/73",
   "generatedAt": "2012-04-09",
   "@graph":</span>
   [
@@ -2520,24 +2498,21 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
 }</pre>
             </div>
             <p>
-                上の例はexpresses a
-                <a class="tref internalDFN" title="named-graph" href="#dfn-named-graph">named graph</a> that 識別される
-                by the
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>
-                <code>http://example.org/graphs/73</code>. That
-                graph is composed of the statements について Manu and Gregg. Metadata about
-                the graph itself 表現される via the
-                <code>generatedAt</code> property,
-                which 指定する when the graph was generated. An alternative view of the
-                情報上のis represented in table form below:
-            </p>
+
+上の例は<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> <code>http://example.org/graphs/73</code>によって識別される<a class="tref internalDFN" title="named-graph" href="#dfn-named-graph">名前付きグラフ</a>を表している。
+
+グラフはについてManuとGreggについての文で構成されている。
+
+グラフ自身についてのメタデータは、グラフがいつ生成されたかを指定する<code>generatedAt</code>プロパティで表現される。
+
+上の情報の別の表現を以下の表で表わす。</p>
             <table class="example">
                 <thead>
                     <tr>
-                        <th>Graph</th>
-                        <th>Subject</th>
-                        <th>Property</th>
-                        <th>Value</th>
+                        <th>グラフ</th>
+                        <th>対象</th>
+                        <th>プロパティ</th>
+                        <th>値</th>
                         <th>値型</th>
                     </tr>
                 </thead>
@@ -2594,26 +2569,14 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
                 </tbody>
             </table>
             <p>
-                When a JSON-LD文書's top-level structure is an
-                <a class="tref internalDFN" title="json-object" href="#dfn-json-object">オブジェクト</a> that contains no other
-                <a class="tref internalDFN" title="property" href="#dfn-property">properties</a> than
-                <code>@graph</code> and
-                optionally
-                <code>@context</code> (プロパティthat are not mapped to an
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> or a
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> are ignored),
-                <code>@graph</code> is considered to express the otherwise implicit
-                <a class="tref internalDFN" title="default-graph" href="#dfn-default-graph">default graph</a>. This mechanism can be useful when a number
-                of
-                <a class="tref internalDFN" title="node" href="#dfn-node">ノード</a> exist at the document's top level that
-                share the same
-                <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>, which is, e.g., the case when a
-                document is
-                <a href="#flattened-document-form">flattened</a>. The
-                <code>@graph</code> キーワードcollects such nodes in an
-                <a class="tref internalDFN" title="array" href="#dfn-array">配列</a>
-                and allows the use of a shared context.
-            </p>
+            
+JSON-LD文書のトップレベル構造が<a class="tref internalDFN" title="json-object" href="#dfn-json-object">オブジェクト</a><a class="tref internalDFN" title="property" href="#dfn-property">properties</a><code>@graph</code>とオプションの<code>@context</code>(<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>もしくは<a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>が無視されマップされないプロパティ)しか含まれない時, <code>@graph</code>は別な方法で暗黙に<a class="tref internalDFN" title="default-graph" href="#dfn-default-graph">既定グラフ</a>を表現しているものとみなされる。
+
+この仕組みは１つの<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a> が同じ <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>を共有するドキュメントのトップレベルに存在するとき、例えば、文書が<a href="#flattened-document-form">flattened</a>である場合に役にたつ。 
+
+<code>@graph</code>キーワードは<a class="tref internalDFN" title="array" href="#dfn-array">配列</a> の中や共有コンテキストの使用が許されたノードのように集められる。
+
+</p>
             <div class="example">
                 <div class="example-title"><span>例 50</span>: Using @graph to explicitly express the default graph</div>
 <pre class="example">{
@@ -2634,28 +2597,24 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
     }
   ]
 }</pre>
-            </div>
+</div>
             <p>
-                In this case, embedding doesn't work as each
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>
-                references the other. This is equivalent to using multiple
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> in array and defining
-                the
-                <code>@context</code> within each
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>:
-            </p>
+この場合、埋め込みはそれぞれの<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> が他を参照するため動作しない。
+
+これは is equivalent to using 配列中の複数の<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>使用し各<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>内の<code>@context</code>を定義することと等価である。
+               </p>
             <div class="example">
-                <div class="example-title"><span>例 51</span>: Context needs to be duplicated if @graph is not used</div>
+                <div class="example-title"><span>例 51</span>: コンテキストは@graphが使用されいない場合重複する必要がある</div>
 <pre class="example">[
   {
-                <span class="highlight">"@context": ...,</span>
+    <span class="highlight">"@context": ...,</span>
     "@id": "http://manu.sporny.org/about#manu",
     "@type": "foaf:Person",
     "name": "Manu Sporny",
     "knows": "http://greggkellogg.net/foaf#me"
   },
   {
-                <span class="highlight">"@context": ...,</span>
+    <span class="highlight">"@context": ...,</span>
     "@id": "http://greggkellogg.net/foaf#me",
     "@type": "foaf:Person",
     "name": "Gregg Kellogg",
@@ -2665,31 +2624,29 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
             </div>
         </section>
         <section class="informative" id="identifying-blank-nodes">
-            <h3 aria-level="2" role="heading" id="h3_identifying-blank-nodes"><span class="secno">6.14 </span>Identifying Blank Nodes</h3>
+            <h3 aria-level="2" role="heading" id="h3_identifying-blank-nodes"><span class="secno">6.14 </span>空ノードの識別</h3>
             <p><em>このセクションは非規範的である。</em></p>
             <p>
-                ときどき, it becomes necessary to be able to express 情報without
-                being able to 一意に identify the
-                <a class="tref internalDFN" title="node" href="#dfn-node">ノード</a> with an
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>.
-                This type of ノード is called a
-                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">blank node</a>. JSON-LD does not require
-                all nodes to be identified using
-                <code>@id</code>. However, some graph topologies
-                may require 識別子to be serializable. Graphs containing loops, e.g., cannot
-                be serialized using embedding alone,
-                <code>@id</code> must be used to connect the nodes.
-                In these situations, one can use
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">blank ノード identifiers</a>,
-                which look like
-                <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a> using an underscore (
-                <code>_</code>)
-                as scheme. This allows one to reference the ノード locally within the document, but
-                makes it impossible to reference the ノード from an external document. The
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">ブランク・ノード定義子</a> is scoped  to the document in which it is used.
-            </p>
+
+たまに, it becomes necessary to be able to express 情報 without being able to 一意に identify the  <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>で<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>を一意に識別することなしに情報を表現することが必要になる。
+
+  このノード型は<a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空ノード</a>と呼ばれる。
+  
+  JSON-LDはすべてのノードが<code>@id</code>を使用して識別する必要はない。
+
+  しかしながら、あるグラフ形態ではシリアライズ可能とするために識別子を必要とする。
+  
+  ループを含むグラフは、例えば、埋め込みのみを使用してシリアライズできず、 <code>@id</code>がノードを接続するために使用されなければならない。
+
+このようなとき、仕組みとしてアンダースコア( <code>_</code>)を使用した<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>に似た<a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空ノード識別子</a>を使用することができる。
+
+  これは文書内のローカルなノードへの参照することを可能にするが、外部文書からのノードの参照が不可能になる。
+
+<a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空ノード定義子</a>はそれを使用する文書にスコープされる。
+
+              </p>
             <div class="example">
-                <div class="example-title"><span>例 52</span>: Specifying a local blank ノード identifier</div>
+                <div class="example-title"><span>例 52</span>: ローカル・空ノード識別子の指定</div>
 <pre class="example">{
    ...
    "@id": "<span class="highlight">_:n1</span>",
@@ -2702,48 +2659,36 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
 }</pre>
             </div>
             <p>
-                上の例はcontains 情報について two secret agents that cannot be identified
-                with an
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>. While expressing that
-                <em>agent&nbsp;1</em> knows
-                <em>agent&nbsp;2</em>
-                is possible without using
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">blank ノード identifiers</a>,
-                it is necessary to assign
-                <em>agent&nbsp;1</em> an 識別子so that it can be referenced
-                from
-                <em>agent&nbsp;2</em>.
-            </p>
+上の例は<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>で識別されない2人の秘密エージェントについての情報を含んでいる。
+
+<em>agent&nbsp;1</em>が<em>agent&nbsp;2</em>の知人であると表現することは<a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空ノード識別子</a>を使用しないで可能であるが、<em>agent&nbsp;2</em>から参照できるようにするために<em>agent&nbsp;1</em>に識別子を割り当てる必要がある。
+
+              </p>
             <p>
-                It is worth nothing that blank ノード 識別子may be relabeled during processing.
-                If a developer finds that they refer to the
-                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">blank node</a> more than once,
-                they should consider naming the ノード using a dereferenceable
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> so that
-                it can also be referenced from other documents.
-            </p>
+空ノード識別子が処理中に再度ラベル付けできることは注目に値しない。 
+
+もし開発者が1つ以上の<a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空ノード</a>を参照しているのを見つけたら、他のドキュメントから参照されるために<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>を逆参照を使用するノードに命名することを考慮すべきである。
+
+</p>
         </section>
         <section class="informative" id="aliasing-keywords">
-            <h3 aria-level="2" role="heading" id="h3_aliasing-keywords"><span class="secno">6.15 </span>Aliasing Keywords</h3>
+            <h3 aria-level="2" role="heading" id="h3_aliasing-keywords"><span class="secno">6.15 </span>キーワードの別名</h3>
             <p><em>このセクションは非規範的である。</em></p>
-            <p>
-                Each of the JSON-LD
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>,
-                except for
-                <code>@context</code>, may be aliased to application-specific
-                keywords. This feature allows legacy JSON content to be utilized
-                by JSON-LD by re-using JSON keys that already exist in legacy documents.
-                This feature also allows 開発者to design domain-specific implementations
-                using only the JSON-LD
-                <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>.
-            </p>
+<p>
+それぞれのJSON-LD <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>は、<code>@context</code>をのぞいて、アプリケーション固有のキーワードのために別名をつけることができる。
+
+この機能により古いJSON-LDコンテンツを古い文書にすでに存在するJSONキーを再利用してJSON-LDに利用することを可能となる。
+
+この機能はまた開発者がJSON-LD<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>のみで使用するドメイン固有の実装を設計することを可能にする。
+
+</p>
             <div class="example">
                 <div class="example-title"><span>例 53</span>: Aliasing keywords</div>
 <pre class="example">{
   "@context":
   {
-                <span class="highlight">"url": "@id"</span>,
-                <span class="highlight">"a": "@type"</span>,
+     <span class="highlight">"url": "@id"</span>,
+     <span class="highlight">"a": "@type"</span>,
      "name": "http://xmlns.com/foaf/0.1/name"
   },
   "<span class="highlight">url</span>": "http://example.com/about#gregg",
@@ -2752,44 +2697,31 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
 }</pre>
             </div>
             <p>
-                上の例では, the
-                <code>@id</code> and
-                <code>@type</code>
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> have been given the aliases
-                <strong>url</strong> and
-                <strong>a</strong>, respectively.
+上の例では、<code>@id</code>と<code>@type</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> がそれぞれ<strong>url</strong>と<strong>a</strong>という別名を与えられている。
             </p>
             <p>
-                Since keywords cannot be redefined, they can also not be aliased to
-                other keywords.
+キーワードは再定義することはできず、また他のキーワードを別名にすることもできない。
             </p>
         </section>
         <section class="informative" id="data-indexing">
-            <h3 aria-level="2" role="heading" id="h3_data-indexing"><span class="secno">6.16 </span>Data Indexing</h3>
+            <h3 aria-level="2" role="heading" id="h3_data-indexing"><span class="secno">6.16 </span>データの索引付け</h3>
             <p><em>このセクションは非規範的である。</em></p>
             <p>
-                Databases are typically used to make access to
-                data more efficient. 開発者often extend this sort of functionality into
-                their application data to deliver similar performance gains. Often this
-                data does not have any meaning from a リンク・データ standpoint, but is
-                still useful for アプリケーション.
-            </p>
-            <p>
-                JSON-LD introduces the notion of
-                <a class="tref internalDFN" title="index-map" href="#dfn-index-map">index maps</a>
-                that can be used to structure data into a form that is
-                more efficient to access. The data indexing feature allows an 作成者to
-                structure data using a simple key-value map where the keys do not map
-                to
-                <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>. This enables direct access to data
-                instead of having to scan an array in search of a specific item.
-                In JSON-LD such data 指定することができる by associating the
-                <code>@index</code>
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> with a
-                <code>@container</code> declaration in the context:
+            
+データベースは一般的にはデータへのアクセスさらに効率的にするために使用される。
+Databases are typically used to make access to data more efficient.
+
+開発者は多くの場合、同じようなパフォーマンスの向上を提供するために、それらのアプリケーションデータにこの種の機能を拡張する。
+このデータはリンクされたデータの観点では意味を持っていないが、アプリケーションには有用である。
+
+JSON-LDは、アクセスをより効率的な形式にデータを構造化するために使用することができる<a class="tref internalDFN" title="index-map" href="#dfn-index-map">索引マップ</a>の概念を導入した。データの索引付け機能は、作成者がキーがIRIにマップされていない単純なキーと値のマップを使用しデータを構造化することができる。
+
+これは、特定のアイテムを求めるために配列をスキャンする代わりにデータへの直接アクセスを可能にする。
+
+JSON-LDでは、このようなデータは、コンテキスト内<code>@container</code>宣言で<code>@index</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>を関連付けることによって指定することができる。</p>
             </p>
             <div class="example">
-                <div class="example-title"><span>例 54</span>: Indexing data in JSON-LD</div>
+                <div class="example-title"><span>例 54</span>: JSON-LDのデータの索引付け</div>
 <pre class="example">{
   "@context":
   {
@@ -2799,13 +2731,13 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
      "words": "schema:wordCount",
      "post": {
        "@id": "schema:blogPost",
-                <span class="highlight">"@container": "@index"</span>
+       <span class="highlight">"@container": "@index"</span>
      }
   },
   "@id": "http://example.com/",
   "@type": "schema:Blog",
   "name": "World Financial News",
-                <span class="highlight">"post": {
+     <span class="highlight">"post": {
      "en": {
        "@id": "http://example.com/posts/1/en",
        "body": "World commodities were up today with heavy trading of crude oil...",
@@ -2819,27 +2751,12 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
   }
 }</pre>
             </div>
+<p>
+上記の例では、<strong>post</strong><a class="tref internalDFN" title="term" href="#dfn-term">用語</a>は、<a class="tref internalDFN" title="index-map" href="#dfn-index-map">索引マップ</a>としてマークされています。<strong>en</strong>と<strong>de</strong>キーは、意味的に無視されるが、JSON-LDのプロセッサによって、構文的に保存される。これにより開発者は次のコードスニペット<code>obj.post.de</code>を使用して<strong>post</strong>のドイツ語版にアクセスすることができる。
+</p>
             <p>
-                上の例では, the
-                <strong>post</strong>
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a> has
-                been marked as an
-                <a class="tref internalDFN" title="index-map" href="#dfn-index-map">index map</a>. The
-                <strong>en</strong> and
-                <strong>de</strong> keys will be ignored  semantically, but preserved
-                syntactically, by the JSON-LD Processor.  This allows a developer to
-                access the German version of the
-                <strong>post</strong> を使用することによって
-                following code snippet:
-                <code>obj.post.de</code>.
-            </p>
-            <p>
-                The interpretation of the data 上の表現される in
-                the table below. Note how the index keys do not appear in the リンク・データ
-                below, but would continue to exist if the document were compacted or
-                expanded (see
-                <a class="sectionRef sec-ref" href="#compacted-document-form">section 6.18 Compacted Document Form</a> and
-                <a class="sectionRef sec-ref" href="#expanded-document-form">section 6.17 Expanded Document Form</a>) using a JSON-LD processor:
+上記のデータの解釈は以下の表に表される。
+索引キーは、以下のリンク・データには表示されないが、文書がJSON-LDのプロセッサを使用して（<a class="sectionRef sec-ref" href="#compacted-document-form">6.18 圧縮された文書形式</a>節と<a class="sectionRef sec-ref" href="#expanded-document-form">section 6.17 拡張文書形式</a>節を参照）圧縮されるか拡張された場合でも存在し続けることに注意すること。
             </p>
             <table class="example">
                 <thead>
@@ -2894,22 +2811,16 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
             </table>
         </section>
         <section class="informative" id="expanded-document-form">
-            <h3 aria-level="2" role="heading" id="h3_expanded-document-form"><span class="secno">6.17 </span>Expanded Document Form</h3>
+            <h3 aria-level="2" role="heading" id="h3_expanded-document-form"><span class="secno">6.17 </span>拡張文書形式</h3>
             <p><em>このセクションは非規範的である。</em></p>
             <p>
-                The JSON-LD Processing Algorithms and API specification [
-                <cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>]
-                defines a method for
-                <em>expanding</em> a JSON-LD文書.
-                Expansion is the process of taking a JSON-LD文書 and applying a
-                <code>@context</code> such that all IRIs, types, and values
-                are expanded so that the
-                <code>@context</code> is no longer necessary.
+            
+JSON-LD処理アルゴリズムとAPI仕様[<cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>]はJSON-LDの文書を<em>拡張</em> する方法を定義する。拡張は、JSON-LDドキュメントを取得し、すべてのIRI・型・値がもはや<code>@context</code>が不要となるまでに拡張されるように<code>@context</code>を適用するプロセスである。
             </p>
-            <p>例えば, assume the following JSON-LD input document:</p>
+            <p>たとえば、以下のJSON-LDの入力文書を仮定する。</p>
             <div class="example">
-                <div class="example-title"><span>例 55</span>: Sample JSON-LD文書</div>
-<pre class="example">{
+                <div class="example-title"><span>例 55</span>: サンプルJSON-LD文書</div>
+                <pre class="example">{
    "@context":
    {
       "name": "http://xmlns.com/foaf/0.1/name",
@@ -2923,11 +2834,10 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
 }</pre>
             </div>
             <p>
-                Running the JSON-LD Expansion algorithm against the JSON-LD input document
-                provided 上のwould result in the following output:
+上記のJSON-LDの入力文書に対してJSON-LD拡張アルゴリズムを実行すると、次の出力結果となるだろう。            
             </p>
             <div class="example">
-                <div class="example-title"><span>例 56</span>: Expanded form for the previous example</div>
+                <div class="example-title"><span>例 56</span>: 前の例の展開形式</div>
 <pre class="example">[
   {
     "http://xmlns.com/foaf/0.1/name": [
@@ -2940,36 +2850,21 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
 ]</pre>
             </div>
             <p>
-                <a href="#application-ld-json">JSON-LD's media type</a> defines a
-                <code>profile</code> parameter which can be used to signal or request
-                expanded document form. The profile URI identifying expanded document
-                form is
-                <code>http://www.w3.org/ns/json-ld#expanded</code>.
+<a href="#application-ld-json">JSON-LDのメディア・タイプ</a>は、拡張文書形式を通知もしくは要求に使用できる<code>プロファイル</code>・パラメータを定義する。拡張文書形式を識別するプロファイルURIは<code>http://www.w3.org/ns/json-ld#expanded</code>である。
             </p>
         </section>
         <section class="informative" id="compacted-document-form">
-            <h3 aria-level="2" role="heading" id="h3_compacted-document-form"><span class="secno">6.18 </span>Compacted Document Form</h3>
+            <h3 aria-level="2" role="heading" id="h3_compacted-document-form"><span class="secno">6.18 </span>圧縮文書形式</h3>
             <p><em>このセクションは非規範的である。</em></p>
             <p>
-                The JSON-LD Processing Algorithms and API specification [
-                <cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>] defines
-                a method for
-                <em>compacting</em> a JSON-LD文書. Compaction is the process
-                of applying a developer-supplied context to shorten
-                <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>
-                to
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a> or
-                <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮IRI</a>
-                and JSON-LD 値 expressed in expanded form to simple 値 のように
-                <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a> or
-                <a class="tref internalDFN" title="number" href="#dfn-number">numbers</a>.
-                Often this makes it simpler to work with document as the data 表現される in
-                application-specific terms. Compacted documents are also typically easier to read
-                for humans.
+JSON-LD処理アルゴリズムとAPI仕様[<cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>]はJSON-LD文書を圧縮するための方法を定義する。
+
+圧縮は、用語のための短い<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>もしくは<a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮IRI</a>と拡張形式で<a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>もしくは<a class="tref internalDFN" title="number" href="#dfn-number">数値</a>のような単純な値によって表現されたJSON-LD値に開発者が提供するコンテキストを適用するプロセスである。
+圧縮文書はまた、一般的に人間にとって読みやすくなる。
             </p>
-            <p>例えば, assume the following JSON-LD input document:</p>
+            <p>例えば、次のJSON-LD入力文書を仮定する。</p>
             <div class="example">
-                <div class="example-title"><span>例 57</span>: Sample expanded JSON-LD文書</div>
+                <div class="example-title"><span>例 57</span>: 拡張されたJSON-LD文書のサンプル</div>
 <pre class="example">[
   {
     "http://xmlns.com/foaf/0.1/name": [ "Manu Sporny" ],
@@ -2981,7 +2876,7 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
   }
 ]</pre>
             </div>
-            <p>Additionally, assume the following developer-supplied JSON-LD context:</p>
+            <p>さらに次の開発者提供のJSON-LDコンテキストを仮定する。</p>
             <div class="example">
                 <div class="example-title"><span>例 58</span>: Sample context</div>
 <pre class="example">{
@@ -2995,9 +2890,7 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
 }</pre>
             </div>
             <p>
-                Running the JSON-LD Compaction algorithm given the context supplied above
-                against the JSON-LD input document provided 上のwould result in the following
-                output:
+            上で提供されたJSON-LD入力文書に対して上で提供されたコンテキストを与えられたJSON-LD圧縮アルゴリズムを実行すると以下の出力結果となるであろう。
             </p>
             <div class="example">
                 <div class="example-title"><span>例 59</span>: Compact form of the sample document once sample context has been applied</div>
@@ -3014,33 +2907,22 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
 }</pre>
             </div>
             <p>
-                <a href="#application-ld-json">JSON-LD's media type</a> defines a
-                <code>profile</code> parameter which can be used to signal or request
-                compacted document form. The profile URI identifying compacted document
-                form is
-                <code>http://www.w3.org/ns/json-ld#compacted</code>.
+            <a href="#application-ld-json">JSON-LDのメディア・タイプ</a>は、圧縮文書形式を通知もしくは要求に使用できる<code>プロファイル</code>・パラメータを定義する。
+            拡張文書形式を識別するプロファイルURIは<code>http://www.w3.org/ns/json-ld#compacted</code>である。
             </p>
         </section>
         <section class="informative" id="flattened-document-form">
-            <h3 aria-level="2" role="heading" id="h3_flattened-document-form"><span class="secno">6.19 </span>Flattened Document Form</h3>
+            <h3 aria-level="2" role="heading" id="h3_flattened-document-form"><span class="secno">6.19 </span>フラット化文書形式</h3>
             <p><em>このセクションは非規範的である。</em></p>
             <p>
-                The JSON-LD Processing Algorithms and API specification [
-                <cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>] defines
-                a method for
-                <em>flattening</em> a JSON-LD文書. Flattening collects all
-                プロパティof a
-                <a class="tref internalDFN" title="node" href="#dfn-node">ノード</a> in a single
-                <a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a> and labels
-                all
-                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">blank nodes</a> with
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">blank ノード identifiers</a>.
-                This ensures a shape of the data and consequently may drastically simplify the code
-                required to process JSON-LD in certain applications.
+            
+JSON-LD処理アルゴリズムとAPI仕様[<cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>]はJSON-LD文書をフラット化するための方法を定義する。
+
+フラット化は、単一の<a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>内の<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>のすべてのプロパティを収集し、<a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>を持つすべての<a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>にラベルを付ける。これは、データの形状を保証し、その結果特定のアプリケーションにおいてJSON-LDを処理するのに必要なコードを大幅に簡略化することができる。
             </p>
-            <p>例えば, assume the following JSON-LD input document:</p>
+            <p>例えば次のJSON-LD入力文書を仮定する。</p>
             <div class="example">
-                <div class="example-title"><span>例 60</span>: Sample JSON-LD文書</div>
+                <div class="example-title"><span>例 60</span>: JSON-LD文書サンプル</div>
 <pre class="example">{
   "@context": {
     "name": "http://xmlns.com/foaf/0.1/name",
@@ -3060,9 +2942,7 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
 }</pre>
             </div>
             <p>
-                Running the JSON-LD Flattening algorithm against the JSON-LD input document in
-                the example 上のand using 同じコンテキスト would result in the following
-                output:
+            	上の例のJSON-LD入力文書と同じコンテキストに対してJSON-LDフラット化アルゴリズムを実行すると次の結果が得られるだろう。
             </p>
             <div class="example">
                 <div class="example-title"><span>例 61</span>: Flattened and compacted form for the previous example</div>
@@ -3092,28 +2972,22 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
 }</pre>
             </div>
             <p>
-                <a href="#application-ld-json">JSON-LD's media type</a> defines a
-                <code>profile</code> parameter which can be used to signal or request
-                flattened document form. The profile URI identifying flattened document
-                form is
-                <code>http://www.w3.org/ns/json-ld#flattened</code>. It can be
-                combined with the profile URI identifying
-                <a href="#expanded-document-form">expanded document form</a> or
-                <a href="#compacted-document-form">compacted document from</a>.
+            <a href="#application-ld-json">JSON-LDのメディア・タイプ</a>は、フラット化文書形式を通知もしくは要求に使用できる<code>プロファイル</code>・パラメータを定義する。
+                
+                フラット化文書形式を識別するためのプロファイルURIは<code>http://www.w3.org/ns/json-ld#flattened</code>である。
+                それは<a href="#expanded-document-form">拡張文書形式</a>もしくは<a href="#compacted-document-form">圧縮文書形式</a>と組み合わせることができる。.
             </p>
         </section>
         <section class="informative" id="embedding-json-ld-in-html-documents">
-            <h3 aria-level="2" role="heading" id="h3_embedding-json-ld-in-html-documents"><span class="secno">6.20 </span>Embedding JSON-LD in HTML Documents</h3>
+            <h3 aria-level="2" role="heading" id="h3_embedding-json-ld-in-html-documents"><span class="secno">6.20 </span>HTML
+            文書中のJSON-LDの埋め込み</h3>
             <p><em>このセクションは非規範的である。</em></p>
             <p>
-                HTML script tags can be used to embed blocks of data in documents.
-                This way, JSON-LD content can be easily embedded in HTML by placing
-                it in a script element with the
-                <code>type</code> attribute set to
-                <code>application/ld+json</code>.
+            HTMLスクリプトタグは、ドキュメント内のデータ・ブロックを埋め込むために使用することができる。
+これによりJSON-LDのコンテンツは、<code>type</code>属性に<code>application/ld+json</code>を設定したscript要素を置くことで、HTMLに簡単に埋め込むことができる。
             </p>
             <div class="example">
-                <div class="example-title"><span>例 62</span>: Embedding JSON-LD in HTML</div>
+                <div class="example-title"><span>例 62</span>: HTML中のJSON-LDを埋め込む</div>
 <pre class="example"><span class="highlight">&lt;script type="application/ld+json"&gt;</span>
 {
   "@context": "http://json-ld.org/contexts/person.jsonld",
@@ -3125,41 +2999,26 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
 <span class="highlight">&lt;/script&gt;</span></pre>
             </div>
             <p>
-                Depending on how the HTML document is served, certain strings may need
-                to be escaped.
+            HTML文書が配信される方法に応じて、特定の文字列をエスケープする必要があるかもしれない。
             </p>
-            <p>
-                Defining how such data may be used is beyond the scope of this specification.
-                The embedded JSON-LD文書 might be extracted as is or, e.g., be
-                として解釈される RDF.
-            </p>
-            <p>
-                If JSON-LD content is extracted as RDF [
-                <cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>], it should be expanded into an
-                <a class="tref externalDFN" title="rdf-dataset" href="http://www.w3.org/TR/rdf11-concepts/#dfn-rdf-dataset">RDF Dataset</a> を使用することによって
-                <cite><a href="http://www.w3.org/TR/2014/REC-json-ld-api-20140116/#deserialize-json-ld-to-rdf-algorithm">Deserialize JSON-LD to RDF Algorithm</a></cite>
-                [
-                <cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>].
+            <p>使用するデータがどのように定義できるはこの仕様の範疇を超える。
+                埋め込まれたJSON-LD文書はそのままの形で取り出されるか、例えば、RDFとして解釈される。 </p>
+            <p>もしJSON-LDコンテンツがRDF [<cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>]として取り出された場合、<cite><a href="http://www.w3.org/TR/2014/REC-json-ld-api-20140116/#deserialize-json-ld-to-rdf-algorithm">JSON-LDをRDFへのデシリアライズ・アルゴリズム</a></cite>[<cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>]を使用して<a class="tref externalDFN" title="rdf-dataset" href="http://www.w3.org/TR/rdf11-concepts/#dfn-rdf-dataset">RDF データセット</a>に拡張する必要がある。
             </p>
         </section>
     </section>
     <section class="normative" id="data-model">
         <!--OddPage-->
-        <h2 aria-level="1" role="heading" id="h2_data-model"><span class="secno">7. </span>Data Model</h2>
+        <h2 aria-level="1" role="heading" id="h2_data-model"><span class="secno">7. </span>データ・モデル</h2>
+        <a name="trans" />
         <p>
-            JSON-LD is a serialization format for リンク・データ based on JSON.
-            It is therefore important to distinguish between the syntax, which is
-            defined by JSON in [
-            <cite><a class="bibref" href="#bib-RFC4627">RFC4627</a></cite>], and the
-            <dfn title="data-model" id="dfn-data-model">data model</dfn> which is
-            an extension of the RDF data model [
-            <cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>]. The precise
-            details of how JSON-LD relates to the RDF data model are given in
-            <a class="sectionRef sec-ref" href="#relationship-to-rdf">section 9. Relationship to RDF</a>.
+        JSON-LDはJSONに基づいたリンク・データ用のシリアル化形式である。
+したがって[<cite><a class="bibref" href="#bib-RFC4627">RFC4627</a></cite>]中のJSONによって定義される構文とRDFデータモデル[<cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>]の拡張である<dfn title="data-model" id="dfn-data-model">データ・モデル</dfn>を区別することが重要である。
+JSON-LDがRDFデータモデルとどのように関連するかの正確な詳細は、<a class="sectionRef sec-ref" href="#relationship-to-rdf">9. RDFへの連携</a>で与えられる。
+
         </p>
         <p>
-            To ease understanding for 開発者unfamiliar with the RDF model, the
-            following summary is provided:
+        RDFモデルに慣れていない開発者のための理解を容易にするために、以下の概要が提供されている。
         </p>
         <ul>
             <li>
@@ -3282,11 +3141,11 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
                 <code>xsd:string</code>), a
                 <a class="tref internalDFN" title="number" href="#dfn-number">数値</a>
                 (
-                <a class="tref internalDFN" title="number" href="#dfn-number">numbers</a> with a non-zero fractional part, i.e., the result of a modulo‑1 operation,
+                <a class="tref internalDFN" title="number" href="#dfn-number">数値</a> with a non-zero fractional part, i.e., the result of a modulo‑1 operation,
                 are として解釈される
                 <a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a> with type
                 <code>xsd:double</code>, all other
-                <a class="tref internalDFN" title="number" href="#dfn-number">numbers</a> are として解釈される
+                <a class="tref internalDFN" title="number" href="#dfn-number">数値</a> are として解釈される
                 <a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a>
                 with type
                 <code>xsd:integer</code>),
@@ -3317,7 +3176,7 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
                 A
                 <dfn title="list" id="dfn-list">list</dfn> is a sequence of zero or more
                 <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>,
-                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">blank nodes</a>, and
+                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>, and
                 <a class="tref internalDFN" title="json-ld-value" href="#dfn-json-ld-value">JSON-LD values</a>.
                 <a class="tref internalDFN" title="list" href="#dfn-list">Lists</a> are として解釈される
                 <a href="http://www.w3.org/TR/rdf11-mt/#rdf-collections" class="externalDFN">RDF list structures</a> [
@@ -3602,7 +3461,7 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
                 its value
                 <em class="rfc2119" title="MUST">MUST</em> be a
                 <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>. See
-                <a class="sectionRef sec-ref" href="#data-indexing">section 6.16 Data Indexing</a> for さらに進んだdiscussion
+                <a class="sectionRef sec-ref" href="#data-indexing">6.16 データの索引付け</a> for さらに進んだdiscussion
                 on
                 <code>@index</code> values.
             </p>
@@ -3630,7 +3489,7 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
                 <li><a class="tref internalDFN" title="set-object" href="#dfn-set-object">set object</a>,</li>
                 <li>an <a class="tref internalDFN" title="array" href="#dfn-array">配列</a> of zero or more of the possibilities above,</li>
                 <li>a <a class="tref internalDFN" title="language-map" href="#dfn-language-map">language map</a>, or </li>
-                <li>an <a class="tref internalDFN" title="index-map" href="#dfn-index-map">index map</a></li>
+                <li>an <a class="tref internalDFN" title="index-map" href="#dfn-index-map">索引マップ</a></li>
             </ul>
         </section>
         <section class="normative" id="value-objects">
@@ -3812,10 +3671,10 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
             <h3 aria-level="2" role="heading" id="h3_index-maps"><span class="secno">8.6 </span>Index Maps</h3>
             <p>
                 An
-                <dfn title="index-map" id="dfn-index-map">index map</dfn> allows keys that have no semantic meaning,
+                <dfn title="index-map" id="dfn-index-map">索引マップ</dfn> allows keys that have no semantic meaning,
                 but should be preserved regardless, to be used in JSON-LD文書s.
                 An
-                <a class="tref internalDFN" title="index-map" href="#dfn-index-map">index map</a> may
+                <a class="tref internalDFN" title="index-map" href="#dfn-index-map">索引マップ</a> may
                 be used as a
                 <a class="tref internalDFN" title="term" href="#dfn-term">用語</a> value within a
                 <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> if the
@@ -3823,7 +3682,7 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
                 <code>@container</code> set to
                 <code>@index</code>.
                 The 値 of the members of an
-                <a class="tref internalDFN" title="index-map" href="#dfn-index-map">index map</a>
+                <a class="tref internalDFN" title="index-map" href="#dfn-index-map">索引マップ</a>
                 <em class="rfc2119" title="MUST">MUST</em> be one
                 of the following types:
             </p>
@@ -3839,7 +3698,7 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
                 <li><a class="tref internalDFN" title="set-object" href="#dfn-set-object">set object</a>,</li>
                 <li>an <a class="tref internalDFN" title="array" href="#dfn-array">配列</a> of zero or more of the 上のpossibilities</li>
             </ul>
-            <p>See <a class="sectionRef sec-ref" href="#data-indexing">section 6.16 Data Indexing</a> for さらに進んだ情報on this topic.</p>
+            <p>See <a class="sectionRef sec-ref" href="#data-indexing">section 6.16 データの索引付け</a> for さらに進んだ情報on this topic.</p>
         </section>
         <section class="normative" id="context-definitions">
             <h3 aria-level="2" role="heading" id="h3_context-definitions"><span class="secno">8.7 </span>Context Definitions</h3>
@@ -4023,7 +3882,7 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
                 the
                 <code>@context</code>, the associated value
                 <em class="rfc2119" title="MUST">MUST</em> be an
-                <a class="tref internalDFN" title="index-map" href="#dfn-index-map">index map</a>.
+                <a class="tref internalDFN" title="index-map" href="#dfn-index-map">索引マップ</a>.
             </p>
             <p>
                 <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>
@@ -4054,7 +3913,7 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
                 In JSON-LD
                 <a class="tref internalDFN" title="property" href="#dfn-property">properties</a> can be
                 <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a> or
-                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">blank nodes</a>
+                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>
                 whereas in RDF プロパティ(predicates) have to be
                 <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>. This
                 means that JSON-LD serializes
@@ -4092,7 +3951,7 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
         </p>
         <p>
             For authors and 開発者working with
-            <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">blank nodes</a>
+            <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>
             as
             <a class="tref internalDFN" title="property" href="#dfn-property">properties</a> when deserializing to RDF,
             three potential approaches are suggested:
@@ -4106,7 +3965,7 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
             </li>
             <li>
                 If the developer wishes to use
-                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">blank nodes</a>
+                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>
                 as
                 <a class="tref internalDFN" title="property" href="#dfn-property">properties</a> and also wishes to interpret the
                 data as a
@@ -4120,13 +3979,13 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
             </li>
             <li>
                 If the 作成者or developer wishes to use
-                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">blank nodes</a>
+                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>
                 as
                 <a class="tref internalDFN" title="property" href="#dfn-property">properties</a> and wishes to interpret the data
                 as a standard (non-generalized)
                 <a class="tref externalDFN" title="rdf-dataset" href="http://www.w3.org/TR/rdf11-concepts/#dfn-rdf-dataset">RDF Dataset</a>,
                 it is possible to losslessly interpret JSON-LD as RDF by transforming
-                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">blank nodes</a> used as
+                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a> used as
                 <a class="tref internalDFN" title="property" href="#dfn-property">properties</a> to
                 <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>,
                 by minting new "Skolem IRIs" as per
@@ -4317,7 +4176,7 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
                 <h4 id="embedding-1" aria-level="3" role="heading">Embedding</h4>
                 <p>
                     Both Turtle and JSON-LD allow embedding, although Turtle only allows embedding of
-                    <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">blank nodes</a>.
+                    <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>.
                 </p>
                 <div class="example">
                     <div class="example-title"><span>例 68</span>: Embedding in Turtle</div>
@@ -4598,7 +4457,7 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
             <dt>Optional parameters:</dt>
             <dd>
                 <dl>
-                    <dt><code>profile</code></dt>
+                    <dt><code>プロファイル</code></dt>
                     <dd>
                         <p>
                             A a non-empty list of space-separated URIs identifying specific
@@ -4608,7 +4467,7 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
                             when processed without profile knowledge, so that clients both with
                             and without knowledge of a profiled resource can safely use the same
                             representation. The
-                            <code>profile</code> parameter
+                            <code>プロファイル</code> parameter
                             <em class="rfc2119" title="MAY">MAY</em> be used by
                             clients to express their preferences in the content negotiation process.
                             If the profile parameter is given, a server
@@ -4622,7 +4481,7 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
                         </p>
                         <p>
                             This specification defines three 値 for the
-                            <code>profile</code> parameter.
+                            <code>プロファイル</code> parameter.
                             To request or specify
                             <a href="#expanded-document-form">expanded JSON-LD文書 form</a>,
                             the URI
@@ -4640,7 +4499,7 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
                             <em class="rfc2119" title="SHOULD">SHOULD</em> be used.
                             Please note that, according [
                             <cite><a class="bibref" href="#bib-HTTP11">HTTP11</a></cite>], の値 the
-                            <code>profile</code>
+                            <code>プロファイル</code>
                             parameter has to be enclosed in quotes (
                             <code>"</code>) because it contains
                             special characters and, if multiple profiles are combined, whitespace.
