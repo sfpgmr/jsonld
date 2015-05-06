@@ -707,7 +707,7 @@
             </dd>
             <dt>表現力Expressiveness</dt>
             <dd>
-                構文は有向グラフをシリアル化する。これはほとんどすべての現実世界のデータモデルを表現することを保証する。
+                構文は有向グラフをシリアル化する。これはほとんどすべての現実世界のデータ・モデルを表現することを保証する。
             </dd>
             <dt>簡潔さ</dt>
             <dd>
@@ -774,10 +774,10 @@
             </dl>
         </section>
         <section class="informative" id="data-model-overview">
-            <h3 aria-level="2" role="heading" id="h3_data-model-overview"><span class="secno">3.2 </span>データモデル概要</h3>
+            <h3 aria-level="2" role="heading" id="h3_data-model-overview"><span class="secno">3.2 </span>データ・モデル概要</h3>
             <p><em>この節は非規範的である。</em></p>
             <p>
-                一般的に言えば、JSON-LDで使用されるデータモデルは名前付き有向<a class="tref internalDFN" title="graph" href="#dfn-graph">グラフ</a>である。グラフは端が接続された<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>を含む。
+                一般的に言えば、JSON-LDで使用されるデータ・モデルは名前付き有向<a class="tref internalDFN" title="graph" href="#dfn-graph">グラフ</a>である。グラフは端が接続された<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>を含む。
 
 
                 <a class="tref internalDFN" title="node" href="#dfn-node">ノードは</a>通常
@@ -788,8 +788,8 @@
                 通常<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>のようなグローバル識別子を持たないデータを表現するために使用する<a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">
                     空白ノード
                 </a>と呼ばれる特別な<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>・クラスがある。
-                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>は<a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>を使用して定義される。この簡素なデータモデルはほとんどどんな種類のデータでもモデル化が可能で信じられないほど柔軟かつ強力である。
-                データモデルのより深い説明については「<a href="#data-model" class="sec-ref"><span class="secno">7.</span> <span class="sec-title">データ・モデル</span></a>」を参照すること。
+                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>は<a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>を使用して定義される。この簡素なデータ・モデルはほとんどどんな種類のデータでもモデル化が可能で信じられないほど柔軟かつ強力である。
+                データ・モデルのより深い説明については「<a href="#data-model" class="sec-ref"><span class="secno">7.</span> <span class="sec-title">データ・モデル</span></a>」を参照すること。
             </p>
             <p>
                 リンク・データ技術に精通している開発者はRDFデータ・モデルと同様にデータ・モデルを理解するだろう。
@@ -3013,8 +3013,8 @@ JSON-LD処理アルゴリズムとAPI仕様[<cite><a class="bibref" href="#bib-J
         <a name="trans" />
         <p>
         JSON-LDはJSONに基づいたリンク・データ用のシリアル化形式である。
-したがって[<cite><a class="bibref" href="#bib-RFC4627">RFC4627</a></cite>]中のJSONによって定義される構文とRDFデータモデル[<cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>]の拡張である<dfn title="data-model" id="dfn-data-model">データ・モデル</dfn>を区別することが重要である。
-JSON-LDがRDFデータモデルとどのように関連するかの正確な詳細は、<a class="sectionRef sec-ref" href="#relationship-to-rdf">9. RDFへの連携</a>で与えられる。
+したがって[<cite><a class="bibref" href="#bib-RFC4627">RFC4627</a></cite>]中のJSONによって定義される構文とRDFデータ・モデル[<cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>]の拡張である<dfn title="data-model" id="dfn-data-model">データ・モデル</dfn>を区別することが重要である。
+JSON-LDがRDFデータ・モデルとどのように関連するかの正確な詳細は、<a class="sectionRef sec-ref" href="#relationship-to-rdf">9. RDFへの連携</a>で与えられる。
 
         </p>
         <p>
@@ -3053,72 +3053,26 @@ JSON-LDがRDFデータモデルとどのように関連するかの正確な詳�
             <li><dfn title="blank-node-identifier" id="dfn-blank-node-identifier"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-blank-node-identifier" class="externalDFN">空白ノード識別子</a></dfn>は<a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD 文書</a>の範囲内で<a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>の識別子として使用できる文字列である。空白ノード識別子は<code>_:</code>で始まる。
             </li>
             <li>
-                A
-                <dfn title="json-ld-value" id="dfn-json-ld-value">JSON-LD value</dfn> is a
-                <a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a>, a
-                <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a> (which is interpreted
-                as
-                <a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a> with type
-                <code>xsd:string</code>), a
-                <a class="tref internalDFN" title="number" href="#dfn-number">数値</a>
-                (
-                <a class="tref internalDFN" title="number" href="#dfn-number">数値</a> with a non-zero fractional part, i.e., the result of a modulo‑1 operation,
-                are として解釈される
-                <a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a> with type
-                <code>xsd:double</code>, all other
-                <a class="tref internalDFN" title="number" href="#dfn-number">数値</a> are として解釈される
-                <a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a>
-                with type
-                <code>xsd:integer</code>),
-                <a class="tref internalDFN" title="true" href="#dfn-true">true</a> or
-                <a class="tref internalDFN" title="false" href="#dfn-false">false</a> (which are として解釈される
-                <a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a> with type
-                <code>xsd:boolean</code>),
-                or a
-                <a class="tref internalDFN" title="language-tagged-string" href="#dfn-language-tagged-string">language-tagged string</a>.
+<dfn title="json-ld-value" id="dfn-json-ld-value">JSON-LD値は</dfn><a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a>, <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a> (<code>xsd:string</code>型で<a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a>として解釈される), <a class="tref internalDFN" title="number" href="#dfn-number">数値</a>( 非ゼロの小数部分を持つ<a class="tref internalDFN" title="number" href="#dfn-number">数値</a>、すなわち、モジュロ-1演算のの結果、<code>xsd:double</code>型で<a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a>として解釈される、<code>xsd:integer</code>型として<a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a>として解釈されるその他すべての <a class="tref internalDFN" title="number" href="#dfn-number">数値</a>), <a class="tref internalDFN" title="true" href="#dfn-true">true</a>または<a class="tref internalDFN" title="false" href="#dfn-false">false</a> (<code>xsd:boolean</code>型として <a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a>として解釈される)、もしくは<a class="tref internalDFN" title="language-tagged-string" href="#dfn-language-tagged-string">言語タグ文字列</a>である。
+
+              </li>
+            <li>
+<dfn title="typed-value" id="dfn-typed-value">型付き値</dfn>は文字列値そして<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>で構成される。
             </li>
             <li>
-                A
-                <dfn title="typed-value" id="dfn-typed-value">typed value</dfn> consists of a value, which is a string, and a type, which is an
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>.
+A <dfn title="language-tagged-string" id="dfn-language-tagged-string"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-language-tagged-string" class="externalDFN">言語タグ文字列</a></dfn>は文字列と[ <cite><a class="bibref" href="#bib-BCP47">BCP47</a></cite>]によって定義された空でない言語タグからなる。
+言語タグは<a href="http://tools.ietf.org/html/bcp47#section-2.2.9">2.2.9 Classes of Conformance</a> of [ <cite><a class="bibref" href="#bib-BCP47">BCP47</a></cite>]節に適格に従わなくてはならない（<em class="rfc2119" title="MUST">MUST</em>）。 
             </li>
             <li>
-                A
-                <dfn title="language-tagged-string" id="dfn-language-tagged-string"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-language-tagged-string" class="externalDFN">language-tagged string</a></dfn>
-                consists of a string and a non-empty language tag as defined by [
-                <cite><a class="bibref" href="#bib-BCP47">BCP47</a></cite>].
-                The language tag
-                <em class="rfc2119" title="MUST">MUST</em> be well-formed according to section
-                <a href="http://tools.ietf.org/html/bcp47#section-2.2.9">2.2.9 Classes of Conformance</a>
-                of [
-                <cite><a class="bibref" href="#bib-BCP47">BCP47</a></cite>].
-            </li>
-            <li>
-                A
-                <dfn title="list" id="dfn-list">list</dfn> is a sequence of zero or more
-                <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>,
-                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>, and
-                <a class="tref internalDFN" title="json-ld-value" href="#dfn-json-ld-value">JSON-LD values</a>.
-                <a class="tref internalDFN" title="list" href="#dfn-list">Lists</a> are として解釈される
-                <a href="http://www.w3.org/TR/rdf11-mt/#rdf-collections" class="externalDFN">RDF list structures</a> [
-                <cite><a class="bibref" href="#bib-RDF11-MT">RDF11-MT</a></cite>].
+            <dfn title="list" id="dfn-list">リスト</dfn>は、ゼロ個以上の<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>・ <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>・<a class="tref internalDFN" title="json-ld-value" href="#dfn-json-ld-value">JSON-LD値</a>のシーケンスである。リストは<a href="http://www.w3.org/TR/rdf11-mt/#rdf-collections" class="externalDFN">RDFリスト構造</a> [ <cite><a class="bibref" href="#bib-RDF11-MT">RDF11-MT</a></cite>]として解釈される。
             </li>
         </ul>
         <p>
-            <a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD文書s</a>
-            <em class="rfc2119" title="MAY">MAY</em> contain data
-            that cannot be represented by the
-            <a class="tref internalDFN" title="data-model" href="#dfn-data-model">data model</a>
-            defined above. Unless otherwise specified, such data is ignored when a
-            <a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD 文書</a> is being processed. One result of this rule
-            is that プロパティwhich are not mapped to an
-            <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>,
-            a
-            <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>, or
-            <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> will be ignored.
-        </p>
-        <p style="text-align: center"><img src="http://www.w3.org/TR/json-ld/linked-data-graph.png" title="An illustration of the data model" alt="An illustration of the data model"></p>
-        <p style="text-align: center">Figure&nbsp;1: An illustration of the data model.</p>
+<a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD文書</a>は上記で定義されたデータ・モデルによって表すことができないデータを含むことができる（<em class="rfc2119" title="MAY">MAY</em>）。特に断りのない限り<a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD 文書</a>が処理されるとき、そのようなデータは無視される。このルールの結果は、<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>・<a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>もしくは<a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>にマッピングされていないプロパティは無視されるということである。
+
+         </p>
+        <p style="text-align: center"><img src="http://www.w3.org/TR/json-ld/linked-data-graph.png" title="An illustration of the データ・モデル" alt="An illustration of the データ・モデル"></p>
+        <p style="text-align: center">図&nbsp;1: データ・モデルのイラスト</p>
     </section>
     <section class="normative" id="json-ld-grammar">
         <!--OddPage-->
@@ -3824,10 +3778,10 @@ JSON-LDがRDFデータモデルとどのように関連するかの正確な詳�
             <cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>]. Hence, a JSON-LD文書 is both an
             RDF document
             <em>and</em> a JSON文書 and correspondingly represents an
-            instance of an RDF data model. However, JSON-LD also extends the RDF data
+            instance of an RDF データ・モデル. However, JSON-LD also extends the RDF data
             model to optionally allow JSON-LD to serialize
             <a class="tref externalDFN" title="generalized-rdf-datasets" href="http://www.w3.org/TR/rdf11-concepts/#dfn-generalized-rdf-dataset">Generalized RDF Datasets</a>.
-            The JSON-LD extensions to the RDF data model are:
+            The JSON-LD extensions to the RDF データ・モデル are:
         </p>
         <ul>
             <li>
@@ -3842,7 +3796,7 @@ JSON-LDがRDFデータモデルとどのように関連するかの正確な詳�
             </li>
             <li>
                 In JSON-LD
-                <a class="tref internalDFN" title="list" href="#dfn-list">lists</a> are part of the data model
+                <a class="tref internalDFN" title="list" href="#dfn-list">lists</a> are part of the データ・モデル
                 whereas in RDF they are part of a vocabulary, namely [
                 <cite><a class="bibref" href="#bib-RDF11-SCHEMA">RDF11-SCHEMA</a></cite>].
             </li>
@@ -3851,7 +3805,7 @@ JSON-LDがRDFデータモデルとどのように関連するかの正確な詳�
                 <em>literals</em>
                 (
                 <a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a>) or
-                <a class="tref internalDFN" title="language-tagged-string" href="#dfn-language-tagged-string">language-tagged strings</a> whereas
+                <a class="tref internalDFN" title="language-tagged-string" href="#dfn-language-tagged-string">言語タグ文字列s</a> whereas
                 JSON-LD also supports JSON's native data types, i.e.,
                 <a class="tref internalDFN" title="number" href="#dfn-number">数値</a>,
                 <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>, and the boolean values
