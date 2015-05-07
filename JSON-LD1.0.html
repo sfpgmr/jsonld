@@ -252,6 +252,16 @@
     	font-family:"游ゴシック",san-selif;
     }
     </style>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-15457703-11', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </head>
 <body class="h-entry" role="document" id="respecDocument">
     <aside class="notice" style="border-radius: 20px; border: solid lightpink 3px;padding:0 1em;margin-bottom:2em;padding:1em;">
@@ -3077,7 +3087,7 @@ A <dfn title="language-tagged-string" id="dfn-language-tagged-string"><a href="h
             <a name="trans" />
 
         <!--OddPage-->
-        <h2 aria-level="1" role="heading" id="h2_json-ld-grammar"><span class="secno">8. </span>JSON-LD Grammar</h2>
+        <h2 aria-level="1" role="heading" id="h2_json-ld-grammar"><span class="secno">8. </span>JSON-LD文法</h2>
         <p>
         この付録では、前節で述べた構文規則をさらに正式に述べる。
         </p>
@@ -3093,25 +3103,8 @@ JSONとは対照的に、JSON-LD内の<a class="tref internalDFN" title="json-ob
         <div class="note">
             <div class="note-title" aria-level="2" role="heading" id="h_note_9"><span>注</span></div>
             <p class="">
-                JSON-LD allows
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> to be aliased
-                (see
-                <a class="sectionRef sec-ref" href="#aliasing-keywords">section 6.15 Aliasing Keywords</a> for details). Whenever a
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> is
-                discussed in this grammar, the statements also apply to an alias for
-                that
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>. 例えば, if the
-                <a class="tref internalDFN" title="active-context" href="#dfn-active-context">アクティブ・コンテキスト</a>
-                defines the
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>
-                <code>id</code> as an alias for
-                <code>@id</code>,
-                that alias may be legitimately used as a substitution for
-                <code>@id</code>.
-                Note that
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> aliases are not expanded during context
-                processing.
-            </p>
+JSON-LD allows <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> to be aliased (see <a class="sectionRef sec-ref" href="#aliasing-keywords">section 6.15 Aliasing Keywords</a> for details). Whenever a <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> is discussed in this grammar, the statements also apply to an alias for that <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>. 例えば, if the <a class="tref internalDFN" title="active-context" href="#dfn-active-context">アクティブ・コンテキスト</a> defines the <a class="tref internalDFN" title="term" href="#dfn-term">用語</a> <code>id</code> as an alias for <code>@id</code>, that alias may be legitimately used as a substitution for <code>@id</code>. Note that <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> aliases are not expanded during context processing.
+         </p>
         </div>
         <section class="normative" id="terms">
             <h3 aria-level="2" role="heading" id="h3_terms"><span class="secno">8.1 </span>Terms</h3>
