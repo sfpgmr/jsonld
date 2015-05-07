@@ -549,7 +549,7 @@
                         <a href="#terms" class="tocxref"><span class="secno">8.1 </span>用語</a>
                     </li>
                     <li class="tocline">
-                        <a href="#node-objects" class="tocxref"><span class="secno">8.2 </span>ノードオブジェクト</a>
+                        <a href="#node-objects" class="tocxref"><span class="secno">8.2 </span>ノード・オブジェクト</a>
                     </li>
                     <li class="tocline">
                         <a href="#value-objects" class="tocxref"><span class="secno">8.3 </span>値オブジェクト</a>
@@ -2580,7 +2580,7 @@ JSON-LDは有向<a class="tref internalDFN" title="graph" href="#dfn-graph">グ�
             </table>
             <p>
             
-JSON-LD文書のトップレベル構造が<a class="tref internalDFN" title="json-object" href="#dfn-json-object">オブジェクト</a><a class="tref internalDFN" title="property" href="#dfn-property">properties</a><code>@graph</code>とオプションの<code>@context</code>(<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>もしくは<a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>が無視されマップされないプロパティ)しか含まれない時, <code>@graph</code>は別な方法で暗黙に<a class="tref internalDFN" title="default-graph" href="#dfn-default-graph">既定グラフ</a>を表現しているものとみなされる。
+JSON-LD文書のトップレベル構造が<a class="tref internalDFN" title="json-object" href="#dfn-json-object">オブジェクト</a><a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a><code>@graph</code>とオプションの<code>@context</code>(<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>もしくは<a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>が無視されマップされないプロパティ)しか含まれない時, <code>@graph</code>は別な方法で暗黙に<a class="tref internalDFN" title="default-graph" href="#dfn-default-graph">既定グラフ</a>を表現しているものとみなされる。
 
 この仕組みは１つの<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a> が同じ <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>を共有するドキュメントのトップレベルに存在するとき、例えば、文書が<a href="#flattened-document-form">flattened</a>である場合に役にたつ。 
 
@@ -3095,182 +3095,89 @@ A <dfn title="language-tagged-string" id="dfn-language-tagged-string"><a href="h
 A
 <a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD 文書</a>は[ <cite><a class="bibref" href="#bib-RFC4627">RFC4627</a></cite>]で記述されるような有効なJSON文書でなければならない(<em class="rfc2119" title="MUST">MUST</em>)。</p>
         <p>
-<a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD 文書</a>はトップレベルにおいてシングル・<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>もしくは要素それぞれが<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>である<a class="tref internalDFN" title="array" href="#dfn-array">配列</a>でなければなりません(<em class="rfc2119" title="MUST">MUST</em>)。
+<a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD 文書</a>はトップレベルにおいてシングル・<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>もしくは要素それぞれが<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>である<a class="tref internalDFN" title="array" href="#dfn-array">配列</a>でなければならない(<em class="rfc2119" title="MUST">MUST</em>)。
 </p>
         <p>
-JSONとは対照的に、JSON-LD内の<a class="tref internalDFN" title="json-object" href="#dfn-json-object">オブジェクト</a>のキーは一意でなければならない（<em class="rfc2119" title="MUST">MUST</em>）。
+JSONとは対照的に、JSON-LD内の<a class="tref internalDFN" title="json-object" href="#dfn-json-object">オブジェクト</a>のキーは一意でなければならない（<em class="rfc2119" title="MUST">MUST</em>）。If
          </p>
         <div class="note">
             <div class="note-title" aria-level="2" role="heading" id="h_note_9"><span>注</span></div>
             <p class="">
-JSON-LD allows <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> to be aliased (see <a class="sectionRef sec-ref" href="#aliasing-keywords">section 6.15 Aliasing Keywords</a> for details). Whenever a <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> is discussed in this grammar, the statements also apply to an alias for that <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>. 例えば, if the <a class="tref internalDFN" title="active-context" href="#dfn-active-context">アクティブ・コンテキスト</a> defines the <a class="tref internalDFN" title="term" href="#dfn-term">用語</a> <code>id</code> as an alias for <code>@id</code>, that alias may be legitimately used as a substitution for <code>@id</code>. Note that <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> aliases are not expanded during context processing.
+            JSON-LDは、キーワードは（詳細については、<a class="sectionRef sec-ref" href="#aliasing-keywords">section 6.15 キーワードの別名</a>を参照）別名をつけることができる。
+             <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>はこの文法で会話されるときはいつでも、文にその<a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>の別名が適用される。
+            
+<a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>の別名はコンテキストの処理中は拡張されないことに注意すること。
          </p>
         </div>
         <section class="normative" id="terms">
-            <h3 aria-level="2" role="heading" id="h3_terms"><span class="secno">8.1 </span>Terms</h3>
+            <h3 aria-level="2" role="heading" id="h3_terms"><span class="secno">8.1 </span>用語</h3>
             <p>
-                A
-                <dfn title="term" id="dfn-term">term</dfn> is a short-hand
-                <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a> that expands
-                to an
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> or a
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>.
-            </p>
+<dfn title="term" id="dfn-term">用語は</dfn><a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>もしくは<a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>に拡張される短い<a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>である。</p>
+            <p><a class="tref internalDFN" title="term" href="#dfn-term">用語</a>いずれの<a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>と同じにしてはならない（<em class="rfc2119" title="MUST NOT">MUST NOT</em>）。</p>
             <p>
-                A
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>
-                <em class="rfc2119" title="MUST NOT">MUST NOT</em> equal any of the JSON-LD
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>.
-            </p>
-            <p>
-                To avoid forward-compatibility issues, a
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>
-                <em class="rfc2119" title="SHOULD NOT">SHOULD NOT</em> start
-                with an
-                <code>@</code> character as future versions of JSON-LD may introduce
-                additional
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>. Furthermore, the term
-                <em class="rfc2119" title="MUST NOT">MUST NOT</em>
-                be an empty
-                <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a> (
-                <code>""</code>) as not all programming languages
-                are able to handle empty JSON keys.
-            </p>
-            <p>
-                See
-                <a class="sectionRef sec-ref" href="#the-context">section 5.1 The Context</a> and
-                <a class="sectionRef sec-ref" href="#iris">section 5.2 IRIs</a> for さらに進んだdiscussion
-                on mapping
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a> to
-                <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>.
-            </p>
+前方互換性の問題を回避するため、<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>はJSON-LDの将来のバージョンが追加<a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>を導入できるように<code>@</code>文字で始めるべきではない（<em class="rfc2119" title="SHOULD NOT">SHOULD NOT</em>） 。
+
+さらに、用語はプログラム言語のすべてが空のJSONキーを処理できるわけではないので空の<a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>( <code>""</code>)にしてはいけない（<em class="rfc2119" title="MUST NOT">MUST NOT</em>）。</p>
+<p>
+<a class="tref internalDFN" title="term" href="#dfn-term">用語</a> を <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>へマッピングすることのさらに進んだ議論は<a class="sectionRef sec-ref" href="#the-context">5.1 コンテキスト</a>と<a class="sectionRef sec-ref" href="#iris">5.2 IRIs</a>節を参照せよ。
+</p>
         </section>
         <section class="normative" id="node-objects">
-            <h3 aria-level="2" role="heading" id="h3_node-objects"><span class="secno">8.2 </span>ノード Objects</h3>
+            <h3 aria-level="2" role="heading" id="h3_node-objects"><span class="secno">8.2 </span>ノード・オブジェクト</h3>
             <p>
-                A
-                <dfn title="node-object" id="dfn-node-object">ノード object</dfn> represents zero or more プロパティof a
-                <a class="tref internalDFN" title="node" href="#dfn-node">ノード</a> in the
-                <a class="tref internalDFN" title="graph" href="#dfn-graph">グラフ</a> serialized by the
-                <a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD 文書</a>. A
-                <a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a> is a
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> if it exists outside of a JSON-LD
-                <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a> and:
-            </p>
+<dfn title="node-object" id="dfn-node-object">ノード・オブジェクト</dfn>は<a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD 文書</a>によってシリアル化された<a class="tref internalDFN" title="graph" href="#dfn-graph">グラフ</a>中の0個以上のプロパティを表現する。
+
+<a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>はもしそれがJSON-LD <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>の外側に存在し、かつ:             </p>
             <ul>
                 <li>
-                    it does not contain the
-                    <code>@value</code>,
-                    <code>@list</code>,
-                    or
-                    <code>@set</code> keywords, and
-                </li>
+					<code>@value</code>、<code>@list</code>、<code>@set</code>キーワードを含まずかつ
+                 </li>
                 <li>
-                    it is not the top-most
-                    <a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a> in the JSON-LD文書
-                    consisting of no other members than
-                    <code>@graph</code> and
-                    <code>@context</code>.
+<code>@graph</code>と<code>@context</code>メンバーのみからなるJSON-LD文書中の最上層の<a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>でない。
                 </li>
             </ul>
             <p>
-                The
-                <a class="tref internalDFN" title="property" href="#dfn-property">properties</a> of a
-                <a class="tref internalDFN" title="node" href="#dfn-node">ノード</a> in
-                a
-                <a class="tref internalDFN" title="graph" href="#dfn-graph">グラフ</a> may be spread among different
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> within a document. When
-                that happens, the keys of the different
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> need to be merged to create the
-                プロパティof the resulting
-                <a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>.
             </p>
+			場合、<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>である。                       <p>
+ <a class="tref internalDFN" title="graph" href="#dfn-graph">グラフ</a>内の<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>の<a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a>は文書中の異なる<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>に分散されていてもよい。
+ 
+これが発生すると、異なるの<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>のキーは、得られた<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>のプロパティを作成するためにマージする必要があります。
+</p>
             <p>
-                A
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>
-                <em class="rfc2119" title="MUST">MUST</em> be a
-                <a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>. All keys
-                which are not
-                <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>,
-                <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮IRI</a>,
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>
-                valid in the
-                <a class="tref internalDFN" title="active-context" href="#dfn-active-context">アクティブ・コンテキスト</a>, or one of the following
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>
-                <em class="rfc2119" title="MUST">MUST</em> be ignored when processed:
+<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>は<a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>でなければならない（<em class="rfc2119" title="MUST">MUST</em>）。
+
+<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>でもなく、<a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮IRI</a>でもなく、<a class="tref internalDFN" title="active-context" href="#dfn-active-context">アクティブ・コンテキスト</a>中の有効な<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>でもなく、次の<a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>のうちの１つでもない、キーはすべて処理時には無視されなければならない（<em class="rfc2119" title="MUST">MUST</em>）。
             </p>
             <ul>
-                <li><code>@context</code>,</li>
-                <li><code>@id</code>,</li>
-                <li><code>@graph</code>,</li>
-                <li><code>@type</code>,</li>
-                <li><code>@reverse</code>, or</li>
+                <li><code>@context</code></li>
+                <li><code>@id</code></li>
+                <li><code>@graph</code></li>
+                <li><code>@type</code></li>
+                <li><code>@reverse</code></li>
                 <li><code>@index</code></li>
             </ul>
             <p>
-                If the
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> contains the
-                <code>@context</code>
-                key, its value
-                <em class="rfc2119" title="MUST">MUST</em> be
-                <a class="tref internalDFN" title="null" href="#dfn-null">null</a>, an
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>,
-                a
-                <a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a
-                <a class="tref internalDFN" title="context-definition" href="#dfn-context-definition">コンテキスト定義</a>, or
-                an
-                <a class="tref internalDFN" title="array" href="#dfn-array">配列</a> composed of any of these.
-            </p>
+<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>が<code>@context</code>キーを含む場合、その値は<a class="tref internalDFN" title="null" href="#dfn-null">null</a>、<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>、<a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>、<a class="tref internalDFN" title="context-definition" href="#dfn-context-definition">コンテキスト定義</a>、もしくはこれらで構成された<a class="tref internalDFN" title="array" href="#dfn-array">配列</a>のいずれかでなければならない（<em class="rfc2119" title="MUST">MUST</em>）。
+</p>
             <p>
-                If the
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> contains the
-                <code>@id</code> key,
-                its value
-                <em class="rfc2119" title="MUST">MUST</em> be an
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a
-                <a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>,
-                or a
-                <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a> (including
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子s</a>).
-                See
-                <a class="sectionRef sec-ref" href="#node-identifiers">section 5.3 ノード Identifiers</a>,
-                <a class="sectionRef sec-ref" href="#compact-iris">section 6.3 短縮IRI</a>, and
-                <a class="sectionRef sec-ref" href="#identifying-blank-nodes">section 6.14 Identifying Blank Nodes</a> for さらに進んだdiscussion on
-                <code>@id</code> values.
-            </p>
-            <p>
-                If the
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> contains the
-                <code>@graph</code>
-                key, its value
-                <em class="rfc2119" title="MUST">MUST</em> be
-                a
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> or
-                an
-                <a class="tref internalDFN" title="array" href="#dfn-array">配列</a> of zero or more
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>.
-                If the
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> contains an
-                <code>@id</code> keyword,
-                its value is used as the label of a named graph.
-                See
-                <a class="sectionRef sec-ref" href="#named-graphs">section 6.13 Named Graphs</a> for さらに進んだdiscussion on
-                <code>@graph</code> values. As a special case, if a
-                <a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>
-                contains no keys other than
-                <code>@graph</code> and
-                <code>@context</code>, and the
-                <a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a> is the root of the JSON-LD文書, the
-                <a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a> is not treated as a
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>; this
-                is used as a way of defining
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">
-                    node
-                    definitions
-                </a> that may not form a connected graph. This allows a
-                <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a> to be defined which is shared by all of the constituent
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>.
-            </p>
+
+<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>が<code>@id</code>キーを含む場合、その値は<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>、<a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>、 <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a> ( <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>を含む)のいずれかでなければならない（<em class="rfc2119" title="MUST">MUST</em>）。
+
+さらに進んだ<code>@id</code>値の議論については<a class="sectionRef sec-ref" href="#node-identifiers">5.3 ノード識別子</a>節, <a class="sectionRef sec-ref" href="#compact-iris">6.3 短縮IRI</a>節、<a class="sectionRef sec-ref" href="#identifying-blank-nodes">6.14 空白ノードの識別</a>を参照すること。
+</p>
+<p>
+<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>が<code>@graph</code>キーを含む場合、その値は<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>もしくは0以上の<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>の<a class="tref internalDFN" title="array" href="#dfn-array">配列</a>でなければならない（<em class="rfc2119" title="MUST">MUST</em>）。
+
+<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>が<code>@id</code>キーワードを含む場合、その値は名前付きグラフのためのラベルとして使用される。
+
+<code>@graph</code>値ののさらに進んだ議論については<a class="sectionRef sec-ref" href="#named-graphs">6.13 名前付きグラフ</a>節を参照すること。
+
+特別なケースとして、if a <a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>が<code>@graph</code>と<code>@context</code>以外のキーを含まず、かつ<a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>がJSON-LD文書のルートである場合、<a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>は<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>として取り扱われない。これは接続されたグラフ形式ではない<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード定義</a>を定義する手段として使用される。
+
+  This allows a <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a> to be defined which is shared by all of the constituent <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>.
+
+ 
+             </p>
             <p>
                 If the
                 <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> contains the
@@ -3289,7 +3196,7 @@ JSON-LD allows <a class="tref internalDFN" title="keyword" href="#dfn-keyword">�
                 an
                 <a class="tref internalDFN" title="array" href="#dfn-array">配列</a> of any of these.
                 See
-                <a class="sectionRef sec-ref" href="#specifying-the-type">section 5.4 Specifying the Type</a> for さらに進んだdiscussion on
+                <a class="sectionRef sec-ref" href="#specifying-the-type">section 5.4 Specifying the Type</a> のさらに進んだ議論については
                 <code>@type</code> values.
             </p>
             <p>
@@ -3492,7 +3399,7 @@ JSON-LD allows <a class="tref internalDFN" title="keyword" href="#dfn-keyword">�
                 <li><a class="tref internalDFN" title="value-object" href="#dfn-value-object">値オブジェクト</a>, or</li>
                 <li>an <a class="tref internalDFN" title="array" href="#dfn-array">配列</a> of zero or more of the 上のpossibilities</li>
             </ul>
-            <p>See <a class="sectionRef sec-ref" href="#sets-and-lists">section 6.11 Sets and Lists</a> for さらに進んだdiscussion on sets and lists.</p>
+            <p>See <a class="sectionRef sec-ref" href="#sets-and-lists">section 6.11 Sets and Lists</a> のさらに進んだ議論については sets and lists.</p>
         </section>
         <section class="normative" id="language-maps">
             <h3 aria-level="2" role="heading" id="h3_language-maps"><span class="secno">8.5 </span>Language Maps</h3>
@@ -3746,7 +3653,7 @@ JSON-LD allows <a class="tref internalDFN" title="keyword" href="#dfn-keyword">�
                 the definition of a term cannot depend on the definition of another term if that other
                 term also depends on the first term.
             </p>
-            <p>See <a class="sectionRef sec-ref" href="#the-context">section 5.1 The Context</a> for さらに進んだdiscussion on contexts.</p>
+            <p>See <a class="sectionRef sec-ref" href="#the-context">section 5.1 The Context</a> のさらに進んだ議論については contexts.</p>
         </section>
     </section>
     <section class="normative" id="relationship-to-rdf">
@@ -3767,7 +3674,7 @@ JSON-LD allows <a class="tref internalDFN" title="keyword" href="#dfn-keyword">�
         <ul>
             <li>
                 In JSON-LD
-                <a class="tref internalDFN" title="property" href="#dfn-property">properties</a> can be
+                <a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a> can be
                 <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a> or
                 <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>
                 whereas in RDF プロパティ(predicates) have to be
@@ -3809,7 +3716,7 @@ JSON-LD allows <a class="tref internalDFN" title="keyword" href="#dfn-keyword">�
             For authors and 開発者working with
             <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>
             as
-            <a class="tref internalDFN" title="property" href="#dfn-property">properties</a> when deserializing to RDF,
+            <a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a> when deserializing to RDF,
             three potential approaches are suggested:
         </p>
         <ul>
@@ -3823,7 +3730,7 @@ JSON-LD allows <a class="tref internalDFN" title="keyword" href="#dfn-keyword">�
                 If the developer wishes to use
                 <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>
                 as
-                <a class="tref internalDFN" title="property" href="#dfn-property">properties</a> and also wishes to interpret the
+                <a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a> and also wishes to interpret the
                 data as a
                 <a class="tref externalDFN" title="generalized-rdf-dataset" href="http://www.w3.org/TR/rdf11-concepts/#dfn-generalized-rdf-dataset">generalized RDF Dataset</a>,
                 there is an option,
@@ -3837,12 +3744,12 @@ JSON-LD allows <a class="tref internalDFN" title="keyword" href="#dfn-keyword">�
                 If the 作成者or developer wishes to use
                 <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>
                 as
-                <a class="tref internalDFN" title="property" href="#dfn-property">properties</a> and wishes to interpret the data
+                <a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a> and wishes to interpret the data
                 as a standard (non-generalized)
                 <a class="tref externalDFN" title="rdf-dataset" href="http://www.w3.org/TR/rdf11-concepts/#dfn-rdf-dataset">RDF Dataset</a>,
                 it is possible to losslessly interpret JSON-LD as RDF by transforming
                 <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a> used as
-                <a class="tref internalDFN" title="property" href="#dfn-property">properties</a> to
+                <a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a> to
                 <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>,
                 by minting new "Skolem IRIs" as per
                 <cite><a href="http://www.w3.org/TR/rdf11-concepts/#section-skolemization">Replacing Blank Nodes with IRIs</a></cite>
@@ -4158,7 +4065,7 @@ JSON-LD allows <a class="tref internalDFN" title="keyword" href="#dfn-keyword">�
                 described below.
             </p>
             <div class="example">
-                <div class="example-title"><span>例 75</span>: Same description in JSON-LD (context shared among ノード objects)</div>
+                <div class="example-title"><span>例 75</span>: Same description in JSON-LD (context shared among ノード・オブジェクトs)</div>
 <pre class="example">{
   "@context":
   {
