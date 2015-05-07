@@ -516,13 +516,13 @@
                         <a href="#data-indexing" class="tocxref"><span class="secno">6.16 </span>データの索引付け</a>
                     </li>
                     <li class="tocline">
-                        <a href="#expanded-document-form" class="tocxref"><span class="secno">6.17 </span>文書フォームの拡張</a>
+                        <a href="#expanded-document-form" class="tocxref"><span class="secno">6.17 </span>拡張文書形式</a>
                     </li>
                     <li class="tocline">
-                        <a href="#compacted-document-form" class="tocxref"><span class="secno">6.18 </span>文書フォームの縮小</a>
+                        <a href="#compacted-document-form" class="tocxref"><span class="secno">6.18 </span>圧縮文書形式</a>
                     </li>
                     <li class="tocline">
-                        <a href="#flattened-document-form" class="tocxref"><span class="secno">6.19 </span>文書フォームの平均化</a>
+                        <a href="#flattened-document-form" class="tocxref"><span class="secno">6.19 </span>フラット化文書形式</a>
                     </li>
                     <li class="tocline">
                         <a href="#embedding-json-ld-in-html-documents" class="tocxref"><span class="secno">6.20 </span>HTML文書中のJSON-LDの埋め込み</a>
@@ -533,10 +533,10 @@
                 <a href="#data-model" class="tocxref"><span class="secno">7. </span>データ・モデル</a>
             </li>
             <li class="tocline">
-                <a href="#json-ld-grammar" class="tocxref"><span class="secno">8. </span>JSON-LDの文法</a>
+                <a href="#json-ld-grammar" class="tocxref"><span class="secno">8. </span>JSON-LD文法</a>
                 <ul class="toc">
                     <li class="tocline">
-                        <a href="#terms" class="tocxref"><span class="secno">8.1 </span>利用規約</a>
+                        <a href="#terms" class="tocxref"><span class="secno">8.1 </span>用語</a>
                     </li>
                     <li class="tocline">
                         <a href="#node-objects" class="tocxref"><span class="secno">8.2 </span>ノードオブジェクト</a>
@@ -562,7 +562,7 @@
                 <a href="#relationship-to-rdf" class="tocxref"><span class="secno">9. </span>RDFとの連携</a>
                 <ul class="toc">
                     <li class="tocline">
-                        <a href="#serializing-deserializing-rdf" class="tocxref"><span class="secno">9.1 </span>RDFへのシリアライズ/逆シリアル化</a>
+                        <a href="#serializing-deserializing-rdf" class="tocxref"><span class="secno">9.1 </span>RDFへのシリアル化/逆シリアル化</a>
                     </li>
                 </ul>
             </li>
@@ -3079,30 +3079,17 @@ A <dfn title="language-tagged-string" id="dfn-language-tagged-string"><a href="h
         <!--OddPage-->
         <h2 aria-level="1" role="heading" id="h2_json-ld-grammar"><span class="secno">8. </span>JSON-LD Grammar</h2>
         <p>
-            This appendix restates the syntactic conventions described in the
-            previous sections more formally.
+        この付録では、前節で述べた構文規則をさらに正式に述べる。
         </p>
         <p>
-            A
-            <a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD 文書</a>
-            <em class="rfc2119" title="MUST">MUST</em> be a valid JSON文書 as described
-            in [
-            <cite><a class="bibref" href="#bib-RFC4627">RFC4627</a></cite>].
-        </p>
+A
+<a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD 文書</a>は[ <cite><a class="bibref" href="#bib-RFC4627">RFC4627</a></cite>]で記述されるような有効なJSON文書でなければならない(<em class="rfc2119" title="MUST">MUST</em>)。</p>
         <p>
-            A
-            <a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD 文書</a>
-            <em class="rfc2119" title="MUST">MUST</em> be a single
-            <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>
-            or an
-            <a class="tref internalDFN" title="array" href="#dfn-array">配列</a> whose elements are each
-            <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> at the top level.
-        </p>
+<a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD 文書</a>はトップレベルにおいてシングル・<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>もしくは要素それぞれが<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>である<a class="tref internalDFN" title="array" href="#dfn-array">配列</a>でなければなりません(<em class="rfc2119" title="MUST">MUST</em>)。
+</p>
         <p>
-            In contrast to JSON, in JSON-LD the keys in
-            <a class="tref internalDFN" title="json-object" href="#dfn-json-object">objects</a>
-            <em class="rfc2119" title="MUST">MUST</em> be unique.
-        </p>
+JSONとは対照的に、JSON-LD内の<a class="tref internalDFN" title="json-object" href="#dfn-json-object">オブジェクト</a>のキーは一意でなければならない（<em class="rfc2119" title="MUST">MUST</em>）。
+         </p>
         <div class="note">
             <div class="note-title" aria-level="2" role="heading" id="h_note_9"><span>注</span></div>
             <p class="">
