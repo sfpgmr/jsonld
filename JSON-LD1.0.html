@@ -3174,221 +3174,78 @@ JSONとは対照的に、JSON-LD内の<a class="tref internalDFN" title="json-ob
 
 特別なケースとして、if a <a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>が<code>@graph</code>と<code>@context</code>以外のキーを含まず、かつ<a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>がJSON-LD文書のルートである場合、<a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>は<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>として取り扱われない。これは接続されたグラフ形式ではない<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード定義</a>を定義する手段として使用される。
 
-  This allows a <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a> to be defined which is shared by all of the constituent <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>.
+これはすべての構成<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>によって共有される<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>を定義することを可能にする。
 
  
              </p>
             <p>
-                If the
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> contains the
-                <code>@type</code>
-                key, its value
-                <em class="rfc2119" title="MUST">MUST</em> be either an
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a
-                <a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a
-                <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>
-                (including
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子s</a>),
-                a
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a> defined in the
-                <a class="tref internalDFN" title="active-context" href="#dfn-active-context">アクティブ・コンテキスト</a> expanding into an
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, or
-                an
-                <a class="tref internalDFN" title="array" href="#dfn-array">配列</a> of any of these.
-                See
-                <a class="sectionRef sec-ref" href="#specifying-the-type">section 5.4 Specifying the Type</a> のさらに進んだ議論については
-                <code>@type</code> values.
+<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>が<code>@type</code>キーを含む場合、その値は<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>、<a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>、<a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a> (<a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>を含む)、<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>で拡張される<a class="tref internalDFN" title="active-context" href="#dfn-active-context">アクティブ・コンテキスト</a>中で定義された<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>、これらのいずれか<a class="tref internalDFN" title="array" href="#dfn-array">配列</a>でなければならない（<em class="rfc2119" title="MUST">MUST</em>）。<code>@type</code>値のさらに進んだ議論については<a class="sectionRef sec-ref" href="#specifying-the-type">5.4 型の指定</a>節を参照すること。
             </p>
             <p>
-                If the
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> contains the
-                <code>@reverse</code> key,
-                its value
-                <em class="rfc2119" title="MUST">MUST</em> be a
-                <a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a> containing members representing reverse
-                properties. Each value of such a reverse property
-                <em class="rfc2119" title="MUST">MUST</em> be an
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>,
-                a
-                <a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a
-                <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>,
-                a
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> or an
-                <a class="tref internalDFN" title="array" href="#dfn-array">配列</a> containing a combination of these.
-            </p>
+<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>が<code>@reverse</code>キーを含む場合、その値は逆プロパティを表現するメンバーを含む<a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>でなければならない（<em class="rfc2119" title="MUST">MUST</em>）。
+
+このような逆プロパティの値は<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>、<a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>、<a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>、<a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>、<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>もしくはこれらを含む配列<a class="tref internalDFN" title="array" href="#dfn-array">配列</a>でなければならない（<em class="rfc2119" title="MUST">MUST</em> ）。</p>
             <p>
-                If the
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> contains the
-                <code>@index</code> key,
-                its value
-                <em class="rfc2119" title="MUST">MUST</em> be a
-                <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>. See
-                <a class="sectionRef sec-ref" href="#data-indexing">6.16 データの索引付け</a> for さらに進んだdiscussion
-                on
-                <code>@index</code> values.
-            </p>
+<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>が<code>@index</code>キーを含む場合、その値は<a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>でなければならない（<em class="rfc2119" title="MUST">MUST</em>）。
+
+<code>@index</code>値のさらに進んだ議論については<a class="sectionRef sec-ref" href="#data-indexing">6.16 データの索引付け</a>節を参照すること。</p>
             <p>
-                Keys in a
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> that are not
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>
-                <em class="rfc2119" title="MAY">MAY</em> expand to an
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>
-                を使用することによって
-                <a class="tref internalDFN" title="active-context" href="#dfn-active-context">アクティブ・コンテキスト</a>. The 値 に関連する keys that expand
-                to an
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>
-                <em class="rfc2119" title="MUST">MUST</em> be one of the following:
-            </p>
+            <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>ではない<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>のキーは<a class="tref internalDFN" title="active-context" href="#dfn-active-context">アクティブ・コンテキスト</a>を使用することによって<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>に拡張することができる（<em class="rfc2119" title="MAY">MAY</em>）。
+            
+<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>キーで拡張された関連づけられた値は次のうちのいずれかでなければならない（ <em class="rfc2119" title="MUST">MUST</em>）。</p>
             <ul>
-                <li><a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>,</li>
-                <li><a class="tref internalDFN" title="number" href="#dfn-number">数値</a>,</li>
-                <li><a class="tref internalDFN" title="true" href="#dfn-true">true</a>,</li>
-                <li><a class="tref internalDFN" title="false" href="#dfn-false">false</a>,</li>
-                <li><a class="tref internalDFN" title="null" href="#dfn-null">null</a>,</li>
-                <li><a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>,</li>
-                <li><a class="tref internalDFN" title="value-object" href="#dfn-value-object">値オブジェクト</a>,</li>
-                <li><a class="tref internalDFN" title="list-object" href="#dfn-list-object">list object</a>,</li>
-                <li><a class="tref internalDFN" title="set-object" href="#dfn-set-object">set object</a>,</li>
-                <li>an <a class="tref internalDFN" title="array" href="#dfn-array">配列</a> of zero or more of the possibilities above,</li>
-                <li>a <a class="tref internalDFN" title="language-map" href="#dfn-language-map">language map</a>, or </li>
-                <li>an <a class="tref internalDFN" title="index-map" href="#dfn-index-map">索引マップ</a></li>
+                <li><a class="tref internalDFN" title="string" href="#dfn-string">文字列</a></li>
+                <li><a class="tref internalDFN" title="number" href="#dfn-number">数値</a></li>
+                <li><a class="tref internalDFN" title="true" href="#dfn-true">true</a></li>
+                <li><a class="tref internalDFN" title="false" href="#dfn-false">false</a></li>
+                <li><a class="tref internalDFN" title="null" href="#dfn-null">null</a></li>
+                <li><a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a></li>
+                <li><a class="tref internalDFN" title="value-object" href="#dfn-value-object">値オブジェクト</a></li>
+                <li><a class="tref internalDFN" title="list-object" href="#dfn-list-object">リスト・オブジェクト</a></li>
+                <li><a class="tref internalDFN" title="set-object" href="#dfn-set-object">セット・オブジェクト</a></li>
+                <li>上記の0以上の<a class="tref internalDFN" title="array" href="#dfn-array">配列</a></li>
+                <li><a class="tref internalDFN" title="language-map" href="#dfn-language-map">言語マップ</a></li>
+                <li><a class="tref internalDFN" title="index-map" href="#dfn-index-map">索引マップ</a></li>
             </ul>
         </section>
         <section class="normative" id="value-objects">
             <h3 aria-level="2" role="heading" id="h3_value-objects"><span class="secno">8.3 </span>Value Objects</h3>
-            <p>
-                A
-                <dfn title="value-object" id="dfn-value-object">value object</dfn> is used to explicitly associate a type or a
-                language with a value to create a
-                <a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a> or a
-                <a class="tref internalDFN" title="language-tagged-string" href="#dfn-language-tagged-string">
-                    language-tagged
-                    string
-                </a>.
-            </p>
-            <p>
-                A
-                <a class="tref internalDFN" title="value-object" href="#dfn-value-object">値オブジェクト</a>
-                <em class="rfc2119" title="MUST">MUST</em> be a
-                <a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a> containing the
-                <code>@value</code> key. It
-                <em class="rfc2119" title="MAY">MAY</em> also contain an
-                <code>@type</code>,
-                an
-                <code>@language</code>, an
-                <code>@index</code>, or an
-                <code>@context</code> キー but
-                <em class="rfc2119" title="MUST NOT">MUST NOT</em> contain
-                both an
-                <code>@type</code> and an
-                <code>@language</code> キー at the same time.
-                A
-                <a class="tref internalDFN" title="value-object" href="#dfn-value-object">値オブジェクト</a>
-                <em class="rfc2119" title="MUST NOT">MUST NOT</em> contain any other keys that expand to an
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a> or
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>.
-            </p>
-            <p>
-                The value に関連する the
-                <code>@value</code> key
-                <em class="rfc2119" title="MUST">MUST</em> be either a
-                <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>, a
-                <a class="tref internalDFN" title="number" href="#dfn-number">数値</a>,
-                <a class="tref internalDFN" title="true" href="#dfn-true">true</a>,
-                <a class="tref internalDFN" title="false" href="#dfn-false">false</a> or
-                <a class="tref internalDFN" title="null" href="#dfn-null">null</a>.
-            </p>
-            <p>
-                The value に関連する the
-                <code>@type</code> key
-                <em class="rfc2119" title="MUST">MUST</em> be a
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>, a
-                <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>,
-                an
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a
-                <a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, or
-                <a class="tref internalDFN" title="null" href="#dfn-null">null</a>.
-            </p>
-            <p>
-                The value に関連する the
-                <code>@language</code> key
-                <em class="rfc2119" title="MUST">MUST</em> have the
-                lexical form described in [
-                <cite><a class="bibref" href="#bib-BCP47">BCP47</a></cite>], or be
-                <a class="tref internalDFN" title="null" href="#dfn-null">null</a>.
-            </p>
-            <p>
-                The value に関連する the
-                <code>@index</code> key
-                <em class="rfc2119" title="MUST">MUST</em> be a
-                <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>.
-            </p>
-            <p>
-                See
-                「<a class="sectionRef sec-ref" href="#typed-values">6.4 型付けされた値</a>」節 and
-                <a class="sectionRef sec-ref" href="#string-internationalization">section 6.9 String Internationalization</a>
-                for more 情報on
-                <a class="tref internalDFN" title="value-object" href="#dfn-value-object">value objects</a>.
-            </p>
-        </section>
+<p>
+A
+<dfn title="value-object" id="dfn-value-object">値オブジェクト</dfn> is used to explicitly associate a type or a
+language with a value to create a
+<a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a> or a
+<a class="tref internalDFN" title="language-tagged-string" href="#dfn-language-tagged-string">
+language-tagged
+string
+</a>.
+</p>
+<p>
+A <a class="tref internalDFN" title="value-object" href="#dfn-value-object">値オブジェクト</a> <em class="rfc2119" title="MUST">MUST</em> be a <a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a> containing the <code>@value</code> key. It <em class="rfc2119" title="MAY">MAY</em> also contain an <code>@type</code>, an <code>@language</code>, an <code>@index</code>, or an <code>@context</code> キー but <em class="rfc2119" title="MUST NOT">MUST NOT</em> contain both an <code>@type</code> and an <code>@language</code> キー at the same time. A <a class="tref internalDFN" title="value-object" href="#dfn-value-object">値オブジェクト</a> <em class="rfc2119" title="MUST NOT">MUST NOT</em> contain any other keys that expand to an <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a> or <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>.             </p>
+<p>
+The value に関連する the <code>@value</code> key <em class="rfc2119" title="MUST">MUST</em> be either a <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>, a <a class="tref internalDFN" title="number" href="#dfn-number">数値</a>, <a class="tref internalDFN" title="true" href="#dfn-true">true</a>, <a class="tref internalDFN" title="false" href="#dfn-false">false</a> or <a class="tref internalDFN" title="null" href="#dfn-null">null</a>. </p>
+<p>
+The value に関連する the <code>@type</code> key <em class="rfc2119" title="MUST">MUST</em> be a <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>, a <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, an <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a <a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, or <a class="tref internalDFN" title="null" href="#dfn-null">null</a>. </p>
+<p>
+The value に関連する the <code>@language</code> key <em class="rfc2119" title="MUST">MUST</em> have the lexical form described in [ <cite><a class="bibref" href="#bib-BCP47">BCP47</a></cite>], or be <a class="tref internalDFN" title="null" href="#dfn-null">null</a>.
+</p>
+<p>
+The value に関連する the <code>@index</code> key <em class="rfc2119" title="MUST">MUST</em> be a <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>.
+</p>
+<p>
+See 「<a class="sectionRef sec-ref" href="#typed-values">6.4 型付けされた値</a>」節 and <a class="sectionRef sec-ref" href="#string-internationalization">section 6.9 String Internationalization</a> for more 情報on <a class="tref internalDFN" title="value-object" href="#dfn-value-object">値オブジェクトs</a>.
+</p>
+</section>
         <section class="normative" id="lists-and-sets">
             <h3 aria-level="2" role="heading" id="h3_lists-and-sets"><span class="secno">8.4 </span>Lists and Sets</h3>
             <p>
-                A
-                <a class="tref internalDFN" title="list" href="#dfn-list">リスト</a> represents an
-                <em>ordered</em> set of values. A set
-                represents an
-                <em>unordered</em> set of values. Unless otherwise specified,
-                <a class="tref internalDFN" title="array" href="#dfn-array">arrays</a> are unordered in JSON-LD. As such, the
-                <code>@set</code> keyword, when used in the body of a JSON-LD文書,
-                represents just syntactic sugar which is optimized away when processing the document.
-                However, it is very helpful when used within the context of a document. Values
-                of terms に関連する an
-                <code>@set</code> or
-                <code>@list</code> container
-                will always be represented in the form of an
-                <a class="tref internalDFN" title="array" href="#dfn-array">配列</a> when a document
-                is processed—even if there is just a single value that would otherwise be optimized to
-                a non-array form in
-                <a href="#compacted-document-form">compact document form</a>.
-                This simplifies post-processing of the data as the data is always in a
-                deterministic form.
-            </p>
+A <a class="tref internalDFN" title="list" href="#dfn-list">リスト</a> represents an <em>ordered</em> set of values. A set represents an <em>unordered</em> set of values. Unless otherwise specified, <a class="tref internalDFN" title="array" href="#dfn-array">arrays</a> are unordered in JSON-LD. As such, the <code>@set</code> keyword, when used in the body of a JSON-LD文書, represents just syntactic sugar which is optimized away when processing the document. However, it is very helpful when used within the context of a document. Values of terms に関連する an <code>@set</code> or <code>@list</code> container will always be represented in the form of an <a class="tref internalDFN" title="array" href="#dfn-array">配列</a> when a document is processed—even if there is just a single value that would otherwise be optimized to a non-array form in <a href="#compacted-document-form">compact document form</a>. This simplifies post-processing of the data as the data is always in a deterministic form.             </p>
             <p>
-                A
-                <dfn title="list-object" id="dfn-list-object">list object</dfn>
-                <em class="rfc2119" title="MUST">MUST</em> be a
-                <a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a> that contains no
-                keys that expand to an
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a> or
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> other
-                than
-                <code>@list</code>,
-                <code>@context</code>, and
-                <code>@index</code>.
-            </p>
+A <dfn title="list-object" id="dfn-list-object">リスト・オブジェクト</dfn> <em class="rfc2119" title="MUST">MUST</em> be a <a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a> that contains no keys that expand to an <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a> or <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> other than <code>@list</code>, <code>@context</code>, and <code>@index</code>.             </p>
             <p>
-                A
-                <dfn title="set-object" id="dfn-set-object">set object</dfn>
-                <em class="rfc2119" title="MUST">MUST</em> be a
-                <a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a> that contains no
-                keys that expand to an
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a> or
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> other
-                than
-                <code>@list</code>,
-                <code>@context</code>, and
-                <code>@index</code>.
-                Please note that the
-                <code>@index</code> キー will be ignored when being processed.
-            </p>
+A <dfn title="set-object" id="dfn-set-object">セット・オブジェクト</dfn> <em class="rfc2119" title="MUST">MUST</em> be a <a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a> that contains no keys that expand to an <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a> or <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a> other than <code>@list</code>, <code>@context</code>, and <code>@index</code>. Please note that the <code>@index</code> キー will be ignored when being processed.             </p>
             <p>
-                In both cases, the value に関連する the keys
-                <code>@list</code> and
-                <code>@set</code>
-                <em class="rfc2119" title="MUST">MUST</em> be one of the following types:
-            </p>
+In both cases, the value に関連する the keys <code>@list</code> and <code>@set</code> <em class="rfc2119" title="MUST">MUST</em> be one of the following types:             </p>
             <ul>
                 <li><a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>,</li>
                 <li><a class="tref internalDFN" title="number" href="#dfn-number">数値</a>,</li>
@@ -3405,15 +3262,15 @@ JSONとは対照的に、JSON-LD内の<a class="tref internalDFN" title="json-ob
             <h3 aria-level="2" role="heading" id="h3_language-maps"><span class="secno">8.5 </span>Language Maps</h3>
             <p>
                 A
-                <dfn title="language-map" id="dfn-language-map">language map</dfn> is used to associate a language with a value in a
+                <dfn title="language-map" id="dfn-language-map">言語マップ</dfn> is used to associate a language with a value in a
                 way that allows easy programmatic access. A
-                <a class="tref internalDFN" title="language-map" href="#dfn-language-map">language map</a> may be
+                <a class="tref internalDFN" title="language-map" href="#dfn-language-map">言語マップ</a> may be
                 used as a term value within a
                 <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> if the term is defined
                 with
                 <code>@container</code> set to
                 <code>@language</code>. The keys of a
-                <a class="tref internalDFN" title="language-map" href="#dfn-language-map">language map</a>
+                <a class="tref internalDFN" title="language-map" href="#dfn-language-map">言語マップ</a>
                 <em class="rfc2119" title="MUST">MUST</em> be
                 <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a> representing
                 [
@@ -3427,7 +3284,7 @@ JSONとは対照的に、JSON-LD内の<a class="tref internalDFN" title="json-ob
             </ul>
             <p>
                 See <a class="sectionRef sec-ref" href="#string-internationalization">section 6.9 String Internationalization</a> for さらに進んだdiscussion
-                on language maps.
+                on 言語マップs.
             </p>
         </section>
         <section class="normative" id="index-maps">
@@ -3457,8 +3314,8 @@ JSONとは対照的に、JSON-LD内の<a class="tref internalDFN" title="json-ob
                 <li><a class="tref internalDFN" title="null" href="#dfn-null">null</a>,</li>
                 <li><a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>,</li>
                 <li><a class="tref internalDFN" title="value-object" href="#dfn-value-object">値オブジェクト</a>,</li>
-                <li><a class="tref internalDFN" title="list-object" href="#dfn-list-object">list object</a>,</li>
-                <li><a class="tref internalDFN" title="set-object" href="#dfn-set-object">set object</a>,</li>
+                <li><a class="tref internalDFN" title="list-object" href="#dfn-list-object">リスト・オブジェクト</a>,</li>
+                <li><a class="tref internalDFN" title="set-object" href="#dfn-set-object">セット・オブジェクト</a>,</li>
                 <li>an <a class="tref internalDFN" title="array" href="#dfn-array">配列</a> of zero or more of the 上のpossibilities</li>
             </ul>
             <p>See <a class="sectionRef sec-ref" href="#data-indexing">section 6.16 データの索引付け</a> for さらに進んだ情報on this topic.</p>
@@ -3638,7 +3495,7 @@ JSONとは対照的に、JSON-LD内の<a class="tref internalDFN" title="json-ob
                 <a class="tref internalDFN" title="term" href="#dfn-term">用語</a> is used outside of the
                 <code>@context</code>, the associated value
                 <em class="rfc2119" title="MUST">MUST</em> be a
-                <a class="tref internalDFN" title="language-map" href="#dfn-language-map">language map</a>.
+                <a class="tref internalDFN" title="language-map" href="#dfn-language-map">言語マップ</a>.
                 If 値は
                 <code>@index</code>, when the
                 <a class="tref internalDFN" title="term" href="#dfn-term">用語</a> is used outside of
