@@ -267,7 +267,10 @@
     <aside class="notice" style="border-radius: 20px; border: solid lightpink 3px;padding:0 1em;margin-bottom:2em;padding:1em;">
         <p>
 
-            この文書は「<a href="http://www.w3.org/TR/json-ld/">JSON-LD 1.0</a>」の日本語訳です。日本語訳は参考情報であって、公式な文書ではありません。この文書は只今翻訳中です。ここを<a href="#trans"> クリック</a>すると現在の翻訳位置に移動します。
+            この文書は「<a href="http://www.w3.org/TR/json-ld/">JSON-LD 1.0</a>」の日本語訳です。日本語訳は参考情報であって、公式な文書ではありません。正式な文書は英語版のみであり、この日本語訳は翻訳中のため、翻訳に起因する誤りが多数含まれている可能性があります。
+正式な文書はW3Cのサイト : <a href="http://www.w3.org/TR/json-ld/">http://www.w3.org/TR/json-ld/</a>にあります。
+            この文書は翻訳中です。ここを<a href="#trans"> クリック</a>すると現在の翻訳位置に移動します。
+            誤り等のコメントについてはGitHub Issue（<a href="https://github.com/sfpgmr/jsonld/issues" target="blank">https://github.com/sfpgmr/jsonld/issues</a>）にお願いします。
         </p>
     </aside>
     <div class="head" role="contentinfo" id="respecHeader">
@@ -292,30 +295,30 @@
             <dd><a rel="dcterms:replaces" href="http://www.w3.org/TR/2013/PR-json-ld-20131105/">http://www.w3.org/TR/2013/PR-json-ld-20131105/</a></dd>
 
             <dt>Editors:</dt>
-            <dd class="p-作成者h-card vcard" rel="bibo:editor" inlist="">
+            <dd class="p-authorh-card  vcard" rel="bibo:editor" inlist="">
                 <span typeof="foaf:Person"><a class="u-url url p-name fn" rel="foaf:homepage" property="foaf:name" content="Manu Sporny" href="http://manu.sporny.org/">Manu Sporny</a>, <a rel="foaf:workplaceHomepage" class="p-org org h-org h-card" href="http://digitalbazaar.com/">Digital Bazaar</a></span>
             </dd>
-            <dd class="p-作成者h-card vcard" rel="bibo:editor" inlist="">
+            <dd class="p-authorh-card  vcard" rel="bibo:editor" inlist="">
                 <span typeof="foaf:Person"><a class="u-url url p-name fn" rel="foaf:homepage" property="foaf:name" content="Gregg Kellogg" href="http://greggkellogg.net/">Gregg Kellogg</a>, <a rel="foaf:workplaceHomepage" class="p-org org h-org h-card" href="http://kellogg-assoc.com/">Kellogg Associates</a></span>
             </dd>
-            <dd class="p-作成者h-card vcard" rel="bibo:editor" inlist="">
+            <dd class="p-authorh-card  vcard" rel="bibo:editor" inlist="">
                 <span typeof="foaf:Person"><a class="u-url url p-name fn" rel="foaf:homepage" property="foaf:name" content="Markus Lanthaler" href="http://www.markus-lanthaler.com/">Markus Lanthaler</a>, <a rel="foaf:workplaceHomepage" class="p-org org h-org h-card" href="http://www.tugraz.at/">Graz University of Technology</a></span>
             </dd>
 
             <dt>Authors:</dt>
-            <dd class="p-作成者h-card vcard" rel="dcterms:contributor">
+            <dd class="p-authorh-card  vcard" rel="dcterms:contributor">
                 <span typeof="foaf:Person"><a class="u-url url p-name fn" rel="foaf:homepage" property="foaf:name" content="Manu Sporny" href="http://digitalbazaar.com/">Manu Sporny</a>, <a rel="foaf:workplaceHomepage" class="p-org org h-org h-card" href="http://digitalbazaar.com/">Digital Bazaar</a></span>
             </dd>
-            <dd class="p-作成者h-card vcard" rel="dcterms:contributor">
+            <dd class="p-authorh-card  vcard" rel="dcterms:contributor">
                 <span typeof="foaf:Person"><a class="u-url url p-name fn" rel="foaf:homepage" property="foaf:name" content="Dave Longley" href="http://digitalbazaar.com/">Dave Longley</a>, <a rel="foaf:workplaceHomepage" class="p-org org h-org h-card" href="http://digitalbazaar.com/">Digital Bazaar</a></span>
             </dd>
-            <dd class="p-作成者h-card vcard" rel="dcterms:contributor">
+            <dd class="p-authorh-card  vcard" rel="dcterms:contributor">
                 <span typeof="foaf:Person"><a class="u-url url p-name fn" rel="foaf:homepage" property="foaf:name" content="Gregg Kellogg" href="http://greggkellogg.net/">Gregg Kellogg</a>, <a rel="foaf:workplaceHomepage" class="p-org org h-org h-card" href="http://kellogg-assoc.com/">Kellogg Associates</a></span>
             </dd>
-            <dd class="p-作成者h-card vcard" rel="dcterms:contributor">
+            <dd class="p-authorh-card  vcard" rel="dcterms:contributor">
                 <span typeof="foaf:Person"><a class="u-url url p-name fn" rel="foaf:homepage" property="foaf:name" content="Markus Lanthaler" href="http://www.markus-lanthaler.com/">Markus Lanthaler</a>, <a rel="foaf:workplaceHomepage" class="p-org org h-org h-card" href="http://www.tugraz.at/">Graz University of Technology</a></span>
             </dd>
-            <dd class="p-作成者h-card vcard" rel="dcterms:contributor">
+            <dd class="p-authorh-card  vcard" rel="dcterms:contributor">
                 <span typeof="foaf:Person"><a class="u-url url p-name fn" rel="foaf:homepage" property="foaf:name" content="Niklas Lindström" href="http://neverspace.net/">Niklas Lindström</a></span>
             </dd>
 
@@ -3290,214 +3293,78 @@ A <dfn title="value-object" id="dfn-value-object">値オブジェクト</dfn>は
         <section class="normative" id="index-maps">
                     <a name="trans" />
 
-            <h3 aria-level="2" role="heading" id="h3_index-maps"><span class="secno">8.6 </span>インデックス・マップ</h3>
+            <h3 aria-level="2" role="heading" id="h3_index-maps"><span class="secno">8.6 </span>索引マップ</h3>
             <p>
-An <dfn title="index-map" id="dfn-index-map">索引マップ</dfn> allows keys that have no semantic meaning, but should be preserved regardless, to be used in JSON-LD文書s. An <a class="tref internalDFN" title="index-map" href="#dfn-index-map">索引マップ</a> may be used as a <a class="tref internalDFN" title="term" href="#dfn-term">用語</a> value within a <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> if the term is defined with <code>@container</code> set to <code>@index</code>. The 値 of the members of an <a class="tref internalDFN" title="index-map" href="#dfn-index-map">索引マップ</a> <em class="rfc2119" title="MUST">MUST</em> be one of the following types:             </p>
+<dfn title="index-map" id="dfn-index-map">索引マップ</dfn>は意味的な意味を持たないが、JSON-LD文書中で使用されることで、何があっても維持されることを可能する。
+
+<code>@container</code>とともに定義される用語が<code>@index</code>に設定される場合、<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>内の<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>値として使用することができる。
+ 
+<a class="tref internalDFN" title="index-map" href="#dfn-index-map">索引マップ</a>のメンバーの値は次の型のうちの１つでなければなたない（<em class="rfc2119" title="MUST">MUST</em>）。</p>
+
             <ul>
-                <li><a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>,</li>
-                <li><a class="tref internalDFN" title="number" href="#dfn-number">数値</a>,</li>
-                <li><a class="tref internalDFN" title="true" href="#dfn-true">true</a>,</li>
-                <li><a class="tref internalDFN" title="false" href="#dfn-false">false</a>,</li>
-                <li><a class="tref internalDFN" title="null" href="#dfn-null">null</a>,</li>
-                <li><a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>,</li>
-                <li><a class="tref internalDFN" title="value-object" href="#dfn-value-object">値オブジェクト</a>,</li>
-                <li><a class="tref internalDFN" title="list-object" href="#dfn-list-object">リスト・オブジェクト</a>,</li>
-                <li><a class="tref internalDFN" title="set-object" href="#dfn-set-object">セット・オブジェクト</a>,</li>
-                <li>an <a class="tref internalDFN" title="array" href="#dfn-array">配列</a> of zero or more of the 上のpossibilities</li>
+                <li><a class="tref internalDFN" title="string" href="#dfn-string">文字列</a></li>
+                <li><a class="tref internalDFN" title="number" href="#dfn-number">数値</a></li>
+                <li><a class="tref internalDFN" title="true" href="#dfn-true">true</a></li>
+                <li><a class="tref internalDFN" title="false" href="#dfn-false">false</a></li>
+                <li><a class="tref internalDFN" title="null" href="#dfn-null">null</a></li>
+                <li><a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a></li>
+                <li><a class="tref internalDFN" title="value-object" href="#dfn-value-object">値オブジェクト</a></li>
+                <li><a class="tref internalDFN" title="list-object" href="#dfn-list-object">リスト・オブジェクト</a></li>
+                <li><a class="tref internalDFN" title="set-object" href="#dfn-set-object">セット・オブジェクト</a></li>
+                <li>上記の可能な型の0個以上の<a class="tref internalDFN" title="array" href="#dfn-array">配列</a></li>
             </ul>
-            <p>See <a class="sectionRef sec-ref" href="#data-indexing">section 6.16 データの索引付け</a> for さらに進んだ情報on this topic.</p>
+            <p>このトピック上のさらに進んだ情報については<a class="sectionRef sec-ref" href="#data-indexing">6.16 データの索引付け</a>節を参照すること。</p>
         </section>
         <section class="normative" id="context-definitions">
-            <h3 aria-level="2" role="heading" id="h3_context-definitions"><span class="secno">8.7 </span>Context Definitions</h3>
+            <h3 aria-level="2" role="heading" id="h3_context-definitions"><span class="secno">8.7 </span>コンテキスト定義</h3>
             <p>
-                A
-                <dfn title="context-definition" id="dfn-context-definition">コンテキスト定義</dfn> defines a
-                <a class="tref internalDFN" title="local-context" href="#dfn-local-context">ローカル・コンテキスト</a> in a
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>.
+<dfn title="context-definition" id="dfn-context-definition">コンテキスト定義</dfn>は<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>中で<a class="tref internalDFN" title="local-context" href="#dfn-local-context">ローカル・コンテキスト</a>を定義する。</p>
+            <p>
+A <a class="tref internalDFN" title="context-definition" href="#dfn-context-definition">コンテキスト定義</a>はキーが<em class="rfc2119" title="MUST">MUST</em> either be <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>、 <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮IRI</a>、<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対IRI</a>、もしくは<code>@language</code>、<code>@base</code>、 <code>@vocab</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>のいずれかでなければならない<a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>でなければならない（<em class="rfc2119" title="MUST">MUST</em>）。
+</p>
+            <p>
+<a class="tref internalDFN" title="context-definition" href="#dfn-context-definition">コンテキスト定義</a>は<code>@language</code>キーを持つ場合、その値は[ <cite><a class="bibref" href="#bib-BCP47">BCP47</a></cite>]中の語彙形式を持つかもしくは<a class="tref internalDFN" title="null" href="#dfn-null">null</a>でなければならない（<em class="rfc2119" title="MUST">MUST</em>）。</p>
+            <p>
+<a class="tref internalDFN" title="context-definition" href="#dfn-context-definition">コンテキスト定義</a>は<code>@base</code> キーを持つ場合、その値は<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>、<a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>、もしくは<a class="tref internalDFN" title="null" href="#dfn-null">null</a>でなければならない（<em class="rfc2119" title="MUST">MUST</em>）。
+             </p>
+            <p>
+<a class="tref internalDFN" title="context-definition" href="#dfn-context-definition">コンテキスト定義</a>は<code>@vocab</code>キーを持つ場合、その値は<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>、<a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>、<a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>、<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>、もしくは<a class="tref internalDFN" title="null" href="#dfn-null">null</a>でなければならない（<em class="rfc2119" title="MUST">MUST</em>）。</p>
+            <p>
+<a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>でないキーの値は<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>、<a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>、<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>、<a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>、<a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>、<a class="tref internalDFN" title="null" href="#dfn-null">null</a>、<a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>でなけばならない（<em class="rfc2119" title="MUST">MUST</em>）。
             </p>
             <p>
-                A
-                <a class="tref internalDFN" title="context-definition" href="#dfn-context-definition">コンテキスト定義</a>
-                <em class="rfc2119" title="MUST">MUST</em> be a
-                <a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a> whose
-                keys
-                <em class="rfc2119" title="MUST">MUST</em> either be
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>,
-                <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮IRI</a>,
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対IRI</a>,
-                or the
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>
-                <code>@language</code>,
-                <code>@base</code>,
-                and
-                <code>@vocab</code>.
-            </p>
+<a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>は<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>中にキーとして使用されるとき<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>に関連づける値の他のプロパティと同様に、<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>と拡張された識別子間をマッピングを記述するために使用される。。
+             </p>
             <p>
-                If the
-                <a class="tref internalDFN" title="context-definition" href="#dfn-context-definition">コンテキスト定義</a> has an
-                <code>@language</code> key,
-                its value
-                <em class="rfc2119" title="MUST">MUST</em> have the lexical form described in [
-                <cite><a class="bibref" href="#bib-BCP47">BCP47</a></cite>] or be
-                <a class="tref internalDFN" title="null" href="#dfn-null">null</a>.
-            </p>
+<a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>は<code>@id</code>、<code>@reverse</code>、<code>@type</code>、<code>@language</code>、<code>@container</code>から0以上のキーで構成された<a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>でなければならない（<em class="rfc2119" title="MUST">MUST</em>）。
+
+<a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>はそれ以外の他のキーを含むべきではない（ <em class="rfc2119" title="SHOULD NOT">SHOULD NOT</em> ）。
+             </p>
             <p>
-                If the
-                <a class="tref internalDFN" title="context-definition" href="#dfn-context-definition">コンテキスト定義</a> has an
-                <code>@base</code> key,
-                its value
-                <em class="rfc2119" title="MUST">MUST</em> be an
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a
-                <a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>,
-                or
-                <a class="tref internalDFN" title="null" href="#dfn-null">null</a>.
-            </p>
+<a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>が<code>@reverse</code>メンバーを持つ場合、同時に<code>@id</code>メンバーを持つことはできない（<em class="rfc2119" title="MUST NOT">MUST NOT</em>）。 
+
+<code>@container</code>メンバーが存在する場合、その値は<a class="tref internalDFN" title="null" href="#dfn-null">null</a>、<code>@set</code>、<code>@index</code>のいずれかでなければならない（<em class="rfc2119" title="MUST">MUST</em>）。
+</p>
             <p>
-                If the
-                <a class="tref internalDFN" title="context-definition" href="#dfn-context-definition">コンテキスト定義</a> has an
-                <code>@vocab</code> key,
-                its value
-                <em class="rfc2119" title="MUST">MUST</em> be a
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a
-                <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>,
-                a
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>, a
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>, or
-                <a class="tref internalDFN" title="null" href="#dfn-null">null</a>.
-            </p>
+用語が<a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>もしくは<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>で定義されておらず<a class="tref internalDFN" title="active-context" href="#dfn-active-context">アクティブ・コンテキスト</a>が<code>@vocab</code>マッピングを持たない場合、<a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>は<code>@id</code>キーを含まねばならない（<em class="rfc2119" title="MUST">MUST</em>）。
+</p>
             <p>
-                の値 keys that are not
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>
-                <em class="rfc2119" title="MUST">MUST</em> be either an
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a
-                <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>,
-                a
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>, a
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>,
-                <a class="tref internalDFN" title="null" href="#dfn-null">null</a>,
-                or an
-                <a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>.
-            </p>
-            <p>
-                An
-                <a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a> is used to describe the mapping
-                between a
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a> and its expanded identifier, as well as other
-                プロパティof the value に関連する the
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a> when it is
-                used as キー in a
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>.
-            </p>
-            <p>
-                An
-                <a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>
-                <em class="rfc2119" title="MUST">MUST</em> be a
-                <a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>
-                composed of zero or more keys from
-                <code>@id</code>,
-                <code>@reverse</code>,
-                <code>@type</code>,
-                <code>@language</code> or
-                <code>@container</code>. An
-                <a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>
-                <em class="rfc2119" title="SHOULD NOT">SHOULD NOT</em> contain any other keys.
-            </p>
-            <p>
-                If an
-                <a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a> has an
-                <code>@reverse</code> member,
-                it
-                <em class="rfc2119" title="MUST NOT">MUST NOT</em> have an
-                <code>@id</code> member at the same time. If an
-                <code>@container</code> member exists, its value
-                <em class="rfc2119" title="MUST">MUST</em> be
-                <a class="tref internalDFN" title="null" href="#dfn-null">null</a>,
-                <code>@set</code>, or
-                <code>@index</code>.
-            </p>
-            <p>
-                If the term being defined is not a
-                <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a> or
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a> and the
-                <a class="tref internalDFN" title="active-context" href="#dfn-active-context">アクティブ・コンテキスト</a> does not have an
-                <code>@vocab</code> mapping, the
-                <a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>
-                <em class="rfc2119" title="MUST">MUST</em>
-                include the
-                <code>@id</code> key.
-            </p>
-            <p>
-                If the
-                <a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a> contains the
-                <code>@id</code>
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>, its value
-                <em class="rfc2119" title="MUST">MUST</em> be
-                <a class="tref internalDFN" title="null" href="#dfn-null">null</a>, an
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>,
-                a
-                <a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>, a
-                <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>,
-                or a
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>.
-            </p>
-            <p>
-                If the
-                <a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a> contains the
-                <code>@type</code>
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>, its value
-                <em class="rfc2119" title="MUST">MUST</em> be an
-                <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a
-                <a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>, a
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>,
-                <a class="tref internalDFN" title="null" href="#dfn-null">null</a>, or the one of the
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>
-                <code>@id</code> or
-                <code>@vocab</code>.
-            </p>
-            <p>
-                If the
-                <a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a> contains the
-                <code>@language</code>
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>,
-                its value
-                <em class="rfc2119" title="MUST">MUST</em> have the lexical form described in [
-                <cite><a class="bibref" href="#bib-BCP47">BCP47</a></cite>] or be
-                <a class="tref internalDFN" title="null" href="#dfn-null">null</a>.
-            </p>
-            <p>
-                If the
-                <a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a> contains the
-                <code>@container</code>
-                <a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>, its value
-                <em class="rfc2119" title="MUST">MUST</em> be either
-                <code>@list</code>,
-                <code>@set</code>,
-                <code>@language</code>,
-                <code>@index</code>, or be
-                <a class="tref internalDFN" title="null" href="#dfn-null">null</a>. If the value
-                is
-                <code>@language</code>, when the
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a> is used outside of the
-                <code>@context</code>, the associated value
-                <em class="rfc2119" title="MUST">MUST</em> be a
-                <a class="tref internalDFN" title="language-map" href="#dfn-language-map">言語マップ</a>.
-                If 値は
-                <code>@index</code>, when the
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a> is used outside of
-                the
-                <code>@context</code>, the associated value
-                <em class="rfc2119" title="MUST">MUST</em> be an
-                <a class="tref internalDFN" title="index-map" href="#dfn-index-map">索引マップ</a>.
-            </p>
-            <p>
-                <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>
-                <em class="rfc2119" title="MUST NOT">MUST NOT</em> be used in a circular manner. That is,
-                the definition of a term cannot depend on the definition of another term if that other
-                term also depends on the first term.
-            </p>
-            <p>See <a class="sectionRef sec-ref" href="#the-context">section 5.1 The Context</a> のさらに進んだ議論については contexts.</p>
+<a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>が<code>@id</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>を含む場合、その値は<a class="tref internalDFN" title="null" href="#dfn-null">null</a>、<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>、<a class="tref internalDFN" title="blank-node-identifier" href="#dfn-blank-node-identifier">空白ノード識別子</a>、<a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>、<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>、<a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>のいずれかでなければならない（<em class="rfc2119" title="MUST">MUST</em>）。</p>
+<p>
+<a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>が<code>@type</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>を含む場合、その値は be an <a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">絶対<abbr title="Internationalized Resource Identifier">IRI</abbr></a>、<a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">短縮<abbr title="Internationalized Resource Identifier">IRI</abbr></a>、<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>、<a class="tref internalDFN" title="null" href="#dfn-null">null</a>、<code>@id</code>もしくは<code>@vocab</code>
+<a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>のうちの１つ、のいずれかでなければならない（<em class="rfc2119" title="MUST">MUST</em>）。
+</p>
+<p>
+<a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>が<code>@language</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>を含む場合、その値は[ <cite><a class="bibref" href="#bib-BCP47">BCP47</a></cite>]中で記述されている語彙形式か<a class="tref internalDFN" title="null" href="#dfn-null">null</a>を持たなければならない（<em class="rfc2119" title="MUST">MUST</em>）。</p>
+<p>
+<a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>が<code>@container</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>を含む場合、その値は<code>@list</code>、<code>@set</code>、<code>@language</code>、<code>@index</code>、<a class="tref internalDFN" title="null" href="#dfn-null">null</a>のうちのいずれかでなければならない（<em class="rfc2119" title="MUST">MUST</em>）。
+
+もし値が<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>が<code>@context</code>の外側で使用されるとき<code>@language</code>である場合、関連付けれる値は be a <a class="tref internalDFN" title="language-map" href="#dfn-language-map">言語マップ</a>でなければならない。 <a class="tref internalDFN" title="term" href="#dfn-term">用語</a>が<code>@context</code>の外側で使用されるときに値が<code>@index</code>である場合、関連付けられる値は<em class="rfc2119" title="MUST">MUST</em> be an <a class="tref internalDFN" title="index-map" href="#dfn-index-map">索引マップ</a>でなければならない（<em class="rfc2119" title="MUST">MUST</em>）。 </p>
+<p>
+<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>は環状に使用することはできない（<em class="rfc2119" title="MUST NOT">MUST NOT</em>）。
+用語の定義は他の用語が最初の用語に依存している場合、その他の用語の定義に依存できない。
+</p>
+<p>コンテキストのさらに進んだ議論については<a class="sectionRef sec-ref" href="#the-context">5.1 コンテキスト</a>を参照すること。</p>
         </section>
     </section>
     <section class="normative" id="relationship-to-rdf">
