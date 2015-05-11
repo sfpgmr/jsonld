@@ -3035,7 +3035,7 @@ JSON-LDがRDFデータ・モデルとどのように関連するかの正確な�
         </p>
         <ul>
             <li>
-<dfn title="json-ld-document" id="dfn-json-ld-document">JSON-LD文書</dfn>は<a class="tref internalDFN" title="graph" href="#dfn-graph">graphs</a>正確に1個の<dfn title="default-graph" id="dfn-default-graph"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-default-graph" class="externalDFN">既定のグラフ</a></dfn>と0個以上の<dfn title="named-graph" id="dfn-named-graph"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-named-graph" class="externalDFN">名前付きグラフ</a></dfn>で構成されたグラフのコレクションである<a href="http://www.w3.org/TR/rdf11-concepts/#dfn-generalized-rdf-dataset" class="externalDFN">生成されたRDFデータセット</a> [ <cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>]をシリアル化する。             </li>
+<dfn title="json-ld-document" id="dfn-json-ld-document">JSON-LD文書</dfn>は<a class="tref internalDFN" title="graph" href="#dfn-graph">graphs</a>正確に1個の<dfn title="default-graph" id="dfn-default-graph"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-default-graph" class="externalDFN">既定のグラフ</a></dfn>と0個以上の<dfn title="named-graph" id="dfn-named-graph"><a href="http://www.w3.org/TR/rdf11-concepts/#dfn-named-graph" class="externalDFN">名前付きグラフ</a></dfn>で構成されたグラフのコレクションである<a href="http://www.w3.org/TR/rdf11-concepts/#dfn-generalized-rdf-dataset" class="externalDFN">汎用RDFデータセット</a> [ <cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>]をシリアル化する。             </li>
             <li>
                 <a class="tref internalDFN" title="default-graph" href="#dfn-default-graph">既定のグラフは</a>名前を持たず空であるかもしれない（<em class="rfc2119" title="MAY">MAY</em>）。
             </li>
@@ -3372,139 +3372,63 @@ A <a class="tref internalDFN" title="context-definition" href="#dfn-context-defi
         <!--OddPage-->
         <h2 aria-level="1" role="heading" id="h2_relationship-to-rdf"><span class="secno">9. </span>RDFとの関連</h2>
         <p>
-            JSON-LD is a
-            <a class="tref externalDFN" title="concrete-rdf-syntax" href="http://www.w3.org/TR/rdf11-concepts/#dfn-concrete-rdf-syntax">concrete RDF syntax</a>
-            as described in [
-            <cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>]. Hence, a JSON-LD文書 is both an
-            RDF document
-            <em>and</em> a JSON文書 and correspondingly represents an
-            instance of an RDF データ・モデル. However, JSON-LD also extends the RDF data
-            model to optionally allow JSON-LD to serialize
-            <a class="tref externalDFN" title="generalized-rdf-datasets" href="http://www.w3.org/TR/rdf11-concepts/#dfn-generalized-rdf-dataset">Generalized RDF Datasets</a>.
-            The JSON-LD extensions to the RDF データ・モデル are:
+JSON-LDは[ <cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>]中に記載されているような<a class="tref externalDFN" title="concrete-rdf-syntax" href="http://www.w3.org/TR/rdf11-concepts/#dfn-concrete-rdf-syntax">具体的なRDF構文</a>である。
+そのため、JSON-LD文書はRDF文書でもJSON文書でもあり、対応するRDFデータ・モデルの実体を表現する。
+
+しかしながら、JSON-LDはまた任意にJSON-LDに<a class="tref externalDFN" title="generalized-rdf-datasets" href="http://www.w3.org/TR/rdf11-concepts/#dfn-generalized-rdf-dataset">汎用RDFデータセット</a>をシリアル化できるようにRDFデータ・モデルを拡張する。
+
+RDFデータ・モデルのためのJSON-LD拡張は
         </p>
         <ul>
             <li>
-                In JSON-LD
-                <a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a> can be
-                <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a> or
-                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>
-                whereas in RDF プロパティ(predicates) have to be
-                <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>. This
-                means that JSON-LD serializes
-                <a class="tref externalDFN" title="generalized-rdf-datasets" href="http://www.w3.org/TR/rdf11-concepts/#dfn-generalized-rdf-dataset">generalized RDF Datasets</a>.
-            </li>
+JSON-LDでは<a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a>が<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>もしくは<a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>が可能であるのに対してRDF プロパティでは(述語は)<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>でなければならない。
+
+このことはJSON-LDが<a class="tref externalDFN" title="generalized-rdf-datasets" href="http://www.w3.org/TR/rdf11-concepts/#dfn-generalized-rdf-dataset">汎用RDFデータセット</a>をシリアル化することを意味する。</li>
             <li>
-                In JSON-LD
-                <a class="tref internalDFN" title="list" href="#dfn-list">lists</a> are part of the データ・モデル
-                whereas in RDF they are part of a vocabulary, namely [
-                <cite><a class="bibref" href="#bib-RDF11-SCHEMA">RDF11-SCHEMA</a></cite>].
-            </li>
+JSON-LDは<a class="tref internalDFN" title="list" href="#dfn-list">リスト</a>がデータ・モデルの一部であるのに対してRDFでは語彙、すなわち[ <cite><a class="bibref" href="#bib-RDF11-SCHEMA">RDF11-SCHEMA</a></cite>]の一部である。</li>
             <li>
-                RDF 値 are either typed
-                <em>literals</em>
-                (
-                <a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a>) or
-                <a class="tref internalDFN" title="language-tagged-string" href="#dfn-language-tagged-string">言語タグ文字列s</a> whereas
-                JSON-LD also supports JSON's native data types, i.e.,
-                <a class="tref internalDFN" title="number" href="#dfn-number">数値</a>,
-                <a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>, and the boolean values
-                <a class="tref internalDFN" title="true" href="#dfn-true">true</a>
-                and
-                <a class="tref internalDFN" title="false" href="#dfn-false">false</a>. The JSON-LD Processing Algorithms and API specification [
-                <cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>]
-                defines the
-                <a href="http://www.w3.org/TR/2014/REC-json-ld-api-20140116/#data-round-tripping">conversion rules</a>
-                between JSON's native data 型and RDF's counterparts to allow round-tripping.
-            </li>
+RDF 値は型付き<em>リテラル</em> ( <a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a>)か <a class="tref internalDFN" title="language-tagged-string" href="#dfn-language-tagged-string">言語タグ文字列</a>の維持ずれ化であるのに対してJSON-LDはJSONのネイティブ・データ型、すなわち、<a class="tref internalDFN" title="number" href="#dfn-number">数値</a>、<a class="tref internalDFN" title="string" href="#dfn-string">文字列</a>、<a class="tref internalDFN" title="true" href="#dfn-true">true</a>や<a class="tref internalDFN" title="false" href="#dfn-false">false</a>のブール値をサポートする。
+
+ JSON-LD処理アルゴリズムとAPI規約[ <cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>]はJSONのネイティブ・データ型と交換可能なRDFの対応部分間の<a href="http://www.w3.org/TR/2014/REC-json-ld-api-20140116/#data-round-tripping">変換ルール</a>を定義している。 
+             </li>
         </ul>
         <p>
-            Summarized, these differences mean that JSON-LD is capable of serializing any RDF
-            graph or dataset and most, but not all, JSON-LD文書s can be directly
-            として解釈される RDF as described in RDF 1.1 Concepts [
-            <cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>].
-        </p>
-        <p>
-            For authors and 開発者working with
-            <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>
-            as
-            <a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a> when deserializing to RDF,
-            three potential approaches are suggested:
-        </p>
+まとめると、これらの相違はJSON-LDがRDFグラフとデータセットのいずれもシリアル化する能力があり、すべてではないがほとんどのJSON-LD文書がRDF 1.1 概念 [ <cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>]で記述されているようなRDFとして直接解釈される。
+</p>
+<p>
+RDFを逆シリアル化するとき<a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>を<a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a>として動作させる開発者と作成者のために、3つの可能性のあるアプローチが提案されている。
+</p>
         <ul>
             <li>
-                If the 作成者is not yet ready to commit to a stable
-                <abbr title="Internationalized Resource Identifier">IRI</abbr>, the
-                property should be mapped to an
-                <abbr title="Internationalized Resource Identifier">IRI</abbr> that is documented as unstable.
-            </li>
-            <li>
-                If the developer wishes to use
-                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>
-                as
-                <a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a> and also wishes to interpret the
-                data as a
-                <a class="tref externalDFN" title="generalized-rdf-dataset" href="http://www.w3.org/TR/rdf11-concepts/#dfn-generalized-rdf-dataset">generalized RDF Dataset</a>,
-                there is an option,
-                <i>produce generalized RDF</i>, in the
-                Deserialize JSON-LD to RDF algorithm [
-                <cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>] to do so. Note that a
-                <a class="tref externalDFN" title="generalized-rdf-dataset" href="http://www.w3.org/TR/rdf11-concepts/#dfn-generalized-rdf-dataset">generalized RDF Dataset</a>
-                is an extension of RDF; it does not conform to the RDF standard.
-            </li>
-            <li>
-                If the 作成者or developer wishes to use
-                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>
-                as
-                <a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a> and wishes to interpret the data
-                as a standard (non-generalized)
-                <a class="tref externalDFN" title="rdf-dataset" href="http://www.w3.org/TR/rdf11-concepts/#dfn-rdf-dataset">RDF Dataset</a>,
-                it is possible to losslessly interpret JSON-LD as RDF by transforming
-                <a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a> used as
-                <a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a> to
-                <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>,
-                by minting new "Skolem IRIs" as per
-                <cite><a href="http://www.w3.org/TR/rdf11-concepts/#section-skolemization">Replacing Blank Nodes with IRIs</a></cite>
-                of [
-                <cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>].
-            </li>
+作成者がまだ安定した<abbr title="Internationalized Resource Identifier">IRI</abbr>を関係づける準備ができていない場合、プロパティはpped to an 不安定として文書化される<abbr title="Internationalized Resource Identifier">IRI</abbr>にマップされるべきである。</li>
+            <li>もし開発者が<a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>を<a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a>として使用することを希望し、<a class="tref externalDFN" title="generalized-rdf-dataset" href="http://www.w3.org/TR/rdf11-concepts/#dfn-generalized-rdf-dataset">汎用RDFデータセット</a>としてデータを解釈することを希望する場合、そうするためにJSON-LDからRDFへの逆変換アルゴリズム[ <cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>] 中に<i>汎用RDFの生成</i>オプションがある。
+
+<a class="tref externalDFN" title="generalized-rdf-dataset" href="http://www.w3.org/TR/rdf11-concepts/#dfn-generalized-rdf-dataset">汎用RDFデータセット</a>はRDFの拡張であり、RDF標準に適合していないことに注意すること。</li>
+            <li>もし作成者もしくは開発者が<a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a> を<a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a>として使用することをきぼうしかつ標準の（汎用でない）<a class="tref externalDFN" title="rdf-dataset" href="http://www.w3.org/TR/rdf11-concepts/#dfn-rdf-dataset">RDFデータセット</a>としてデータを解釈することを希望する場合、<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>への<a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a>を使用し<a class="tref internalDFN" title="blank-node" href="#dfn-blank-node">空白ノード</a>を交換することによって、具体的にいうと[ <cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>]の<cite><a href="http://www.w3.org/TR/rdf11-concepts/#section-skolemization">空白ノードをIRIに置き換える</a></cite>ごとに新しく"スコーレムIRI"を作り出すことによって、JSON-LDをRDFとして無損失で解釈させることが可能となる。
+            
+             </li>
         </ul>
         <p>
-            The normative algorithms for interpreting JSON-LD as RDF and serializing
-            RDF as JSON-LD are specified in the JSON-LD Processing Algorithms and API
-            specification [
-            <cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>].
-        </p>
+        RDFとしてJSON-LDを解釈し、JSON-LDとしてRDFをシリアル化するための規範的なアルゴリズムは、JSON-LD処理アルゴリズムとAPI仕様[ <cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>]で明記されている。
+         </p>
         <p>
-            Even though JSON-LD serializes
-            <a class="tref externalDFN" title="generalized-rdf-datasets" href="http://www.w3.org/TR/rdf11-concepts/#dfn-generalized-rdf-dataset">generalized RDF Datasets</a>, it can
-            also be used as a
-            <a class="tref externalDFN" title="rdf-graph-source" href="http://www.w3.org/TR/rdf11-concepts/#dfn-rdf-source">RDF graph source</a>.
-            In that case, a consumer
-            <em class="rfc2119" title="MUST">MUST</em> only use the default graph and ignore all named graphs.
-            This allows servers to expose data in languages のように Turtle and JSON-LD
-            using content negotiation.
-        </p>
+JSON-LDは<a class="tref externalDFN" title="generalized-rdf-datasets" href="http://www.w3.org/TR/rdf11-concepts/#dfn-generalized-rdf-dataset">汎用RDFデータセット</a>をシリアル化するのであるが、<a class="tref externalDFN" title="rdf-graph-source" href="http://www.w3.org/TR/rdf11-concepts/#dfn-rdf-source">RDFグラフ・ソース</a>しても使用できる。
+
+その場合、コンシューマーは
+ In that case, a consumer <em class="rfc2119" title="MUST">MUST</em> only use the default graph and ignore all named graphs.
+  This allows servers to expose data in languages のように Turtle and JSON-LD using content negotiation.
+         </p>
         <div class="note">
             <div class="note-title" aria-level="2" role="heading" id="h_note_10"><span>注</span></div>
             <p class="">
-                Publishers supporting both dataset and graph syntaxes have to ensure that
-                the primary data is stored in the default graph to enable consumers that do not support
-                datasets to process the information.
-            </p>
+Publishers supporting both dataset and graph syntaxes have to ensure that the primary data is stored in the default graph to enable consumers that do not support datasets to process the information.
+             </p>
         </div>
         <section class="informative" id="serializing-deserializing-rdf">
             <h3 aria-level="2" role="heading" id="h3_serializing-deserializing-rdf"><span class="secno">9.1 </span>Serializing/Deserializing RDF</h3>
             <p><em>このセクションは非規範的である。</em></p>
             <p>
-                The process of serializing RDF as JSON-LD and deserializing JSON-LD to RDF
-                depends on executing the algorithms defined in
-                <cite><a href="http://www.w3.org/TR/2014/REC-json-ld-api-20140116/#rdf-serialization-deserialization-algorithms">RDF Serialization-Deserialization Algorithms</a></cite>
-                in the JSON-LD Processing Algorithms and API specification [
-                <cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>].
-                It is beyond the scope of this document to detail these algorithms any further,
-                but a summary of the necessary operations is provided to illustrate the process.
-            </p>
+The process of serializing RDF as JSON-LD and deserializing JSON-LD to RDF depends on executing the algorithms defined in <cite><a href="http://www.w3.org/TR/2014/REC-json-ld-api-20140116/#rdf-serialization-deserialization-algorithms">RDF Serialization-Deserialization Algorithms</a></cite> in the JSON-LD Processing Algorithms and API specification [ <cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>]. It is beyond the scope of this document to detail these algorithms any further, but a summary of the necessary operations is provided to illustrate the process.             </p>
             <p>
                 The procedure to deserialize a JSON-LD文書 to RDF involves the
                 following steps:
