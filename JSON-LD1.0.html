@@ -3414,47 +3414,42 @@ RDFを逆シリアル化するとき<a class="tref internalDFN" title="blank-nod
         <p>
 JSON-LDは<a class="tref externalDFN" title="generalized-rdf-datasets" href="http://www.w3.org/TR/rdf11-concepts/#dfn-generalized-rdf-dataset">汎用RDFデータセット</a>をシリアル化するのであるが、<a class="tref externalDFN" title="rdf-graph-source" href="http://www.w3.org/TR/rdf11-concepts/#dfn-rdf-source">RDFグラフ・ソース</a>しても使用できる。
 
-その場合、コンシューマーは
- In that case, a consumer <em class="rfc2119" title="MUST">MUST</em> only use the default graph and ignore all named graphs.
-  This allows servers to expose data in languages のように Turtle and JSON-LD using content negotiation.
+その場合、利用者は既定のグラフのみ使用できなければならず（ <em class="rfc2119" title="MUST">MUST</em>）、すべての名前付きグラフは無視される。
+これはサーバーがコンテント・ネゴシエーションを使用するTurtleやJSON-LDのなどの言語でデータを公開することを可能にする。
          </p>
         <div class="note">
             <div class="note-title" aria-level="2" role="heading" id="h_note_10"><span>注</span></div>
             <p class="">
-Publishers supporting both dataset and graph syntaxes have to ensure that the primary data is stored in the default graph to enable consumers that do not support datasets to process the information.
+            データセットとグラフの構文両方をサポートする発行者はプライマリ・データが、情報を処理するためにデータセットをサポートしない利用者を可能とするようにデフォルト・グラフ中に格納されていることを確認しなければならない。
              </p>
         </div>
         <section class="informative" id="serializing-deserializing-rdf">
-            <h3 aria-level="2" role="heading" id="h3_serializing-deserializing-rdf"><span class="secno">9.1 </span>Serializing/Deserializing RDF</h3>
+            <h3 aria-level="2" role="heading" id="h3_serializing-deserializing-rdf"><span class="secno">9.1 </span>RDFのシリアル化/逆シリアル化</h3>
             <p><em>このセクションは非規範的である。</em></p>
             <p>
-The process of serializing RDF as JSON-LD and deserializing JSON-LD to RDF depends on executing the algorithms defined in <cite><a href="http://www.w3.org/TR/2014/REC-json-ld-api-20140116/#rdf-serialization-deserialization-algorithms">RDF Serialization-Deserialization Algorithms</a></cite> in the JSON-LD Processing Algorithms and API specification [ <cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>]. It is beyond the scope of this document to detail these algorithms any further, but a summary of the necessary operations is provided to illustrate the process.             </p>
+            RDFをJSON-LDとしてシリアル化し、JSON-LDをRDFに逆シリアル化する処理は
+ JSON-LD処理アルゴリズムとAPI仕様[ <cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>]中の<cite><a href="http://www.w3.org/TR/2014/REC-json-ld-api-20140116/#rdf-serialization-deserialization-algorithms">RDF シリアル化-逆シリアル化 アルゴリズム</a></cite>に依存している。
+
+これらのアルゴリズムのこれ以上の詳細についてはこの文書の範囲を超えているが、必要な操作の概要が処理を説明するために提供されている。
             <p>
-                The procedure to deserialize a JSON-LD文書 to RDF involves the
-                following steps:
+            JSON-LD文書を逆シリアル化する手続きは次の手順を伴う。
             </p>
             <ol>
                 <li>
-                    Expand the JSON-LD文書, removing any context; this ensures
-                    that properties, types, and 値 are given their full representation
-                    as
-                    <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a> and expanded values. Expansion
-                    is discussed さらに進んだin
-                    <a class="sectionRef sec-ref" href="#expanded-document-form">section 6.17 Expanded Document Form</a>.
-                </li>
+                すべてのコンテキストを取り除き、JSON-LD文書を展開。これはプロパティ、型、値がすべて <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>と拡張された値として表現を与えられることを保証する。
+Expand the JSON-LD文書, removing any context;
+ this ensures that properties, types, and 値 are given their full representation as <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a> and expanded values. 
+ 
+拡張は<a class="sectionRef sec-ref" href="#expanded-document-form">6.17 拡張文書形式</a>節で詳しく説明されている。
+                 </li>
                 <li>
-                    Flatten the document, which turns the document into an array of
-                    <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>. Flattening is discussed
-                    さらに進んだin
-                    <a class="sectionRef sec-ref" href="#flattened-document-form">section 6.19 Flattened Document Form</a>.
-                </li>
+                文書を<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>の配列に変えるためにドキュメントをフラット化する。
+フラット化については<a class="sectionRef sec-ref" href="#flattened-document-form">6.19 Flattened Document Form</a>節で詳しく説明されている。
+                 </li>
                 <li>
-                    Turn each
-                    <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> into a series of
-                    <a class="tref externalDFN" title="rdf-triples" href="http://www.w3.org/TR/rdf11-concepts/#dfn-rdf-triple">RDF triples</a>.
-                </li>
+それぞれの<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>を<a class="tref externalDFN" title="rdf-triples" href="http://www.w3.org/TR/rdf11-concepts/#dfn-rdf-triple">RDFトリプルの</a>列に変換する。                 </li>
             </ol>
-            <p>例えば, consider the following JSON-LD文書 in compact form:</p>
+            <p>例えば、次の圧縮形式のJSON-LD文書を考える。</p>
             <div class="example">
                 <div class="example-title"><span>例 63</span>: Sample JSON-LD文書</div>
 <pre class="example">{
@@ -3476,9 +3471,7 @@ The process of serializing RDF as JSON-LD and deserializing JSON-LD to RDF depen
 }</pre>
             </div>
             <p>
-                Running the JSON-LD Expansion and Flattening algorithms against the
-                JSON-LD input document 上の例では would result in the
-                following output:
+            上の例のJSON-LD入力文書に対してJSON-LD拡張およびフラット化を実行すると次の出力を得る。
             </p>
             <div class="example">
                 <div class="example-title"><span>例 64</span>: Flattened and expanded form for the previous example</div>
@@ -3502,26 +3495,17 @@ The process of serializing RDF as JSON-LD and deserializing JSON-LD to RDF depen
 ]</pre>
             </div>
             <p>
-                Deserializing this to RDF now is a straightforward process of turning
-                each <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a> into one or more RDF triples. This can be
-                expressed in Turtle as follows:
-            </p>
+            今これをRDFへ逆シリアル化することはそれぞれの<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>を1つ以上のRDFトリプルに変換する簡単な処理となる。
+これは次のタートルで表現することができる。</p>
             <div class="example">
-                <div class="example-title"><span>例 65</span>: Turtle 表現of expanded/flattened document</div>
+                <div class="example-title"><span>例 65</span>: 拡張/フラット化文書のタートル表現</div>
 <pre class="example">_:b0 &lt;http://xmlns.com/foaf/0.1/name&gt; "Dave Longley" .
 &lt;http://manu.sporny.org/about#manu&gt; &lt;http://xmlns.com/foaf/0.1/name&gt; "Manu Sporny" .
 &lt;http://me.markus-lanthaler.com/&gt; &lt;http://xmlns.com/foaf/0.1/name&gt; "Markus Lanthaler" ;
     &lt;http://xmlns.com/foaf/0.1/knows&gt; &lt;http://manu.sporny.org/about#manu&gt;, _:b0 .</pre>
             </div>
-            <p>
-                The process of serializing RDF as JSON-LD can be thought of as the
-                inverse of this last step, creating an expanded JSON-LD文書 closely
-                matching the triples from RDF, using a single
-                <a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>
-                for all triples having a 共通subject, and a single
-                <a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a>
-                for those triples also having a 共通predicate.
-            </p>
+            <p>RDFをJSON-LDにシリアル化するプロセスは、最後のステップの逆、RDFトリプルを厳密にマッチする拡張されたJSON-LD文書を作成すること、共通の対象を持つすべてのトリプルのための1つの<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>および共通の述語を持つトリプルのための1つの <a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a>を使用すること、と考えることができる。
+</p>
         </section>
     </section>
     <section class="appendix informative" id="relationship-to-other-linked-data-formats">
