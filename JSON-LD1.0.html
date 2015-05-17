@@ -2726,7 +2726,6 @@ JSON-LDは、アクセスをより効率的な形式にデータを構造化す�
 これは、特定のアイテムを求めるために配列をスキャンする代わりにデータへの直接アクセスを可能にする。
 
 JSON-LDでは、このようなデータは、コンテキスト内<code>@container</code>宣言で<code>@index</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>を関連付けることによって指定することができる。</p>
-            </p>
             <div class="example">
                 <div class="example-title"><span>例 54</span>: JSON-LDのデータの索引付け</div>
 <pre class="example">{
@@ -3823,9 +3822,7 @@ hCardの表現は<a class="tref internalDFN" title="context" href="#dfn-context"
 
 <a href="#flattened-document-form">フラット化JSON-LD文書形式</a>を指定もしくは要求するために、 URI <code>http://www.w3.org/ns/json-ld#flattened</code>を使用すべきである（ <em class="rfc2119" title="SHOULD">SHOULD</em>）。
 
-	<a name="trans" />
-
-[ <cite><a class="bibref" href="#bib-HTTP11">HTTP11</a></cite>]に適合するために <code>profile</code>パラメータの値は特殊文字と複数のプロファイルの組み合わせされている場合は空白文字が含まれるため、クォート( <code>"</code>)で囲まれなければならないことに注意いただきたい。
+[ <cite><a class="bibref" href="#bib-HTTP11" >HTTP11</a></cite>]に適合するために <code>profile</code>パラメータの値は特殊文字と複数のプロファイルの組み合わせされている場合は空白文字が含まれるため、クォート( <code>"</code>)で囲まれなければならないことに注意いただきたい。
  </p>
                         <p>
 "profile"メディア・タイプ・パラメータを処理するとき、その値が１つ以上のIRIでないURIを含むこのに注目することが重要である。
