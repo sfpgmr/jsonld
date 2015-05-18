@@ -542,7 +542,7 @@
                 <a href="#data-model" class="tocxref"><span class="secno">7. </span>データ・モデル</a>
             </li>
             <li class="tocline">
-                <a href="#json-ld-grammar" class="tocxref"><span class="secno">8. </span>JSON-LD文法</a>
+                <a href="#json-ld-grammar" class="tocxref"><span class="secno">8. </span>JSON-LD構文</a>
                 <ul class="toc">
                     <li class="tocline">
                         <a href="#terms" class="tocxref"><span class="secno">8.1 </span>用語</a>
@@ -568,7 +568,7 @@
                 </ul>
             </li>
             <li class="tocline">
-                <a href="#relationship-to-rdf" class="tocxref"><span class="secno">9. </span>RDFとの連携</a>
+                <a href="#relationship-to-rdf" class="tocxref"><span class="secno">9. </span>RDFとの関係</a>
                 <ul class="toc">
                     <li class="tocline">
                         <a href="#serializing-deserializing-rdf" class="tocxref"><span class="secno">9.1 </span>RDFへのシリアル化/逆シリアル化</a>
@@ -940,19 +940,11 @@ JSON-LDは、既存のJSONベースのシステムからのスムーズかつシ
 
         <p>
 <code>name</code>が"Manu Sporny"で<code>homepage</code>プロパティが個人のホームページのURLを含む人物についてのデータであることが人間にとってあきらかである。
-マシンはこのような直感的な理解ができない、そしてときどき人間でさえも表現の曖昧さを解決することは困難である。
-この問題は"name"や"homepage"やその他の単語の代わりに異なるコンセプトで示すための明確な識別子を使用することによって解決することができる。
+機械はこのような直感的な理解ができず、ときどき表現の曖昧さを解決することは人間でさえ困難である。
+この問題は"name"や"homepage"やその他のトークンの代わりに異なる概念で示す明確な識別子を使用することによって解決することができる。
         </p>
         <p>
-            リンク・データそして一般的にWebでは明確な識別のために<a class="tref internalDFN" title="iri" href="#dfn-iri">
-                IRI
-            </a>（[<cite><a class="bibref" href="#bib-RFC3987">RFC3987</a></cite>]に記載されているInternationalized Resource Identifiers）を使用する。
-            アイデアは使用するかもしれない他の開発者へ、データへの明確な識別子を割り当てるために<a class="tref internalDFN" title="iri" href="#dfn-iri">
-    IRI</a>を使用することである。
-            <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>へ拡張することは<code>name</code>や
-<code>homepage</code>のような用語を開発者が各々の用語を誤って使用しないために
-    役立つ。さらに開発者とマシンが用語に行きそして用語が意味する定義を得るためにこの<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> (たとえばWebブラウザを使用することによって)を使用することができる。
-            このプロセスは<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>間接参照として知られている。
+リンク・データそして一般的にWebでは明確な識別のために<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>[<cite><a class="bibref" href="#bib-RFC3987">RFC3987</a></cite>]に記載されているInternationalized Resource Identifiers）を使用する。着想は使用するかもしれない他の開発者へ、データへの明確な識別子を割り当てるために<a class="tref internalDFN" title="iri" href="#dfn-iri"> IRI</a>を使用することである。 <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>へ拡張することは<code>name</code>や <code>homepage</code>のような用語を開発者が各々の用語を誤って使用しないために役立つ。さらに開発者とマシンが用語に到達し用語が意味する定義を得るためにこの<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> (たとえばWebブラウザを使用することによって)を使用することができる。 このプロセスは<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>間接参照として知られている。 
 </p>
         <p>
             ポピュラーな<a href="http://schema.org/">schema.org</a>語彙の効力により、上の例は次のように明確に表現することができた。
@@ -1103,7 +1095,7 @@ JSON-LDは、既存のJSONベースのシステムからのスムーズかつシ
             </div>
             <p>
                 <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>として解釈される値は、<a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対URL</a>で表現することができる。
-                例えば次の文書が<code>http://example.com/about/</code>に位置していると仮定すると、<a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対<abbr title="Internationalized Resource Identifier">IRI</abbr></a><code>../</code>は<code>http://example.com/</code>に拡張される（どこで<a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対IRI</a>が使用することができるかの詳細は「<a href="#json-ld-grammar" class="sec-ref"><span class="secno">8.</span> <span class="sec-title">JSON-LD文法</span></a>」を参照）。
+                例えば次の文書が<code>http://example.com/about/</code>に位置していると仮定すると、<a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対<abbr title="Internationalized Resource Identifier">IRI</abbr></a><code>../</code>は<code>http://example.com/</code>に拡張される（どこで<a class="tref internalDFN" title="relative-iri" href="#dfn-relative-iri">相対IRI</a>が使用することができるかの詳細は「<a href="#json-ld-grammar" class="sec-ref"><span class="secno">8.</span> <span class="sec-title">JSON-LD構文</span></a>」を参照）。
             </p>
             <div class="example">
                 <div class="example-title"><span>例 7</span>: IRIは相対にできる</div>
@@ -3061,7 +3053,7 @@ A <dfn title="language-tagged-string" id="dfn-language-tagged-string"><a href="h
     <section class="normative" id="json-ld-grammar">
 
         <!--OddPage-->
-        <h2 aria-level="1" role="heading" id="h2_json-ld-grammar"><span class="secno">8. </span>JSON-LD文法</h2>
+        <h2 aria-level="1" role="heading" id="h2_json-ld-grammar"><span class="secno">8. </span>JSON-LD構文</h2>
         <p>
         この付録では、前節で述べた構文規則をさらに正式に述べる。
         </p>
@@ -3340,7 +3332,7 @@ A <a class="tref internalDFN" title="context-definition" href="#dfn-context-defi
     </section>
     <section class="normative" id="relationship-to-rdf">
         <!--OddPage-->
-        <h2 aria-level="1" role="heading" id="h2_relationship-to-rdf"><span class="secno">9. </span>RDFとの連携</h2>
+        <h2 aria-level="1" role="heading" id="h2_relationship-to-rdf"><span class="secno">9. </span>RDFとの関係</h2>
         <p>
 JSON-LDは[ <cite><a class="bibref" href="#bib-RDF11-CONCEPTS">RDF11-CONCEPTS</a></cite>]中に記載されているような<a class="tref externalDFN" title="concrete-rdf-syntax" href="http://www.w3.org/TR/rdf11-concepts/#dfn-concrete-rdf-syntax">具体的なRDF構文</a>である。
 そのため、JSON-LD文書はRDF文書でもJSON文書でもあり、対応するRDFデータ・モデルの実体を表現する。
