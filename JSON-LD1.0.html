@@ -939,12 +939,12 @@ JSON-LDは、既存のJSONベースのシステムからのスムーズかつシ
         </div>
 
         <p>
-<code>name</code>が"Manu Sporny"で<code>homepage</code>プロパティが個人のホームページのURLを含む人物についてのデータであることが人間にとってあきらかである。
-機械はこのような直感的な理解ができず、ときどき表現の曖昧さを解決することは人間でさえ困難である。
-この問題は"name"や"homepage"やその他のトークンの代わりに異なる概念で示す明確な識別子を使用することによって解決することができる。
+<code>name</code>が"Manu Sporny"で<code>homepage</code>プロパティが個人のホームページのURLを含む人物についてのデータであることは人間にとってあきらかである。
+機械はこのような直感的な理解ができず、ときどき人間でさえも表現の曖昧さを解決することが困難である。
+この問題は"name"や"homepage"やその他のトークンの代わりに異なる概念を示す明確な識別子の使用により解決することができる。
         </p>
         <p>
-リンク・データそして一般的にWebでは明確な識別のために<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>[<cite><a class="bibref" href="#bib-RFC3987">RFC3987</a></cite>]に記載されているInternationalized Resource Identifiers）を使用する。着想は使用するかもしれない他の開発者へ、データへの明確な識別子を割り当てるために<a class="tref internalDFN" title="iri" href="#dfn-iri"> IRI</a>を使用することである。 <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>へ拡張することは<code>name</code>や <code>homepage</code>のような用語を開発者が各々の用語を誤って使用しないために役立つ。さらに開発者とマシンが用語に到達し用語が意味する定義を得るためにこの<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> (たとえばWebブラウザを使用することによって)を使用することができる。 このプロセスは<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>間接参照として知られている。 
+リンク・データそして一般的にWebでは明確な識別のために<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>[<cite><a class="bibref" href="#bib-RFC3987">RFC3987</a></cite>]に記載されているInternationalized Resource Identifiers）を使用する。着想は他の開発者が使用するかもしれないデータへ明確な識別子を割り当てるために<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>を使用することである。 <a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>へ拡張することは<code>name</code>や <code>homepage</code>のような用語を開発者が各々の用語を誤って使用しないために役立つ。さらに開発者とマシンが用語に到達し用語が意味する定義を得るためにこの<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> (たとえばWebブラウザを使用することによって)を使用することができる。 このプロセスは<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>間接参照として知られている。 
 </p>
         <p>
             ポピュラーな<a href="http://schema.org/">schema.org</a>語彙の効力により、上の例は次のように明確に表現することができた。
@@ -981,7 +981,7 @@ JSON-LDは、既存のJSONベースのシステムからのスムーズかつシ
             <div class="example">
                 <div class="example-title"><span>例 3</span>: 前節のサンプル文書のコンテキスト</div>
 <pre class="example">{
-                <span class="highlight">"@context":
+  <span class="highlight">"@context":
   {
     "name": "http://schema.org/name",</span>  <span class="comment">← これは'name'が 'http://schema.org/name'の短縮形であることを意味する。</span> 
 <span class="highlight">
@@ -996,23 +996,10 @@ JSON-LDは、既存のJSONベースのシステムからのスムーズかつシ
   }</span>
 }</pre>
             </div>
-            <p><a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>が上で示したように、<dfn title="term-definition" id="dfn-term-definition">用語定義</dfn>の値は単純な文字列、<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>用語への<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>のマッピング、<a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>のいずれかにすることができる。
+            <p><a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>が上で示したように、<dfn title="term-definition" id="dfn-term-definition">用語定義</dfn>の値は単純な文字列、<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>への<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>のマッピング、<a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>のいずれかにすることができる。
             </p>
-            <p><a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>が用語と結びつけられるとき、それは<dfn title="expanded-term-definition" id="dfn-expanded-term-definition">拡張用語定義</dfn>と呼ばれる。上の例では<code>image</code>と<code>homepage</code>の値は文字列であれば<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>として解釈されることを指定する。
-                <a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">
-                    拡張用語定義</a>は用語を<a href="#data-indexing">
-    索引マップ</a>として使用することを可能とし、配列値かどうか指定することは<a href="#sets-and-lists">
-    セットかリスト</a>として解釈されるためにある。
-
-                <a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">
-                    拡張用語定義</a>はキーとして<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">
-    絶対</a> もしくは<a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">
-    短縮IRI</a>で定義され、主に<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri">
-    絶対
-</a>もしくは<a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri">
-    短縮<abbr title="Internationalized Resource Identifier">IRI</abbr>
-</a>と型や言語情報を結びつける。
-
+            <p>
+<a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>が用語と結びつけられるとき、それは<dfn title="expanded-term-definition" id="dfn-expanded-term-definition">拡張用語定義</dfn>と呼ばれる。上の例では<code>image</code>と<code>homepage</code>の値は文字列であれば<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>として解釈されることを指定する。 <a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition"> 拡張用語定義</a>はまた用語を<a href="#data-indexing">索引マップ</a>の使用および配列値が<a href="#sets-and-lists">セットかリスト</a>として解釈されるかどうかの指定を可能とする。 <a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition"> 拡張用語定義</a>はキーとして<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri"> 絶対</a> もしくは<a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri"> 短縮IRI</a>で定義され、主に型や言語情報を<a class="tref internalDFN" title="absolute-iri" href="#dfn-absolute-iri"> 絶対 </a>もしくは<a class="tref internalDFN" title="compact-iri" href="#dfn-compact-iri"> 短縮<abbr title="Internationalized Resource Identifier">IRI</abbr> </a>と結びつけるために使用される。 
 </p>
 <p>
 <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>は直接ドキュメントに埋め込まれるか、参照される。前の例のコンテキスト文書が<code>http://json-ld.org/contexts/person.jsonld</code>で検索できることができると仮定するなら、それは1行追加するだけで参照できJSON-LD文書を下の例で示すように一層簡潔に表現することが可能となる。
@@ -1026,28 +1013,19 @@ JSON-LDは、既存のJSONベースのシステムからのスムーズかつシ
   "image": "http://manu.sporny.org/images/manu.png"
 }</pre>
             </div>
-            <p>
-                参照コンテキストはSchema.org中の<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>と用語をどのように結びつけるかを特定するだけではなく、<code>homepage</code>と<code>image</code>プロパティが<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> (
-<code>"@type": "@id"</code>,
-                詳細は「<a class="sectionRef sec-ref" href="#iris">5.2 IRIs</a>」参照)として解釈できるように結びつける文字列値を特定する。
-                この情報により開発者がサイト間においてデータの相互運用方法について合意形成することなしに互いのデータを再利用することが可能となる。外部JSON-LDコンテキスト文書は、定義された<a class="tref internalDFN" title="term" href="#dfn-term">
-    用語</a>についての文書化が文書中で定義されるような、<code>@context</code>キーの外部にある特別な情報を含んでいてもよい。
-                <code>@context</code>値の外に含まれる情報は、文書が外部JSON-LDコンテキスト文書として使用されるときは無視される。
+<p>
+参照コンテキストはSchema.org中の<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>と用語をどのように結びつけるかを特定するだけではなく、<code>homepage</code>と<code>image</code>プロパティが<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> ( <code>"@type": "@id"</code>, 詳細は「<a class="sectionRef sec-ref" href="#iris">5.2 IRIs</a>」参照)として解釈できるように結びつける文字列値を特定する。 この情報により開発者がサイト間においてデータの相互運用方法について合意形成することなしに互いのデータを再利用することが可能となる。外部JSON-LDコンテキスト文書は、定義された<a class="tref internalDFN" title="term" href="#dfn-term"> 用語</a>についての文書化が文書中で定義されるような、<code>@context</code>キーの外部にある特別な情報を含んでいてもよい。 <code>@context</code>値の外に含まれる情報は、文書が外部JSON-LDコンテキスト文書として使用されるときは無視される。
 </p>
-            <p>
-                JSON文書は「<a class="sectionRef sec-ref" href="#interpreting-json-as-json-ld">6.8 JSON-LDとしてJSONを解釈させる</a>」節に記載されているように、HTTPリンクヘッダを経由して<a class="tref internalDFN" title="context" href="#dfn-context">
-    コンテキスト</a>を参照することによって修正することなしJSON-LDとして解釈させることができる。
-                JSON-LD API [<cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>]を使用してカスタムコンテキストを適用することが可能となる。
+<p>
+JSON文書は「<a class="sectionRef sec-ref" href="#interpreting-json-as-json-ld">6.8 JSON-LDとしてJSONを解釈させる</a>」節に記載されているように、HTTPリンクヘッダを経由して<a class="tref internalDFN" title="context" href="#dfn-context"> コンテキスト</a>を参照することによって修正することなしJSON-LDとして解釈させることができる。 JSON-LD API [<cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>]を使用してカスタムコンテキストを適用することが可能となる。 
 </p>
-            <p>
-                <a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD文書</a>中では<a class="tref internalDFN" title="context" href="#dfn-context">
-    コンテキスト</a>はインラインで指定する。これは文書がウェブへの接続がなくても処理できる利点がある。最終的には、これはモデリング上の決定であり、異なるユースケースでは異なるハンドリングを必要とするだろう。
-
+<p>
+<a class="tref internalDFN" title="json-ld-document" href="#dfn-json-ld-document">JSON-LD文書</a>中では<a class="tref internalDFN" title="context" href="#dfn-context"> コンテキスト</a>はインラインで指定する。これは文書がウェブへの接続がなくても処理できる利点がある。最終的には、これはモデリング上の決定であり、異なるユースケースでは異なるハンドリングを必要とするだろう。  
 </p>
             <div class="example">
                 <div class="example-title"><span>例 5</span>: インライン・コンテキスト定義</div>
 <pre class="example">{
-<span class="highlight">"@context":
+  <span class="highlight">"@context":
   {
     "name": "http://schema.org/name",
     "image": {
