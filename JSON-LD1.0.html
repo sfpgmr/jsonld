@@ -1044,7 +1044,7 @@ JSON文書は「<a class="sectionRef sec-ref" href="#interpreting-json-as-json-l
             </div>
             <p>
                 この節はJSON-LDコンテキストの最も基本的な機能のみをカバーしている。
-                JSON-KDコンテキスト関するさらに高度な機能は「<a href="#advanced-concepts" class="sec-ref"><span class="secno">6.</span> <span class="sec-title">高度な概念</span></a>」節中でカバーしている。
+                JSON-LDコンテキスト関するさらに高度な機能は「<a href="#advanced-concepts" class="sec-ref"><span class="secno">6.</span> <span class="sec-title">高度な概念</span></a>」節中でカバーしている。
             </p>
         </section>
         <section class="informative" id="iris">
@@ -1159,7 +1159,7 @@ JSON文書は「<a class="sectionRef sec-ref" href="#interpreting-json-as-json-l
 </li>
             </ol>
             <p>
-この節はJSON-LDのIRI関連する最も基本的な機能についてのみカバーする。
+この節はJSON-LDのIRIに関連する最も基本的な機能についてのみカバーする。
 さらにIRIに関連する高度な機能は「<a href="#advanced-concepts" class="sec-ref"><span class="secno">6.</span> <span class="sec-title">高度な概念</span></a>」中でカバーしている。
             </p>
         </section>
@@ -1242,7 +1242,7 @@ JSON-LDでは, <a class="tref internalDFN" title="node" href="#dfn-node">ノー�
                 <div class="note-title" aria-level="3" role="heading" id="h_note_1"><span>注</span></div>
 <p class="">
 この節はJSON-LD中の型に関連する最も基本的な機能のみカバーしている。
-<code>@type</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>は<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>の型を指定するだけではなく、<a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a>(「<a class="sectionRef sec-ref" href="#typed-values">6.4 型付けされた値</a>」節で説明する) および<a class="tref internalDFN" title="coercion" href="#dfn-coercion">型強制</a>値(as described in「<a class="sectionRef sec-ref" href="#type-coercion">6.5 型強制</a>」節で説明する)も表現することは注目に値する。 特に、<code>@type</code>は<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>の型を定義するために<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>中で使用することができない。 
+<code>@type</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>は<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>の型を指定するだけではなく、<a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a>(「<a class="sectionRef sec-ref" href="#typed-values">6.4 型付けされた値</a>」節で説明する) および<a class="tref internalDFN" title="coercion" href="#dfn-coercion">型強制</a>値(「<a class="sectionRef sec-ref" href="#type-coercion">6.5 型強制</a>」節で説明する)も表現することは注目に値する。 特に、<code>@type</code>は<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>の型を定義するために<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>中で使用することができない。 
    相違点についての詳細は, 「<a class="sectionRef sec-ref" href="#typed-values">6.4 型付けされた値</a>」節を参照されたい。
 </p>
             </div>
@@ -1259,12 +1259,12 @@ JSON-LDでは, <a class="tref internalDFN" title="node" href="#dfn-node">ノー�
             </h3>
             <p><em>このセクションは非規範的である。</em></p>
             <p>
-                JSON-LD allows
-                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>は [<cite><a class="bibref" href="#bib-RFC3986">RFC3986</a></cite>]の<cite><a href="http://tools.ietf.org/html/rfc3986#section-5.1">section 5.1 ベースIRIの確立</a></cite>に適合する文書ベースに対して解決される相対形式を指定することが可能である。 ベース<abbr title="Internationalized Resource Identifier">IRI</abbr>は may be explicitly set with a
-                <code>@base</code>keywordを使用することによって<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>によって指定的に指定されるだろう。
+                JSON-LD は
+                <a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>に[<cite><a class="bibref" href="#bib-RFC3986">RFC3986</a></cite>]の<cite><a href="http://tools.ietf.org/html/rfc3986#section-5.1">5.1 ベースIRIの確立</a></cite>節に適合する文書ベースに対して解決される相対形式を指定することが可能である。 ベース<abbr title="Internationalized Resource Identifier">IRI</abbr>は
+                <code>@base</code>keywordを使用することによって<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>によって明示的に指定されるだろう。
             </p>
             <p>
-                例えば, JSON-LD文書が<code>http://example.com/document.jsonld</code>から検索される場合、相対URIが<abbr title="Internationalized Resource Identifier">IRI</abbr>に対して解決される。
+                例えば、JSON-LD文書が<code>http://example.com/document.jsonld</code>から検索される場合、相対URIが<abbr title="Internationalized Resource Identifier">IRI</abbr>に対して解決される。
             </p>
             <div class="example">
                 <div class="example-title"><span>例 15</span>: ノード識別子として相対IRIを使用</div>
