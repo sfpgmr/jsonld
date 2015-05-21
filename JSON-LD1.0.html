@@ -932,9 +932,9 @@ JSONは解析が容易であり、生成も容易である。しかしながら�
 <div class="example">
 <div class="example-title"><span>例 1</span>: JSON文書サンプル</div>
 <pre class="example">{
-"name": "Manu Sporny",
-"homepage": "http://manu.sporny.org/",
-"image": "http://manu.sporny.org/images/manu.png"
+    "name": "Manu Sporny",
+    "homepage": "http://manu.sporny.org/",
+    "image": "http://manu.sporny.org/images/manu.png"
 }</pre>
 </div>
 
@@ -952,9 +952,9 @@ JSONは解析が容易であり、生成も容易である。しかしながら�
 <div class="example">
 <div class="example-title"><span>例 2</span>: 用語の代わりにフルIRIを使用したJSON-LD文書のサンプル</div>
 <pre class="example">{
-"<span class="highlight">http://schema.org/name</span>": "Manu Sporny",
-"<span class="highlight">http://schema.org/url</span>": <span class="highlight">{ "@id": </span>"http://manu.sporny.org/" <span class="highlight">}</span>,  <span class="comment">← '@id'キーワードは「この値はIRIである識別子」を意味する</span>
-"<span class="highlight">http://schema.org/image</span>": <span class="highlight">{ "@id": </span>"http://manu.sporny.org/images/manu.png" <span class="highlight">}</span>
+    "<span class="highlight">http://schema.org/name</span>": "Manu Sporny",
+    "<span class="highlight">http://schema.org/url</span>": <span class="highlight">{ "@id": </span>"http://manu.sporny.org/" <span class="highlight">}</span>,  <span class="comment">← '@id'キーワードは「この値はIRIである識別子」を意味する</span>
+    "<span class="highlight">http://schema.org/image</span>": <span class="highlight">{ "@id": </span>"http://manu.sporny.org/images/manu.png" <span class="highlight">}</span>
 }</pre>
 </div>
 <p>上記の例では、すべてのプロパティは<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>によって明確に定義され、<a class="tref internalDFN" title="iri" href="#dfn-iri">IRI</a>によって表現するすべての値は<code>@id</code>キーワードで指定的にマークされている。
@@ -982,18 +982,17 @@ JSON-LDのコンテキストは同様に動作する。2つのアプリケーシ
 <div class="example-title"><span>例 3</span>: 前節のサンプル文書のコンテキスト</div>
 <pre class="example">{
 <span class="highlight">"@context":
-{
-"name": "http://schema.org/name",</span>  <span class="comment">← これは'name'が 'http://schema.org/name'の短縮形であることを意味する。</span> 
-<span class="highlight">
-"image": {
-"@id": "http://schema.org/image",</span>  <span class="comment">← これは'image'が'http://schema.org/image'の短縮形であることを意味する。</span><span class="highlight">
-"@type": "@id"</span>  <span class="comment">← これは'image'に対する文字列値がIRIである識別子として解釈すべきであることを意味する。</span> <span class="highlight">
-},
-"homepage": {
-"@id": "http://schema.org/url",</span>  <span class="comment">← これは'homepage'が'http://schema.org/url'の短縮形であることを意味する。</span> <span class="highlight">
-"@type": "@id"</span>  <span class="comment">← これは'homepage'に対する文字列値がIRIである識別子として解釈すべきであることを意味する。</span> <span class="highlight">
-}
-}</span>
+    {
+        "name": "http://schema.org/name",</span>  <span class="comment">← これは'name'が 'http://schema.org/name'の短縮形であることを意味する。</span> 
+           <span class="highlight">"image": {
+            "@id": "http://schema.org/image",</span>  <span class="comment">← これは'image'が'http://schema.org/image'の短縮形であることを意味する。</span><span class="highlight">
+            "@type": "@id"</span>  <span class="comment">← これは'image'に対する文字列値がIRIである識別子として解釈すべきであることを意味する。</span> <span class="highlight">
+        },
+        "homepage": {
+            "@id": "http://schema.org/url",</span>  <span class="comment">← これは'homepage'が'http://schema.org/url'の短縮形であることを意味する。</span> <span class="highlight">
+            "@type": "@id"</span>  <span class="comment">← これは'homepage'に対する文字列値がIRIである識別子として解釈すべきであることを意味する。</span> <span class="highlight">
+        }
+    }</span>
 }</pre>
 </div>
 <p><a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>が上で示したように、<dfn title="term-definition" id="dfn-term-definition">用語定義</dfn>の値は単純な文字列、<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>への<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>のマッピング、<a class="tref internalDFN" title="json-object" href="#dfn-json-object">JSONオブジェクト</a>のいずれかにすることができる。
@@ -1007,10 +1006,10 @@ JSON-LDのコンテキストは同様に動作する。2つのアプリケーシ
 <div class="example">
 <div class="example-title"><span>例 4</span>: JSON-LDコンテキストの参照</div>
 <pre class="example">{
-<span class="highlight">"@context": "http://json-ld.org/contexts/person.jsonld",</span>
-"name": "Manu Sporny",
-"homepage": "http://manu.sporny.org/",
-"image": "http://manu.sporny.org/images/manu.png"
+    <span class="highlight">"@context": "http://json-ld.org/contexts/person.jsonld",</span>
+    "name": "Manu Sporny",
+    "homepage": "http://manu.sporny.org/",
+    "image": "http://manu.sporny.org/images/manu.png"
 }</pre>
 </div>
 <p>
@@ -1025,21 +1024,21 @@ JSON文書は「<a class="sectionRef sec-ref" href="#interpreting-json-as-json-l
 <div class="example">
 <div class="example-title"><span>例 5</span>: インライン・コンテキスト定義</div>
 <pre class="example">{
-<span class="highlight">"@context":
-{
-"name": "http://schema.org/name",
-"image": {
-"@id": "http://schema.org/image",
-"@type": "@id"
-},
-"homepage": {
-"@id": "http://schema.org/url",
-"@type": "@id"
-}
-},</span>
-"name": "Manu Sporny",
-"homepage": "http://manu.sporny.org/",
-"image": "http://manu.sporny.org/images/manu.png"
+    <span class="highlight">"@context":
+    {
+        "name": "http://schema.org/name",
+        "image": {
+            "@id": "http://schema.org/image",
+            "@type": "@id"
+        },
+        "homepage": {
+            "@id": "http://schema.org/url",
+            "@type": "@id"
+        }
+    },</span>
+    "name": "Manu Sporny",
+    "homepage": "http://manu.sporny.org/",
+    "image": "http://manu.sporny.org/images/manu.png"
 }</pre>
 </div>
 <p>
@@ -1066,9 +1065,9 @@ JSON-LD中では<a class="tref internalDFN" title="relative-iri" href="#dfn-rela
 <div class="example">
 <div class="example-title"><span>例 6</span>: @id値はIRIとして解釈される。</div>
 <pre class="example">{
-...
-"homepage": { "<span class="highlight">@id</span>": "http://example.com/" }
-...
+    ...
+    "homepage": { "<span class="highlight">@id</span>": "http://example.com/" }
+    ...
 }</pre>
 </div>
 <p>
@@ -1077,9 +1076,9 @@ JSON-LD中では<a class="tref internalDFN" title="relative-iri" href="#dfn-rela
 <div class="example">
 <div class="example-title"><span>例 7</span>: IRIは相対にできる</div>
 <pre class="example">{
-...
-"homepage": { "<span class="highlight">@id</span>": "../" }
-...
+    ...
+    "homepage": { "<span class="highlight">@id</span>": "../" }
+    ...
 }</pre>
 </div>
 <p>
@@ -1088,9 +1087,9 @@ JSON-LD中では<a class="tref internalDFN" title="relative-iri" href="#dfn-rela
 <div class="example">
 <div class="example-title"><span>例 8</span>: キーとしてのIRI</div>
 <pre class="example">{
-...
-"<span class="highlight">http://schema.org/name</span>": "Manu Sporny",
-...
+    ...
+    "<span class="highlight">http://schema.org/name</span>": "Manu Sporny",
+    ...
 }</pre>
 </div>
 <p>
@@ -1103,12 +1102,12 @@ JSON-LD中では<a class="tref internalDFN" title="relative-iri" href="#dfn-rela
 <div class="example">
 <div class="example-title"><span>例 9</span>: 用語はコンテキスト定義から拡張される。</div>
 <pre class="example">{
-"<span class="highlight">@context</span>":
-{
-"<span class="highlight">name</span>": "<span class="highlight">http://schema.org/name</span>"
-},
-"<span class="highlight">name</span>": "Manu Sporny",
-"status": "trollin'"
+    "<span class="highlight">@context</span>":
+    {
+        "<span class="highlight">name</span>": "<span class="highlight">http://schema.org/name</span>"
+    },
+    "<span class="highlight">name</span>": "Manu Sporny",
+    "status": "trollin'"
 }</pre>
 </div>
 <p>
@@ -1120,19 +1119,19 @@ JSON-LD中では<a class="tref internalDFN" title="relative-iri" href="#dfn-rela
 <div class="example">
 <div class="example-title"><span>例 10</span>: 型強制</div>
 <pre class="example">{<span class="highlight">
-"@context":
-{
-...
-"homepage":
-{
-"@id": "http://schema.org/url",
-"@type": "@id"
-}
-...
-}</span>
-...
-"homepage": "http://manu.sporny.org/",
-...
+    "@context":
+    {
+        ...
+        "homepage":
+        {
+            "@id": "http://schema.org/url",
+            "@type": "@id"
+        }
+        ...
+    }</span>
+    ...
+    "homepage": "http://manu.sporny.org/",
+    ...
 }</pre>
 </div>
 <p>
@@ -1169,14 +1168,14 @@ JSON-LDでは<a class="tref internalDFN" title="node" href="#dfn-node">ノード
 <div class="example">
 <div class="example-title"><span>例 11</span>: ノードの識別</div>
 <pre class="example">{
-"@context":
-{
-...
-"name": "http://schema.org/name"
-},
-<span class="highlight">"@id": "http://me.markus-lanthaler.com/"</span>,
-"name": "Markus Lanthaler",
-...
+    "@context":
+    {
+        ...
+        "name": "http://schema.org/name"
+    },
+    <span class="highlight">"@id": "http://me.markus-lanthaler.com/"</span>,
+    "name": "Markus Lanthaler",
+    ...
 }</pre>
 </div>
 <p>
@@ -1198,20 +1197,20 @@ JSON-LDでは<a class="tref internalDFN" title="node" href="#dfn-node">ノード
 <div class="example">
 <div class="example-title"><span>例 12</span>: ノードの型の指定</div>
 <pre class="example">{
-...
-"@id": "http://example.org/places#BrewEats",
-"<span class="highlight">@type</span>": "<span class="highlight">http://schema.org/Restaurant</span>",
-...
+    ...
+    "@id": "http://example.org/places#BrewEats",
+    "<span class="highlight">@type</span>": "<span class="highlight">http://schema.org/Restaurant</span>",
+    ...
 }</pre>
 </div>
 <p>ノードは<a class="tref internalDFN" title="array" href="#dfn-array">配列</a>によって1つ以上の型を割り当てることができる。</p>
 <div class="example">
 <div class="example-title"><span>例 13</span>: ノードに対して複数の型の指定</div>
 <pre class="example">{
-...
-"@id": "http://example.org/places#BrewEats",
-"<span class="highlight">@type</span>": <span class="highlight">[ "http://schema.org/Restaurant", "http://schema.org/Brewery" ],</span>
-...
+    ...
+    "@id": "http://example.org/places#BrewEats",
+    "<span class="highlight">@type</span>": <span class="highlight">[ "http://schema.org/Restaurant", "http://schema.org/Brewery" ],</span>
+    ...
 }</pre>
 </div>
 <p>
@@ -1220,20 +1219,20 @@ JSON-LDでは<a class="tref internalDFN" title="node" href="#dfn-node">ノード
 <div class="example">
 <div class="example-title"><span>例 14</span>: 型を指定した用語の使用</div>
 <pre class="example">{
-"@context": {
-...
-<span class="highlight">"Restaurant": "http://schema.org/Restaurant", </span>
-<span class="highlight">"Brewery": "http://schema.org/Brewery"</span>
-}
-"@id": "http://example.org/places#BrewEats",
-<span class="highlight">"@type": [ "Restaurant", "Brewery" ]</span>,
-...
+    "@context": {
+        ...
+        <span class="highlight">"Restaurant": "http://schema.org/Restaurant", </span>
+        <span class="highlight">"Brewery": "http://schema.org/Brewery"</span>
+    },
+    "@id": "http://example.org/places#BrewEats",
+    <span class="highlight">"@type": [ "Restaurant", "Brewery" ]</span>,
+    ...
 }</pre>
 </div>
 <div class="note">
 <div class="note-title" aria-level="3" role="heading" id="h_note_1"><span>注</span></div>
 この節はJSON-LD中の型に関連する最も基本的な機能のみカバーしている。
-<code>@type</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>は<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>の型を指定するだけではなく、<a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a>(「<a class="sectionRef sec-ref" href="#typed-values">6.4 型付けされた値</a>」節で説明する) および<a class="tref internalDFN" title="coercion" href="#dfn-coercion">型強制</a>値(「<a class="sectionRef sec-ref" href="#type-coercion">6.5 型強制</a>」節で説明する)も表現することは注目に値する。 特に、<code>@type</code>は<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>の型を定義するために<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>中で使用することができない。 
+<code>@type</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>は<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>の型を指定するだけではなく、<a class="tref internalDFN" title="typed-value" href="#dfn-typed-value">型付けされた値</a>(「<a class="sectionRef sec-ref" href="#typed-values">6.4 型付けされた値</a>」節で説明する) および<a class="tref internalDFN" title="coercion" href="#dfn-coercion">型強制</a>値(「<a class="sectionRef sec-ref" href="#type-coercion">6.5 型強制</a>」節で説明する)も表現することは注目に値する。 特に、<code>@type</code>は<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>の型を定義するために<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>中で使用できない。 
 相違点についての詳細は, 「<a class="sectionRef sec-ref" href="#typed-values">6.4 型付けされた値</a>」節を参照されたい。
 </p>
 </div>
@@ -1260,11 +1259,11 @@ JSON-LDは<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="I
 <div class="example">
 <div class="example-title"><span>例 15</span>: ノード識別子として相対IRIを使用</div>
 <pre class="example">{
-"@context": {
-"label": "http://www.w3.org/2000/01/rdf-schema#label"
-},
-<span class="highlight">"@id": ""</span>,
-"label": "Just a simple document"
+    "@context": {
+        "label": "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    <span class="highlight">"@id": ""</span>,
+    "label": "Just a simple document"
 }</pre>
 </div>
 <p>
@@ -1275,11 +1274,11 @@ JSON-LDは<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="I
 <div class="example">
 <div class="example-title"><span>例 16</span>: 文書の文書ベースを設定する</div>
 <pre class="example">{
-"@context": {
-<span class="highlight">"@base": "http://example.com/document.jsonld"</span>
-},
-"@id": "",
-"label": "Just a simple document"
+    "@context": {
+        <span class="highlight">"@base": "http://example.com/document.jsonld"</span>
+    },
+    "@id": "",
+    "label": "Just a simple document"
 }</pre>
 </div>
 <p>
@@ -1299,13 +1298,13 @@ JSON-LDは<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="I
 <div class="example">
 <div class="example-title"><span>例 17</span>: 共通語彙プリフィクスの仕様</div>
 <pre class="example">{
-"@context": {
-<span class="highlight">"@vocab": "http://schema.org/"</span>
-}
-"@id": "http://example.org/places#BrewEats",
-"@type": <span class="highlight">"Restaurant"</span>,
-<span class="highlight">"name"</span>: "Brew Eats"
-...
+    "@context": {
+        <span class="highlight">"@vocab": "http://schema.org/"</span>
+    }
+    "@id": "http://example.org/places#BrewEats",
+    "@type": <span class="highlight">"Restaurant"</span>,
+    <span class="highlight">"name"</span>: "Brew Eats"
+    ...
 }</pre>
 </div>
 <p>
@@ -1314,15 +1313,15 @@ JSON-LDは<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="I
 <div class="example">
 <div class="example-title"><span>例 18</span>: データを無視するためにnullキーワードを使用</div>
 <pre class="example">{
-"@context":
-{
-"@vocab": "http://schema.org/",
-<span class="highlight">"databaseId": null</span>
-},
-"@id": "http://example.org/places#BrewEats",
-"@type": "Restaurant",
-"name": "Brew Eats",
-<span class="highlight">"databaseId"</span>: "23987520"
+    "@context":
+    {
+        "@vocab": "http://schema.org/",
+        <span class="highlight">"databaseId": null</span>
+    },
+    "@id": "http://example.org/places#BrewEats",
+    "@type": "Restaurant",
+    "name": "Brew Eats",
+    <span class="highlight">"databaseId"</span>: "23987520"
 }</pre>
 </div>
 </section>
@@ -1342,14 +1341,14 @@ JSON-LDは<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="I
 <div class="example">
 <div class="example-title"><span>例 19</span>: プリフィクス表現</div>
 <pre class="example">{
-"<span class="highlight">@context</span>":
-{
-"<span class="highlight">foaf</span>": "<span class="highlight">http://xmlns.com/foaf/0.1/</span>"
-...
-},
-"@type": "<span class="highlight">foaf:Person</span>"
-"<span class="highlight">foaf:name</span>": "Dave Longley",
-...
+    "<span class="highlight">@context</span>":
+    {
+        "<span class="highlight">foaf</span>": "<span class="highlight">http://xmlns.com/foaf/0.1/</span>"
+        ...
+    },
+    "@type": "<span class="highlight">foaf:Person</span>"
+    "<span class="highlight">foaf:name</span>": "Dave Longley",
+    ...
 }</pre>
 </div>
 <p>
@@ -1368,20 +1367,20 @@ JSON-LDは<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="I
 次の例の中に示されるようにコンテキスト内で短縮IRIを使用することが可能である。
 </p>
 <div class="example">
-<div class="example-title"><span>例 20</span>: Using vocabularies</div>
+<div class="example-title"><span>例 20</span>: 語彙の使用</div>
 <pre class="example">{
-"@context":
-{
-"xsd": "http://www.w3.org/2001/XMLSchema#",
-<span class="highlight">"foaf": "http://xmlns.com/foaf/0.1/"</span>,
-<span class="highlight">"foaf:homepage"</span>: { "@type": "@id" },
-"picture": { "@id": <span class="highlight">"foaf:depiction"</span>, "@type": "@id" }
-},
-"@id": "http://me.markus-lanthaler.com/",
-"@type": "foaf:Person",
-"foaf:name": "Markus Lanthaler",
-"foaf:homepage": "http://www.markus-lanthaler.com/",
-"picture": "http://twitter.com/account/profile_image/markuslanthaler"
+    "@context":
+    {
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        <span class="highlight">"foaf": "http://xmlns.com/foaf/0.1/"</span>,
+        <span class="highlight">"foaf:homepage"</span>: { "@type": "@id" },
+        "picture": { "@id": <span class="highlight">"foaf:depiction"</span>, "@type": "@id" }
+    },
+    "@id": "http://me.markus-lanthaler.com/",
+    "@type": "foaf:Person",
+    "foaf:name": "Markus Lanthaler",
+    "foaf:homepage": "http://www.markus-lanthaler.com/",
+    "picture": "http://twitter.com/account/profile_image/markuslanthaler"
 }</pre>
 </div>
 </section>
@@ -1404,24 +1403,24 @@ JSON-LDは<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="I
 最初の例は<code>@context</code>中の特定の<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>と型を関連付けるために<code>@type</code>キーワードを使用する。
 </p>
 <div class="example">
-<div class="example-title"><span>例 21</span>: Expanded term definition with 型強制</div>
+<div class="example-title"><span>例 21</span>: 型強制を伴う拡張用語定義</div>
 <pre class="example">{
-<span class="highlight">"@context":
-{
-"modified":
-{
-"@id": "http://purl.org/dc/terms/modified",
-"@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-}
-},</span>
-...
-"@id": "http://example.com/docs/1",
-"modified": "2010-05-29T14:17:39+02:00",
-...
+    <span class="highlight">"@context":
+    {
+        "modified":
+        {
+            "@id": "http://purl.org/dc/terms/modified",
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        }
+    },</span>
+    ...
+    "@id": "http://example.com/docs/1",
+    "modified": "2010-05-29T14:17:39+02:00",
+    ...
 }</pre>
 </div>
 <p>
-上の<em>modified</em>キーの値は情報が指定されているため自動的に<em>dateTime</em>に自動的に型強制される。
+上の<em>modified</em>キーの値は情報が指定されているため<em>dateTime</em>に自動的に型強制される。
 JSON-LDプロセッサは上の例を以下のように解釈する。
 </p>
 <table class="example">
@@ -1446,22 +1445,22 @@ JSON-LDプロセッサは上の例を以下のように解釈する。
 2つ目の例はJSON-LD文書の本文中に型情報を設定する拡張形式を使用する。
 </p>
 <div class="example">
-<div class="example-title"><span>例 22</span>: Expanded value with type</div>
+<div class="example-title"><span>例 22</span>: 拡張された型を伴う値</div>
 <pre class="example">{
-"@context":
-{
-"modified":
-{
-"@id": "http://purl.org/dc/terms/modified"
-}
-},
-...
-"modified":
-<span class="highlight">{
-"@value": "2010-05-29T14:17:39+02:00",
-"@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-}</span>
-...
+    "@context":
+    {
+        "modified":
+        {
+            "@id": "http://purl.org/dc/terms/modified"
+        }
+    },
+    ...
+    "modified":
+    <span class="highlight">{
+        "@value": "2010-05-29T14:17:39+02:00",
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    }</span>
+    ...
 }</pre>
 </div>
 <p>
@@ -1484,15 +1483,15 @@ JSON-LDプロセッサは上の例を以下のように解釈する。
 <div class="example">
 <div class="example-title"><span>例 23</span>: コンテキスト依存な@typeのデモ</div>
 <pre class="example">{
-...
-"@id": "http://example.org/posts#TripToWestVirginia",
-<span class="highlight">"@type": "http://schema.org/BlogPosting"</span>,  <span class="comment">←これはノード型である。</span>
-"modified":
-{
-"@value": "2010-05-29T14:17:39+02:00",
-<span class="highlight">"@type": "http://www.w3.org/2001/XMLSchema#dateTime"</span>  <span class="comment">←これは値型である。</span>
-}
-...
+    ...
+    "@id": "http://example.org/posts#TripToWestVirginia",
+    <span class="highlight">"@type": "http://schema.org/BlogPosting"</span>,  <span class="comment">←これはノード型である。</span>
+    "modified":
+    {
+        "@value": "2010-05-29T14:17:39+02:00",
+        <span class="highlight">"@type": "http://www.w3.org/2001/XMLSchema#dateTime"</span>  <span class="comment">←これは値型である。</span>
+    }
+    ...
 }</pre>
 </div>
 <p>
@@ -1561,29 +1560,29 @@ JSON-LDは値の特定のデータ型への強制をサポートする。
 <div class="example">
 <div class="example-title"><span>例 24</span>: 型を伴う拡張用語定義</div>
 <pre class="example">{
-"@context":
-{
-"xsd": "http://www.w3.org/2001/XMLSchema#",
-"name": "http://xmlns.com/foaf/0.1/name",
-"age":
-<span class="highlight">{
-"@id": "http://xmlns.com/foaf/0.1/age",
-"@type": "xsd:integer"
-}</span>,
-"homepage":
-<span class="highlight">{
-"@id": "http://xmlns.com/foaf/0.1/homepage",
-"@type": "@id"
-}</span>
-},
-"@id": "http://example.com/people#john",
-"name": "John Smith",
-"age": <span class="highlight">"41"</span>,
-"homepage":
-<span class="highlight">[
-"http://personal.example.org/",
-"http://work.example.com/jsmith/"
-]</span>
+    "@context":
+    {
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "name": "http://xmlns.com/foaf/0.1/name",
+        "age":
+        <span class="highlight">{
+            "@id": "http://xmlns.com/foaf/0.1/age",
+            "@type": "xsd:integer"
+        }</span>,
+        "homepage":
+        <span class="highlight">{
+            "@id": "http://xmlns.com/foaf/0.1/homepage",
+            "@type": "@id"
+        }</span>
+    },
+    "@id": "http://example.com/people#john",
+    "name": "John Smith",
+    "age": <span class="highlight">"41"</span>,
+    "homepage":
+    <span class="highlight">[
+        "http://personal.example.org/",
+        "http://work.example.com/jsmith/"
+    ]</span>
 }</pre>
 </div>
 <p>上の例は次表のデータの生成を表している。</p>
@@ -1632,26 +1631,26 @@ JSON-LDは値の特定のデータ型への強制をサポートする。
 <div class="example">
 <div class="example-title"><span>例 25</span>: 短縮もしくは絶対IRIを使用した用語定義</div>
 <pre class="example">{
-"@context":
-{
-"foaf": "http://xmlns.com/foaf/0.1/",
-"<span class="highlight">foaf:age</span>":
-{
-<span class="highlight">"@id": "http://xmlns.com/foaf/0.1/age"</span>,
-"@type": "xsd:integer"
-},
-"<span class="highlight">http://xmlns.com/foaf/0.1/homepage</span>":
-{
-"@type": "@id"
-}
-},
-"foaf:name": "John Smith",
-"<span class="highlight">foaf:age</span>": "41",
-"<span class="highlight">http://xmlns.com/foaf/0.1/homepage</span>":
-[
-"http://personal.example.org/",
-"http://work.example.com/jsmith/"
-]
+    "@context":
+    {
+        "foaf": "http://xmlns.com/foaf/0.1/",
+        "<span class="highlight">foaf:age</span>":
+        {
+            <span class="highlight">"@id": "http://xmlns.com/foaf/0.1/age"</span>,
+            "@type": "xsd:integer"
+        },
+        "<span class="highlight">http://xmlns.com/foaf/0.1/homepage</span>":
+        {
+            "@type": "@id"
+        }
+    },
+    "foaf:name": "John Smith",
+    "<span class="highlight">foaf:age</span>": "41",
+    "<span class="highlight">http://xmlns.com/foaf/0.1/homepage</span>":
+    [
+        "http://personal.example.org/",
+        "http://work.example.com/jsmith/"
+    ]
 }</pre>
 </div>
 <p>
@@ -1688,14 +1687,14 @@ JSON-LDは値の特定のデータ型への強制をサポートする。
 <div class="example">
 <div class="example-title"><span>例 26</span>: 他のノードのプロパティ値としてのノード・オブジェクトの埋め込み</div>
 <pre class="example">{
-...
-"name": "Manu Sporny",
-"<span class="highlight">knows</span>":
-{
-"<span class="highlight">@type</span>": "<span class="highlight">Person</span>",
-"<span class="highlight">name</span>": "<span class="highlight">Gregg Kellogg</span>",
-}
-...
+    ...
+    "name": "Manu Sporny",
+    "<span class="highlight">knows</span>":
+    {
+        "<span class="highlight">@type</span>": "<span class="highlight">Person</span>",
+        "<span class="highlight">name</span>": "<span class="highlight">Gregg Kellogg</span>"
+    }
+    ...
 }</pre>
 </div>
 <p>
@@ -1717,21 +1716,21 @@ JSON-LDは値の特定のデータ型への強制をサポートする。
 <div class="example">
 <div class="example-title"><span>例 27</span>: 複数のコンテキストの使用</div>
 <pre class="example">[
-{
-<span class="highlight">"@context": "http://example.org/contexts/person.jsonld",</span>
-"name": "Manu Sporny",
-"homepage": "http://manu.sporny.org/",
-"depiction": "http://twitter.com/account/profile_image/manusporny"
-},
-{
-<span class="highlight">"@context": "http://example.org/contexts/place.jsonld",</span>
-"name": "The Empire State Building",
-"description": "The Empire State Building is a 102-story landmark in New York City.",
-"geo": {
-"latitude": "40.75",
-"longitude": "73.98"
-}
-}
+    {
+        <span class="highlight">"@context": "http://example.org/contexts/person.jsonld",</span>
+        "name": "Manu Sporny",
+        "homepage": "http://manu.sporny.org/",
+        "depiction": "http://twitter.com/account/profile_image/manusporny"
+    },
+    {
+        <span class="highlight">"@context": "http://example.org/contexts/place.jsonld",</span>
+        "name": "The Empire State Building",
+        "description": "The Empire State Building is a 102-story landmark in New York City.",
+        "geo": {
+            "latitude": "40.75",
+            "longitude": "73.98"
+        }
+    }
 ]</pre>
 </div>
 <p>
@@ -1740,21 +1739,21 @@ JSON-LDは値の特定のデータ型への強制をサポートする。
 <div class="example">
 <div class="example-title"><span>例 28</span>: ノード・オブジェクト内のコンテキストの有効範囲</div>
 <pre class="example">{
-<span class="highlight">"@context":
-{
-"name": "http://example.com/person#name,
-"details": "http://example.com/person#details"
-}"</span>,
-"<span class="highlight">name</span>": "Markus Lanthaler",
-...
-"details":
-{
-<span class="highlight">"@context":
-{
-"name": "http://example.com/organization#name"
-}</span>,
-"<span class="highlight">name</span>": "Graz University of Technology"
-}
+    <span class="highlight">"@context":
+    {
+        "name": "http://example.com/person#name,
+        "details": "http://example.com/person#details"
+    }"</span>,
+    "<span class="highlight">name</span>": "Markus Lanthaler",
+    ...
+    "details":
+    {
+        <span class="highlight">"@context":
+        {
+            "name": "http://example.com/organization#name"
+        }</span>,
+        "<span class="highlight">name</span>": "Graz University of Technology"
+    }
 }</pre>
 </div>
 <p>
@@ -1780,15 +1779,15 @@ JSON-LDは値の特定のデータ型への強制をサポートする。
 <div class="example">
 <div class="example-title"><span>例 29</span>:外部およびローカル・コンテキストの結合</div>
 <pre class="example">{
-<span class="highlight">"@context": [
-"http://json-ld.org/contexts/person.jsonld",
-{
-"pic": "http://xmlns.com/foaf/0.1/depiction"
-}
-],</span>
-"name": "Manu Sporny",
-"homepage": "http://manu.sporny.org/",
-<span class="highlight">"pic": "http://twitter.com/account/profile_image/manusporny"</span>
+    <span class="highlight">"@context": [
+        "http://json-ld.org/contexts/person.jsonld",
+        {
+            "pic": "http://xmlns.com/foaf/0.1/depiction"
+        }
+    ],</span>
+    "name": "Manu Sporny",
+    "homepage": "http://manu.sporny.org/",
+    <span class="highlight">"pic": "http://twitter.com/account/profile_image/manusporny"</span>
 }</pre>
 </div>
 <div class="note">
@@ -1839,7 +1838,7 @@ JSON-LDは値の特定のデータ型への強制をサポートする。
 次の例は通常のJSON文書と外部コンテキストの使用方法を示している。
 </p>
 <div class="example">
-<div class="example-title"><span>例 30</span>: HTTPリンクヘッダを通じてJSON文書からJSON-LD contextを参照する。</div>
+<div class="example-title"><span>例 30</span>: HTTPリンクヘッダを通じてJSON文書からJSON-LDコンテキストを参照する。</div>
 <pre class="example">GET /ordinary-json-document.json HTTP/1.1
 Host: example.com
 Accept: application/ld+json,application/json,*/*;q=0.1
@@ -1849,9 +1848,9 @@ HTTP/1.1 200 OK
 Content-Type: <span class="highlight">application/json</span>
 <span class="highlight">Link: &lt;http://json-ld.org/contexts/person.jsonld&gt;; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"</span>
 {
-"name": "Markus Lanthaler",
-"homepage": "http://www.markus-lanthaler.com/",
-"image": "http://twitter.com/account/profile_image/markuslanthaler"
+    "name": "Markus Lanthaler",
+    "homepage": "http://www.markus-lanthaler.com/",
+    "image": "http://twitter.com/account/profile_image/markuslanthaler"
 }</pre>
 </div>
 <p>
@@ -1873,15 +1872,15 @@ JSON-LDではさまざまな方法で可能である。
 最初に、<a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>に<code>@language</code>キーを設定することによってJSON-LD文書のための既定言語を定義することが可能である。
 </p>
 <div class="example">
-<div class="example-title"><span>例 31</span>: Setting the default language of a JSON-LD文書</div>
+<div class="example-title"><span>例 31</span>:JSON-LD文書の既定言語の設定</div>
 <pre class="example">{
-<span class="highlight">"@context":
-{
-...
-"@language": "ja"
-}</span>,
-"name": <span class="highlight">"花澄"</span>,
-"occupation": <span class="highlight">"科学者"</span>
+    <span class="highlight">"@context":
+    {
+        ...
+        "@language": "ja"
+    }</span>,
+    "name": <span class="highlight">"花澄"</span>,
+    "occupation": <span class="highlight">"科学者"</span>
 }</pre>
 </div>
 <p>
@@ -1893,40 +1892,40 @@ JSON-LDではさまざまな方法で可能である。
 </p>
 <p>サブ・ツリーにおいて既定の言語をクリアするために、<code>@language</code>は次のように<a class="tref internalDFN" title="local-context" href="#dfn-local-context">ローカル・コンテキスト</a>中に<code>null</code>を設定することができる。</p>
 <div class="example">
-<div class="example-title"><span>例 32</span>: Clearing default language</div>
+<div class="example-title"><span>例 32</span>: 既定言語のクリア</div>
 <pre class="example">{
-"@context": {
-...
-"@language": "ja"
-},
-"name": "花澄",
-"details": {
-<span class="highlight">    "@context": {
-"@language": null
-}</span>,
-"occupation": "Ninja"
-}
+    "@context": {
+        ...
+        "@language": "ja"
+    },
+    "name": "花澄",
+    "details": {
+        <span class="highlight">"@context": {
+            "@language": null
+        }</span>,
+        "occupation": "Ninja"
+    }
 }</pre>
 </div>
 <p>
 2つ目に、<a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>を使用して特定の<a class="tref internalDFN" title="term" href="#dfn-term">用語</a>に言語を関連付けることができる。</p>
 <div class="example">
-<div class="example-title"><span>例 33</span>: Expanded term definition with language</div>
+<div class="example-title"><span>例 33</span>: 言語を伴う拡張用語定義</div>
 <pre class="example">{
-"@context": {
-...
-"ex": "http://example.com/vocab/",
-"@language": "ja",
-"name": { "@id": "ex:name", <span class="highlight">"@language": null</span> },
-"occupation": { "@id": "ex:occupation" },
-"occupation_en": { "@id": "ex:occupation", <span class="highlight">"@language": "en"</span> },
-"occupation_cs": { "@id": "ex:occupation", <span class="highlight">"@language": "cs"</span> }
-},
-<span class="highlight">"name": "Yagyū Muneyoshi",
-"occupation": "忍者",
-"occupation_en": "Ninja",
-"occupation_cs": "Nindža",</span>
-...
+    "@context": {
+        ...
+        "ex": "http://example.com/vocab/",
+        "@language": "ja",
+        "name": { "@id": "ex:name", <span class="highlight">"@language": null</span> },
+        "occupation": { "@id": "ex:occupation" },
+        "occupation_en": { "@id": "ex:occupation", <span class="highlight">"@language": "en"</span> },
+        "occupation_cs": { "@id": "ex:occupation", <span class="highlight">"@language": "cs"</span> }
+    },
+    <span class="highlight">"name": "Yagyū Muneyoshi",
+    "occupation": "忍者",
+    "occupation_en": "Ninja",
+    "occupation_cs": "Nindža",</span>
+    ...
 }</pre>
 </div>
 <p>
@@ -1945,27 +1944,25 @@ JSON-LDではさまざまな方法で可能である。
 </div>
 <p>
 上の例の通り、システムはしばしば複数の言語のプロパティ値を表すことを必要とする。
-property in multiple languages. 
-
 一般的に、そのようなシステムは、開発者が言語固有データのデータ構造操作のためのプログラム的に容易な手段を保証するか試みる。
 このような場合、 <a class="tref internalDFN" title="language-map" href="#dfn-language-map">言語マップ</a>が役にたつ。
 </p>
 <div class="example">
 <div class="example-title"><span>例 34</span>: 3つの言語のプロパティで表わされた言語マップ</div>
 <pre class="example">{
-"@context":
-{
-...
-"occupation": { "@id": "ex:occupation", <span class="highlight">"@container": "@language"</span> }
-},
-"name": "Yagyū Muneyoshi",
-"occupation":
-<span class="highlight">{
-"ja": "忍者",
-"en": "Ninja",
-"cs": "Nindža"
-}</span>
-...
+    "@context":
+    {
+        ...
+        "occupation": { "@id": "ex:occupation", <span class="highlight">"@container": "@language"</span> }
+    },
+    "name": "Yagyū Muneyoshi",
+    "occupation":
+    <span class="highlight">{
+        "ja": "忍者",
+        "en": "Ninja",
+        "cs": "Nindža"
+    }</span>
+    ...
 }</pre>
 </div>
 <p>
@@ -1981,15 +1978,15 @@ property in multiple languages.
 <div class="example">
 <div class="example-title"><span>例 35</span>: 拡張された値を使用した既定の言語の再定義</div>
 <pre class="example">{
-"@context": {
-...
-"@language": "ja"
-},
-"name": "花澄",
-"occupation": <span class="highlight">{
-"@value": "Scientist",
-"@language": "en"
-}</span>
+    "@context": {
+        ...
+        "@language": "ja"
+    },
+    "name": "花澄",
+    "occupation": <span class="highlight">{
+        "@value": "Scientist",
+        "@language": "en"
+    }</span>
 }</pre>
 </div>
 <p>
@@ -1998,18 +1995,18 @@ property in multiple languages.
 <div class="example">
 <div class="example-title"><span>例 36</span>: 拡張された値を使用した言語情報の除去</div>
 <pre class="example">{
-"@context": {
-...
-"@language": "ja"
-},
-"name": <span class="highlight">{
-"@value": "Frank"
-}</span>,
-"occupation": {
-"@value": "Ninja",
-"@language": "en"
-},
-"speciality": "手裏剣"
+    "@context": {
+        ...
+        "@language": "ja"
+    },
+    "name": <span class="highlight">{
+        "@value": "Frank"
+    }</span>,
+    "occupation": {
+        "@value": "Ninja",
+        "@language": "en"
+    },
+    "speciality": "手裏剣"
 }</pre>
 </div>
 </section>
@@ -2027,22 +2024,22 @@ property in multiple languages.
 <div class="example">
 <div class="example-title"><span>例 37</span>: IRIのコンテキスト内での拡張</div>
 <pre class="example">{
-"@context":
-{
-<span class="highlight">"xsd": "http://www.w3.org/2001/XMLSchema#"</span>,
-"name": "http://xmlns.com/foaf/0.1/name",
-"age":
-{
-"@id": "http://xmlns.com/foaf/0.1/age",
-"@type": <span class="highlight">"xsd:integer"</span>
-},
-"homepage":
-{
-"@id": "http://xmlns.com/foaf/0.1/homepage",
-"@type": "@id"
-}
-},
-...
+    "@context":
+    {
+        <span class="highlight">"xsd": "http://www.w3.org/2001/XMLSchema#"</span>,
+        "name": "http://xmlns.com/foaf/0.1/name",
+        "age":
+        {
+            "@id": "http://xmlns.com/foaf/0.1/age",
+            "@type": <span class="highlight">"xsd:integer"</span>
+        },
+        "homepage":
+        {
+            "@id": "http://xmlns.com/foaf/0.1/homepage",
+            "@type": "@id"
+        }
+    },
+    ...
 }</pre>
 </div>
 <p>
@@ -2054,23 +2051,23 @@ property in multiple languages.
 <div class="example">
 <div class="example-title"><span>例 38</span>: コンテキスト内の他の用語のIRIを定義するための用語の使用</div>
 <pre class="example">{
-"@context":
-{
-<span class="highlight">"foaf": "http://xmlns.com/foaf/0.1/"</span>,
-"xsd": "http://www.w3.org/2001/XMLSchema#",
-"name": <span class="highlight">"foaf:name"</span>,
-"age":
-{
-"@id": <span class="highlight">"foaf:age"</span>,
-"@type": "xsd:integer"
-},
-"homepage":
-{
-"@id": <span class="highlight">"foaf:homepage"</span>,
-"@type": "@id"
-}
-},
-...
+    "@context":
+    {
+        <span class="highlight">"foaf": "http://xmlns.com/foaf/0.1/"</span>,
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "name": <span class="highlight">"foaf:name"</span>,
+        "age":
+        {
+            "@id": <span class="highlight">"foaf:age"</span>,
+            "@type": "xsd:integer"
+        },
+        "homepage":
+        {
+            "@id": <span class="highlight">"foaf:homepage"</span>,
+            "@type": "@id"
+        }
+    },
+    ...
 }</pre>
 </div>
 <p>
@@ -2079,21 +2076,21 @@ property in multiple languages.
 <div class="example">
 <div class="example-title"><span>例 39</span>: 用語として短縮IRIを使用</div>
 <pre class="example">{
-"@context":
-{
-<span class="highlight">"foaf": "http://xmlns.com/foaf/0.1/"</span>,
-"xsd": "http://www.w3.org/2001/XMLSchema#",
-"name": "foaf:name",
-"<span class="highlight">foaf:age</span>":
-{
-"@type": "xsd:integer"
-},
-"<span class="highlight">foaf:homepage</span>":
-<span class="highlight">{
-"@type": "@id"
-}</span>
-},
-...
+    "@context":
+    {
+        <span class="highlight">"foaf": "http://xmlns.com/foaf/0.1/"</span>,
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "name": "foaf:name",
+        "<span class="highlight">foaf:age</span>":
+        {
+            "@type": "xsd:integer"
+        },
+        "<span class="highlight">foaf:homepage</span>":
+        <span class="highlight">{
+            "@type": "@id"
+        }</span>
+    },
+    ...
 }</pre>
 </div>
 <p>
@@ -2111,22 +2108,22 @@ property in multiple languages.
 <div class="example">
 <div class="example-title"><span>例 40</span>: 絶対IRIとコンテキスト定義の関連付け</div>
 <pre class="example">{
-"@context":
-{
-"foaf": "http://xmlns.com/foaf/0.1/",
-"xsd": "http://www.w3.org/2001/XMLSchema#",
-"name": "foaf:name",
-"foaf:age":
-{
-"@id": "foaf:age",
-"@type": "xsd:integer"
-},
-"<span class="highlight">http://xmlns.com/foaf/0.1/homepage</span>":
-{
-"@type": "@id"
-}
-},
-...
+    "@context":
+    {
+        "foaf": "http://xmlns.com/foaf/0.1/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "name": "foaf:name",
+        "foaf:age":
+        {
+            "@id": "foaf:age",
+            "@type": "xsd:integer"
+        },
+        "<span class="highlight">http://xmlns.com/foaf/0.1/homepage</span>":
+        {
+            "@type": "@id"
+        }
+    },
+    ...
 }</pre>
 </div>
 <p>
@@ -2151,12 +2148,12 @@ The only exception for using terms in the <a class="tref internalDFN" title="con
 <div class="example">
 <div class="example-title"><span>例 41</span>: 不正なコンテキスト内の用語の循環定義</div>
 <pre class="example">{
-"@context":
-{
-<span class="highlight">"term1": "term2:foo",
-"term2": "term1:bar"</span>
-},
-...
+    "@context":
+    {
+        <span class="highlight">"term1": "term2:foo",
+       "term2": "term1:bar"</span>
+    },
+    ...
 }</pre>
 </div>
 </section>
@@ -2171,12 +2168,12 @@ JSON-LD作成者は <a class="tref internalDFN" title="array" href="#dfn-array">
 これは正規の既定では順序付けされるJSON配列と正反対である。 例えば次の簡単な文書を考えてみる。
 </p>
 <div class="example">
-<div class="example-title"><span>例 42</span>: Multiple 値 with no inherent order</div>
+<div class="example-title"><span>例 42</span>: 固有の順序を伴わない複数の値</div>
 <pre class="example">{
-...
-"@id": "http://example.org/people#joebob",
-"nick": <span class="highlight">[ "joe", "bob", "JB" ]</span>,
-...
+    ...
+    "@id": "http://example.org/people#joebob",
+    "nick": <span class="highlight">[ "joe", "bob", "JB" ]</span>,
+    ...
 }</pre>
 </div>
 <p>
@@ -2211,20 +2208,20 @@ JSON-LD作成者は <a class="tref internalDFN" title="array" href="#dfn-array">
 </table>
 <p>複数値は拡張形式を使用することによって表現することが可能である。</p>
 <div class="example">
-<div class="example-title"><span>例 43</span>: Using an expanded form to set multiple values</div>
+<div class="example-title"><span>例 43</span>: 複数の値を設定するための拡張形式の使用</div>
 <pre class="example">{
-"@id": "http://example.org/articles/8",
-"dc:title": <span class="highlight">
-[
-{
-"@value": "Das Kapital",
-"@language": "de"
-},
-{
-"@value": "Capital",
-"@language": "en"
-}
-]</span>
+    "@id": "http://example.org/articles/8",
+    "dc:title": <span class="highlight">
+    [
+        {
+            "@value": "Das Kapital",
+            "@language": "de"
+        },
+        {
+            "@value": "Capital",
+            "@language": "en"
+        }
+    ]</span>
 }</pre>
 </div>
 <p>
@@ -2260,15 +2257,15 @@ JSON-LD作成者は <a class="tref internalDFN" title="array" href="#dfn-array">
 JSON-LDでは、リストは次のように<code>@list</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>を使用することによって表現することができる。
 </p>
 <div class="example">
-<div class="example-title"><span>例 44</span>: An ordered collection of 値 in JSON-LD</div>
+<div class="example-title"><span>例 44</span>: JSON-LDにおける順序付けされた値のコレクション</div>
 <pre class="example">{
-...
-"@id": "http://example.org/people#joebob",
-"foaf:nick":
-<span class="highlight">{
-"@list": [ "joe", "bob", "jaybee" ]
-}</span>,
-...
+    ...
+    "@id": "http://example.org/people#joebob",
+    "foaf:nick":
+    <span class="highlight">{
+        "@list": [ "joe", "bob", "jaybee" ]
+    }</span>,
+    ...
 }</pre>
 </div>
 <p>
@@ -2279,19 +2276,19 @@ JSON-LDでは、リストは次のように<code>@list</code><a class="tref inte
 <div class="example">
 <div class="example-title"><span>例 45</span>: コンテキストに順序付けられたコレクションを指定する</div>
 <pre class="example">{
-<span class="highlight">"@context":
-{
-...
-"nick":
-{
-"@id": "http://xmlns.com/foaf/0.1/nick",
-"@container": "@list"
-}
-}</span>,
-...
-"@id": "http://example.org/people#joebob",
-"nick": <span class="highlight">[ "joe", "bob", "jaybee" ]</span>,
-...
+    <span class="highlight">"@context":
+    {
+        ...
+        "nick":
+        {
+            "@id": "http://xmlns.com/foaf/0.1/nick",
+            "@container": "@list"
+        }
+    }</span>,
+    ...
+    "@id": "http://example.org/people#joebob",
+    "nick": <span class="highlight">[ "joe", "bob", "jaybee" ]</span>,
+    ...
 }</pre>
 </div>
 <div class="note">
@@ -2335,20 +2332,20 @@ That means that すべての<a class="tref internalDFN" title="property" href="#
 <div class="example">
 <div class="example-title"><span>例 46</span>: 子供を親にリンクした文書</div>
 <pre class="example">[
-{
-<span class="highlight">"@id": "#homer"</span>,
-"http://example.com/vocab#name": "Homer"
-},
-{
-"@id": "#bart",
-"http://example.com/vocab#name": "Bart",
-<span class="highlight">"http://example.com/vocab#parent": { "@id": "#homer" }</span>
-},
-{
-"@id": "#lisa",
-"http://example.com/vocab#name": "Lisa",
-<span class="highlight">"http://example.com/vocab#parent": { "@id": "#homer" }</span>
-}
+    {
+        <span class="highlight">"@id": "#homer"</span>,
+        "http://example.com/vocab#name": "Homer"
+    },
+    {
+        "@id": "#bart",
+        "http://example.com/vocab#name": "Bart",
+        <span class="highlight">"http://example.com/vocab#parent": { "@id": "#homer" }</span>
+    },
+    {
+        "@id": "#lisa",
+        "http://example.com/vocab#name": "Lisa",
+        <span class="highlight">"http://example.com/vocab#parent": { "@id": "#homer" }</span>
+    }
 ]</pre>
 </div>
 <p>そのようなデータの表現はJSON-LDの<code>@reverse</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>の使用でとても簡素になる。
@@ -2356,20 +2353,20 @@ That means that すべての<a class="tref internalDFN" title="property" href="#
 <div class="example">
 <div class="example-title"><span>例 47</span>: 逆プロパティを使用した親子</div>
 <pre class="example">{
-"@id": "#homer",
-"http://example.com/vocab#name": "Homer",
-<span class="highlight">"@reverse"</span>: {
-<span class="highlight">"http://example.com/vocab#parent"</span>: [
-{
-"@id": "#bart",
-"http://example.com/vocab#name": "Bart"
-},
-{
-"@id": "#lisa",
-"http://example.com/vocab#name": "Lisa"
-}
-]
-}
+    "@id": "#homer",
+    "http://example.com/vocab#name": "Homer",
+    <span class="highlight">"@reverse"</span>: {
+        <span class="highlight">"http://example.com/vocab#parent"</span>: [
+            {
+                "@id": "#bart",
+                "http://example.com/vocab#name": "Bart"
+            },
+            {
+                "@id": "#lisa",
+                "http://example.com/vocab#name": "Lisa"
+            }
+        ]
+    }
 }</pre>
 </div>
 <p>
@@ -2379,22 +2376,22 @@ That means that すべての<a class="tref internalDFN" title="property" href="#
 <div class="example">
 <div class="example-title"><span>例 48</span>: 逆プロパティを定義するための@reverseの使用</div>
 <pre class="example">{
-"@context": {
-"name": "http://example.com/vocab#name",
-<span class="highlight">"children": { "@reverse": "http://example.com/vocab#parent" }</span>
-},
-"@id": "#homer",
-"name": "Homer",
-<span class="highlight">"children"</span>: [
-{
-"@id": "#bart",
-"name": "Bart"
-},
-{
-"@id": "#lisa",
-"name": "Lisa"
-}
-]
+    "@context": {
+        "name": "http://example.com/vocab#name",
+        <span class="highlight">"children": { "@reverse": "http://example.com/vocab#parent" }</span>
+    },
+    "@id": "#homer",
+    "name": "Homer",
+    <span class="highlight">"children"</span>: [
+        {
+            "@id": "#bart",
+            "name": "Bart"
+        },
+        {
+            "@id": "#lisa",
+            "name": "Lisa"
+        }
+    ]
 }</pre>
 </div>
 </section>
@@ -2412,32 +2409,32 @@ That means that すべての<a class="tref internalDFN" title="property" href="#
 <div class="example">
 <div class="example-title"><span>例 49</span>: グラフについての文を作成し識別する</div>
 <pre class="example">{
-"@context": {
-"generatedAt": {
-"@id": "http://www.w3.org/ns/prov#generatedAtTime",
-"@type": "http://www.w3.org/2001/XMLSchema#date"
-},
-"Person": "http://xmlns.com/foaf/0.1/Person",
-"name": "http://xmlns.com/foaf/0.1/name",
-"knows": "http://xmlns.com/foaf/0.1/knows"
-},
-<span class="highlight">"@id": "http://example.org/graphs/73",
-"generatedAt": "2012-04-09",
-"@graph":</span>
-[
-{
-"@id": "http://manu.sporny.org/about#manu",
-"@type": "Person",
-"name": "Manu Sporny",
-"knows": "http://greggkellogg.net/foaf#me"
-},
-{
-"@id": "http://greggkellogg.net/foaf#me",
-"@type": "Person",
-"name": "Gregg Kellogg",
-"knows": "http://manu.sporny.org/about#manu"
-}
-]
+    "@context": {
+        "generatedAt": {
+            "@id": "http://www.w3.org/ns/prov#generatedAtTime",
+            "@type": "http://www.w3.org/2001/XMLSchema#date"
+        },
+        "Person": "http://xmlns.com/foaf/0.1/Person",
+        "name": "http://xmlns.com/foaf/0.1/name",
+        "knows": "http://xmlns.com/foaf/0.1/knows"
+    },
+    <span class="highlight">"@id": "http://example.org/graphs/73",
+    "generatedAt": "2012-04-09",
+    "@graph":</span>
+    [
+        {
+            "@id": "http://manu.sporny.org/about#manu",
+            "@type": "Person",
+            "name": "Manu Sporny",
+            "knows": "http://greggkellogg.net/foaf#me"
+        },
+        {
+            "@id": "http://greggkellogg.net/foaf#me",
+            "@type": "Person",
+            "name": "Gregg Kellogg",
+            "knows": "http://manu.sporny.org/about#manu"
+        }
+    ]
 }</pre>
 </div>
 <p>
@@ -2515,30 +2512,30 @@ That means that すべての<a class="tref internalDFN" title="property" href="#
 
 JSON-LD文書のトップレベル構造が<a class="tref internalDFN" title="json-object" href="#dfn-json-object">オブジェクト</a><a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a><code>@graph</code>とオプションの<code>@context</code>(<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a>もしくは<a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>が無視されマップされないプロパティ)しか含まれない時, <code>@graph</code>は別な方法で暗黙に<a class="tref internalDFN" title="default-graph" href="#dfn-default-graph">既定グラフ</a>を表現しているものとみなされる。
 
-この仕組みは１つの<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a> が同じ <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>を共有するドキュメントのトップレベルに存在するとき、例えば、文書が<a href="#flattened-document-form">flattened</a>である場合に役にたつ。 
+この仕組みは１つの<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a> が同じ <a class="tref internalDFN" title="context" href="#dfn-context">コンテキスト</a>を共有するドキュメントのトップレベルに存在するとき、例えば、文書が<a href="#flattened-document-form">フラット</a>である場合に役にたつ。 
 
 <code>@graph</code>キーワードは<a class="tref internalDFN" title="array" href="#dfn-array">配列</a> の中や共有コンテキストの使用が許されたノードのように集められる。
 
 </p>
 <div class="example">
-<div class="example-title"><span>例 50</span>: Using @graph to explicitly express the default graph</div>
+<div class="example-title"><span>例 50</span>:既定のグラフを明示的に表現するために@graphを使用</div>
 <pre class="example">{
-"@context": ...,
-"<span class="highlight">@graph</span>":
-[
-{
-"@id": "http://manu.sporny.org/about#manu",
-"@type": "foaf:Person",
-"name": "Manu Sporny",
-"knows": "http://greggkellogg.net/foaf#me"
-},
-{
-"@id": "http://greggkellogg.net/foaf#me",
-"@type": "foaf:Person",
-"name": "Gregg Kellogg",
-"knows": "http://manu.sporny.org/about#manu"
-}
-]
+    "@context": ...,
+    "<span class="highlight">@graph</span>":
+    [
+        {
+            "@id": "http://manu.sporny.org/about#manu",
+            "@type": "foaf:Person",
+            "name": "Manu Sporny",
+            "knows": "http://greggkellogg.net/foaf#me"
+        },
+        {
+            "@id": "http://greggkellogg.net/foaf#me",
+            "@type": "foaf:Person",
+            "name": "Gregg Kellogg",
+            "knows": "http://manu.sporny.org/about#manu"
+        }
+    ]
 }</pre>
 </div>
 <p>
@@ -2549,20 +2546,20 @@ JSON-LD文書のトップレベル構造が<a class="tref internalDFN" title="js
 <div class="example">
 <div class="example-title"><span>例 51</span>: コンテキストは@graphが使用されいない場合重複する必要がある</div>
 <pre class="example">[
-{
-<span class="highlight">"@context": ...,</span>
-"@id": "http://manu.sporny.org/about#manu",
-"@type": "foaf:Person",
-"name": "Manu Sporny",
-"knows": "http://greggkellogg.net/foaf#me"
-},
-{
-<span class="highlight">"@context": ...,</span>
-"@id": "http://greggkellogg.net/foaf#me",
-"@type": "foaf:Person",
-"name": "Gregg Kellogg",
-"knows": "http://manu.sporny.org/about#manu"
-}
+    {
+        <span class="highlight">"@context": ...,</span>
+        "@id": "http://manu.sporny.org/about#manu",
+        "@type": "foaf:Person",
+        "name": "Manu Sporny",
+        "knows": "http://greggkellogg.net/foaf#me"
+    },
+    {
+        <span class="highlight">"@context": ...,</span>
+        "@id": "http://greggkellogg.net/foaf#me",
+        "@type": "foaf:Person",
+        "name": "Gregg Kellogg",
+        "knows": "http://manu.sporny.org/about#manu"
+    }
 ]</pre>
 </div>
 </section>
@@ -2591,14 +2588,14 @@ JSON-LDはすべてのノードが<code>@id</code>を使用して識別する必
 <div class="example">
 <div class="example-title"><span>例 52</span>: ローカル・空ノード識別子の指定</div>
 <pre class="example">{
-...
-"@id": "<span class="highlight">_:n1</span>",
-"name": "Secret Agent 1",
-"knows":
-{
-"name": "Secret Agent 2",
-"knows": { "@id": "<span class="highlight">_:n1</span>" }
-}
+    ...
+    "@id": "<span class="highlight">_:n1</span>",
+    "name": "Secret Agent 1",
+    "knows":
+    {
+        "name": "Secret Agent 2",
+        "knows": { "@id": "<span class="highlight">_:n1</span>" }
+    }
 }</pre>
 </div>
 <p>
@@ -2628,15 +2625,15 @@ JSON-LDはすべてのノードが<code>@id</code>を使用して識別する必
 <div class="example">
 <div class="example-title"><span>例 53</span>: Aliasing keywords</div>
 <pre class="example">{
-"@context":
-{
-<span class="highlight">"url": "@id"</span>,
-<span class="highlight">"a": "@type"</span>,
-"name": "http://xmlns.com/foaf/0.1/name"
-},
-"<span class="highlight">url</span>": "http://example.com/about#gregg",
-"<span class="highlight">a</span>": "http://xmlns.com/foaf/0.1/Person",
-"name": "Gregg Kellogg"
+    "@context":
+    {
+        <span class="highlight">"url": "@id"</span>,
+        <span class="highlight">"a": "@type"</span>,
+        "name": "http://xmlns.com/foaf/0.1/name"
+    },
+    "<span class="highlight">url</span>": "http://example.com/about#gregg",
+    "<span class="highlight">a</span>": "http://xmlns.com/foaf/0.1/Person",
+    "name": "Gregg Kellogg"
 }</pre>
 </div>
 <p>
@@ -2664,32 +2661,32 @@ JSON-LDでは、このようなデータは、コンテキスト内<code>@contai
 <div class="example">
 <div class="example-title"><span>例 54</span>: JSON-LDのデータの索引付け</div>
 <pre class="example">{
-"@context":
-{
-"schema": "http://schema.org/",
-"name": "schema:name",
-"body": "schema:articleBody",
-"words": "schema:wordCount",
-"post": {
-"@id": "schema:blogPost",
-<span class="highlight">"@container": "@index"</span>
-}
-},
-"@id": "http://example.com/",
-"@type": "schema:Blog",
-"name": "World Financial News",
-<span class="highlight">"post": {
-"en": {
-"@id": "http://example.com/posts/1/en",
-"body": "World commodities were up today with heavy trading of crude oil...",
-"words": 1539
-},
-"de": {
-"@id": "http://example.com/posts/1/de",
-"body": "Die Werte an Warenbörsen stiegen im Sog eines starken Handels von Rohöl...",
-"words": 1204
-}</span>
-}
+    "@context":
+    {
+        "schema": "http://schema.org/",
+        "name": "schema:name",
+        "body": "schema:articleBody",
+        "words": "schema:wordCount",
+        "post": {
+            "@id": "schema:blogPost",
+            <span class="highlight">"@container": "@index"</span>
+        }
+        },
+        "@id": "http://example.com/",
+        "@type": "schema:Blog",
+        "name": "World Financial News",
+        <span class="highlight">"post": {
+        "en": {
+            "@id": "http://example.com/posts/1/en",
+            "body": "World commodities were up today with heavy trading of crude oil...",
+            "words": 1539
+        },
+        "de": {
+            "@id": "http://example.com/posts/1/de",
+            "body": "Die Werte an Warenbörsen stiegen im Sog eines starken Handels von Rohöl...",
+            "words": 1204
+        }</span>
+    }
 }</pre>
 </div>
 <p>
@@ -2762,16 +2759,16 @@ JSON-LD処理アルゴリズムとAPI仕様[<cite><a class="bibref" href="#bib-J
 <div class="example">
 <div class="example-title"><span>例 55</span>: サンプルJSON-LD文書</div>
 <pre class="example">{
-"@context":
-{
-"name": "http://xmlns.com/foaf/0.1/name",
-"homepage": {
-"@id": "http://xmlns.com/foaf/0.1/homepage",
-"@type": "@id"
-}
-},
-"name": "Manu Sporny",
-"homepage": "http://manu.sporny.org/"
+    "@context":
+    {
+        "name": "http://xmlns.com/foaf/0.1/name",
+        "homepage": {
+            "@id": "http://xmlns.com/foaf/0.1/homepage",
+            "@type": "@id"
+        }
+    },
+    "name": "Manu Sporny",
+    "homepage": "http://manu.sporny.org/"
 }</pre>
 </div>
 <p>
@@ -2780,14 +2777,14 @@ JSON-LD処理アルゴリズムとAPI仕様[<cite><a class="bibref" href="#bib-J
 <div class="example">
 <div class="example-title"><span>例 56</span>: 前の例の展開形式</div>
 <pre class="example">[
-{
-"http://xmlns.com/foaf/0.1/name": [
-{ "@value": "Manu Sporny" }
-],
-"http://xmlns.com/foaf/0.1/homepage": [
-{ "@id": "http://manu.sporny.org/" }
-]
-}
+    {
+        "http://xmlns.com/foaf/0.1/name": [
+            { "@value": "Manu Sporny" }
+        ],
+        "http://xmlns.com/foaf/0.1/homepage": [
+            { "@id": "http://manu.sporny.org/" }
+        ]
+    }
 ]</pre>
 </div>
 <p>
@@ -2807,44 +2804,44 @@ JSON-LD処理アルゴリズムとAPI仕様[<cite><a class="bibref" href="#bib-J
 <div class="example">
 <div class="example-title"><span>例 57</span>: 拡張されたJSON-LD文書のサンプル</div>
 <pre class="example">[
-{
-"http://xmlns.com/foaf/0.1/name": [ "Manu Sporny" ],
-"http://xmlns.com/foaf/0.1/homepage": [
-{
-"@id": "http://manu.sporny.org/"
-}
-]
-}
+    {
+        "http://xmlns.com/foaf/0.1/name": [ "Manu Sporny" ],
+        "http://xmlns.com/foaf/0.1/homepage": [
+            {
+            "@id": "http://manu.sporny.org/"
+            }
+        ]
+    }
 ]</pre>
 </div>
 <p>さらに次の開発者提供のJSON-LDコンテキストを仮定する。</p>
 <div class="example">
-<div class="example-title"><span>例 58</span>: Sample context</div>
+<div class="example-title"><span>例 58</span>: サンプル・コンテキスト</div>
 <pre class="example">{
-"@context": {
-"name": "http://xmlns.com/foaf/0.1/name",
-"homepage": {
-"@id": "http://xmlns.com/foaf/0.1/homepage",
-"@type": "@id"
-}
-}
+    "@context": {
+        "name": "http://xmlns.com/foaf/0.1/name",
+        "homepage": {
+            "@id": "http://xmlns.com/foaf/0.1/homepage",
+            "@type": "@id"
+        }
+    }
 }</pre>
 </div>
 <p>
 上で提供されたJSON-LD入力文書に対して上で提供されたコンテキストを与えられたJSON-LD圧縮アルゴリズムを実行すると以下の出力結果となるであろう。
 </p>
 <div class="example">
-<div class="example-title"><span>例 59</span>: Compact form of the sample document once sample context has been applied</div>
+<div class="example-title"><span>例 59</span>: サンプル・コンテキストが適用されたサンプル・ドキュメントの圧縮形式</div>
 <pre class="example">{
-"@context": {
-"name": "http://xmlns.com/foaf/0.1/name",
-"homepage": {
-"@id": "http://xmlns.com/foaf/0.1/homepage",
-"@type": "@id"
-}
-},
-"name": "Manu Sporny",
-"homepage": "http://manu.sporny.org/"
+    "@context": {
+        "name": "http://xmlns.com/foaf/0.1/name",
+        "homepage": {
+            "@id": "http://xmlns.com/foaf/0.1/homepage",
+            "@type": "@id"
+        }
+    },
+    "name": "Manu Sporny",
+    "homepage": "http://manu.sporny.org/"
 }</pre>
 </div>
 <p>
@@ -2865,51 +2862,51 @@ JSON-LD処理アルゴリズムとAPI仕様[<cite><a class="bibref" href="#bib-J
 <div class="example">
 <div class="example-title"><span>例 60</span>: JSON-LD文書サンプル</div>
 <pre class="example">{
-"@context": {
-"name": "http://xmlns.com/foaf/0.1/name",
-"knows": "http://xmlns.com/foaf/0.1/knows"
-},
-"@id": "http://me.markus-lanthaler.com/",
-"name": "Markus Lanthaler",
-"knows": [
-{
-"@id": "http://manu.sporny.org/about#manu",
-"name": "Manu Sporny"
-},
-{
-"name": "Dave Longley"
-}
-]
+    "@context": {
+        "name": "http://xmlns.com/foaf/0.1/name",
+        "knows": "http://xmlns.com/foaf/0.1/knows"
+    },
+    "@id": "http://me.markus-lanthaler.com/",
+    "name": "Markus Lanthaler",
+    "knows": [
+        {
+            "@id": "http://manu.sporny.org/about#manu",
+            "name": "Manu Sporny"
+        },
+        {
+            "name": "Dave Longley"
+        }
+    ]
 }</pre>
 </div>
 <p>
 上の例のJSON-LD入力文書と同じコンテキストに対してJSON-LDフラット化アルゴリズムを実行すると次の結果が得られるだろう。
 </p>
 <div class="example">
-<div class="example-title"><span>例 61</span>: Flattened and compacted form for the previous example</div>
+<div class="example-title"><span>例 61</span>: 前の例のフラット化と圧縮化形式</div>
 <pre class="example">{
-"@context": {
-"name": "http://xmlns.com/foaf/0.1/name",
-"knows": "http://xmlns.com/foaf/0.1/knows"
-},
-"@graph": [
-{
-"@id": "_:b0",
-"name": "Dave Longley"
-},
-{
-"@id": "http://manu.sporny.org/about#manu",
-"name": "Manu Sporny"
-},
-{
-"@id": "http://me.markus-lanthaler.com/",
-"name": "Markus Lanthaler",
-"knows": [
-{ "@id": "http://manu.sporny.org/about#manu" },
-{ "@id": "_:b0" }
-]
-}
-]
+    "@context": {
+        "name": "http://xmlns.com/foaf/0.1/name",
+        "knows": "http://xmlns.com/foaf/0.1/knows"
+    },
+    "@graph": [
+        {
+            "@id": "_:b0",
+            "name": "Dave Longley"
+        },
+        {
+            "@id": "http://manu.sporny.org/about#manu",
+            "name": "Manu Sporny"
+        },
+        {
+            "@id": "http://me.markus-lanthaler.com/",
+            "name": "Markus Lanthaler",
+            "knows": [
+                { "@id": "http://manu.sporny.org/about#manu" },
+                { "@id": "_:b0" }
+            ]
+        }
+    ]
 }</pre>
 </div>
 <p>
@@ -2928,14 +2925,14 @@ HTMLスクリプトタグは、ドキュメント内のデータ・ブロック�
 これによりJSON-LDのコンテンツは、<code>type</code>属性に<code>application/ld+json</code>を設定したscript要素を置くことで、HTMLに簡単に埋め込むことができる。
 </p>
 <div class="example">
-<div class="example-title"><span>例 62</span>: HTML中のJSON-LDを埋め込む</div>
+<div class="example-title"><span>例 62</span>: HTML中のJSON-LDの埋め込み</div>
 <pre class="example"><span class="highlight">&lt;script type="application/ld+json"&gt;</span>
 {
-"@context": "http://json-ld.org/contexts/person.jsonld",
-"@id": "http://dbpedia.org/resource/John_Lennon",
-"name": "John Lennon",
-"born": "1940-10-09",
-"spouse": "http://dbpedia.org/resource/Cynthia_Lennon"
+    "@context": "http://json-ld.org/contexts/person.jsonld",
+    "@id": "http://dbpedia.org/resource/John_Lennon",
+    "name": "John Lennon",
+    "born": "1940-10-09",
+    "spouse": "http://dbpedia.org/resource/Cynthia_Lennon"
 }
 <span class="highlight">&lt;/script&gt;</span></pre>
 </div>
@@ -3375,47 +3372,47 @@ JSON-LD文書を逆シリアル化する手続きは次の手順を伴う。
 </ol>
 <p>例えば、次の圧縮形式のJSON-LD文書を考える。</p>
 <div class="example">
-<div class="example-title"><span>例 63</span>: Sample JSON-LD文書</div>
+<div class="example-title"><span>例 63</span>:JSON-LD文書サンプル</div>
 <pre class="example">{
-"@context": {
-"name": "http://xmlns.com/foaf/0.1/name",
-"knows": "http://xmlns.com/foaf/0.1/knows"
-},
-"@id": "http://me.markus-lanthaler.com/",
-"name": "Markus Lanthaler",
-"knows": [
-{
-"@id": "http://manu.sporny.org/about#manu",
-"name": "Manu Sporny"
-},
-{
-"name": "Dave Longley"
-}
-]
+    "@context": {
+        "name": "http://xmlns.com/foaf/0.1/name",
+        "knows": "http://xmlns.com/foaf/0.1/knows"
+    },
+    "@id": "http://me.markus-lanthaler.com/",
+    "name": "Markus Lanthaler",
+    "knows": [
+        {
+            "@id": "http://manu.sporny.org/about#manu",
+            "name": "Manu Sporny"
+        },
+        {
+            "name": "Dave Longley"
+        }
+    ]
 }</pre>
 </div>
 <p>
 上の例のJSON-LD入力文書に対してJSON-LD拡張およびフラット化を実行すると次の出力を得る。
 </p>
 <div class="example">
-<div class="example-title"><span>例 64</span>: Flattened and expanded form for the previous example</div>
+<div class="example-title"><span>例 64</span>: 前のサンプル文書のフラット化および拡張形式</div>
 <pre class="example">[
-{
-"@id": "_:b0",
-"http://xmlns.com/foaf/0.1/name": "Dave Longley"
-},
-{
-"@id": "http://manu.sporny.org/about#manu",
-"http://xmlns.com/foaf/0.1/name": "Manu Sporny"
-},
-{
-"@id": "http://me.markus-lanthaler.com/",
-"http://xmlns.com/foaf/0.1/name": "Markus Lanthaler",
-"http://xmlns.com/foaf/0.1/knows": [
-{ "@id": "http://manu.sporny.org/about#manu" },
-{ "@id": "_:b0" }
-]
-}
+    {
+        "@id": "_:b0",
+        "http://xmlns.com/foaf/0.1/name": "Dave Longley"
+    },
+    {
+        "@id": "http://manu.sporny.org/about#manu",
+        "http://xmlns.com/foaf/0.1/name": "Manu Sporny"
+    },
+    {
+        "@id": "http://me.markus-lanthaler.com/",
+        "http://xmlns.com/foaf/0.1/name": "Markus Lanthaler",
+        "http://xmlns.com/foaf/0.1/knows": [
+            { "@id": "http://manu.sporny.org/about#manu" },
+            { "@id": "_:b0" }
+        ]
+    }
 ]</pre>
 </div>
 <p>
@@ -3458,14 +3455,14 @@ foaf:homepage &lt;http://manu.sporny.org/&gt; .</pre>
 <div class="example">
 <div class="example-title"><span>例 67</span>:JSON-LDでシリアル化された同じステートメントのセット</div>
 <pre class="example">{
-"@context":
-{
-"foaf": "http://xmlns.com/foaf/0.1/"
-},
-"@id": "http://manu.sporny.org/about#manu",
-"@type": "foaf:Person",
-"foaf:name": "Manu Sporny",
-"foaf:homepage": { "@id": "http://manu.sporny.org/" }
+    "@context":
+    {
+        "foaf": "http://xmlns.com/foaf/0.1/"
+    },
+    "@id": "http://manu.sporny.org/about#manu",
+    "@type": "foaf:Person",
+    "foaf:name": "Manu Sporny",
+    "foaf:homepage": { "@id": "http://manu.sporny.org/" }
 }</pre>
 </div>
 </section>
@@ -3485,18 +3482,18 @@ foaf:knows [ a foaf:Person; foaf:name "Gregg Kellogg" ] .</pre>
 <div class="example">
 <div class="example-title"><span>例 69</span>: 同じもののJSON-LDでの埋め込みの例</div>
 <pre class="example">{
-"@context":
-{
-"foaf": "http://xmlns.com/foaf/0.1/"
-},
-"@id": "http://manu.sporny.org/about#manu",
-"@type": "foaf:Person",
-"foaf:name": "Manu Sporny",
-"foaf:knows":
-{
-"@type": "foaf:Person",
-"foaf:name": "Gregg Kellogg"
-}
+    "@context":
+    {
+        "foaf": "http://xmlns.com/foaf/0.1/"
+    },
+    "@id": "http://manu.sporny.org/about#manu",
+    "@type": "foaf:Person",
+    "foaf:name": "Manu Sporny",
+    "foaf:knows":
+    {
+        "@type": "foaf:Person",
+        "foaf:name": "Gregg Kellogg"
+    }
 }</pre>
 </div>
 </section>
@@ -3517,13 +3514,13 @@ Turtleはそのような値を表現する短縮構文を持っているとは�
 <div class="example">
 <div class="example-title"><span>例 70</span>: JSON-LDの数値とブール値用の型付き値の使用</div>
 <pre class="example">{
-"@context":
-{
-"ex": "http://example.com/vocab#"
-},
-"@id": "http://example.com/",
-"ex:numbers": [ 14, 2.78 ],
-"ex:booleans": [ true, false ]
+    "@context":
+    {
+        "ex": "http://example.com/vocab#"
+    },
+    "@id": "http://example.com/",
+    "ex:numbers": [ 14, 2.78 ],
+    "ex:booleans": [ true, false ]
 }</pre>
 </div>
 <div class="example">
@@ -3548,17 +3545,17 @@ foaf:nick ( "joe" "bob" "jaybee" ) .</pre>
 <div class="example">
 <div class="example-title"><span>例 73</span>: 同じものの JSON-LDの値のリスト例</div>
 <pre class="example">{
-"@context":
-{
-"foaf": "http://xmlns.com/foaf/0.1/"
-},
-"@id": "http://example.org/people#joebob",
-"@type": "foaf:Person",
-"foaf:name": "Joe Bob",
-"foaf:nick":
-{
-"@list": [ "joe", "bob", "jaybee" ]
-}
+    "@context":
+    {
+        "foaf": "http://xmlns.com/foaf/0.1/"
+    },
+    "@id": "http://example.org/people#joebob",
+    "@type": "foaf:Person",
+    "foaf:name": "Joe Bob",
+    "foaf:nick":
+    {
+        "@list": [ "joe", "bob", "jaybee" ]
+    }
 }</pre>
 </div>
 </section>
@@ -3591,28 +3588,28 @@ foaf:nick ( "joe" "bob" "jaybee" ) .</pre>
 <div class="example">
 <div class="example-title"><span>例 75</span>: 同じもののJSON-LD(コンテキストがノード・オブジェクト間で共有されている)の記述 </div>
 <pre class="example">{
-"@context":
-{
-"foaf": "http://xmlns.com/foaf/0.1/"
-},
-"@graph":
-[
-{
-"@type": "foaf:Person",
-"foaf:homepage": "http://example.com/bob/",
-"foaf:name": "Bob"
-},
-{
-"@type": "foaf:Person",
-"foaf:homepage": "http://example.com/eve/",
-"foaf:name": "Eve"
-},
-{
-"@type": "foaf:Person",
-"foaf:homepage": "http://example.com/manu/",
-"foaf:name": "Manu"
-}
-]
+    "@context":
+    {
+        "foaf": "http://xmlns.com/foaf/0.1/"
+    },
+    "@graph":
+    [
+        {
+            "@type": "foaf:Person",
+            "foaf:homepage": "http://example.com/bob/",
+            "foaf:name": "Bob"
+        },
+        {
+            "@type": "foaf:Person",
+            "foaf:homepage": "http://example.com/eve/",
+            "foaf:name": "Eve"
+        },
+        {
+            "@type": "foaf:Person",
+            "foaf:homepage": "http://example.com/manu/",
+            "foaf:name": "Manu"
+        }
+    ]
 }</pre>
 </div>
 </section>
@@ -3636,19 +3633,19 @@ hCardの表現は<a class="tref internalDFN" title="context" href="#dfn-context"
 <div class="example">
 <div class="example-title"><span>例 77</span>: 同じもののJSON-LDのhCard表現</div>
 <pre class="example">{
-"@context":
-{
-"vcard": "http://microformats.org/profile/hcard#vcard",
-"url":
-{
-"@id": "http://microformats.org/profile/hcard#url",
-"@type": "@id"
-},
-"fn": "http://microformats.org/profile/hcard#fn"
-},
-"@type": "vcard",
-"url": "http://tantek.com/",
-"fn": "Tantek Çelik"
+    "@context":
+    {
+        "vcard": "http://microformats.org/profile/hcard#vcard",
+        "url":
+        {
+            "@id": "http://microformats.org/profile/hcard#url",
+            "@type": "@id"
+        },
+        "fn": "http://microformats.org/profile/hcard#fn"
+    },
+    "@type": "vcard",
+    "url": "http://tantek.com/",
+    "fn": "Tantek Çelik"
 }</pre>
 </div>
 </section>
@@ -3663,25 +3660,25 @@ hCardの表現は<a class="tref internalDFN" title="context" href="#dfn-context"
 <pre class="example">&lt;dl itemscope
 itemtype="http://purl.org/vocab/frbr/core#Work"
 itemid="http://purl.oreilly.com/works/45U8QJGZSQKDH8N"&gt;
-&lt;dt&gt;Title&lt;/dt&gt;
-&lt;dd&gt;&lt;cite itemprop="http://purl.org/dc/terms/title"&gt;Just a Geek&lt;/cite&gt;&lt;/dd&gt;
-&lt;dt&gt;By&lt;/dt&gt;
-&lt;dd&gt;&lt;span itemprop="http://purl.org/dc/terms/creator"&gt;Wil Wheaton&lt;/span&gt;&lt;/dd&gt;
-&lt;dt&gt;Format&lt;/dt&gt;
-&lt;dd itemprop="http://purl.org/vocab/frbr/core#realization"
-itemscope
-itemtype="http://purl.org/vocab/frbr/core#Expression"
-itemid="http://purl.oreilly.com/products/9780596007683.BOOK"&gt;
-&lt;link itemprop="http://purl.org/dc/terms/type" href="http://purl.oreilly.com/product-types/BOOK"&gt;
-Print
-&lt;/dd&gt;
-&lt;dd itemprop="http://purl.org/vocab/frbr/core#realization"
-itemscope
-itemtype="http://purl.org/vocab/frbr/core#Expression"
-itemid="http://purl.oreilly.com/products/9780596802189.EBOOK"&gt;
-&lt;link itemprop="http://purl.org/dc/terms/type" href="http://purl.oreilly.com/product-types/EBOOK"&gt;
-Ebook
-&lt;/dd&gt;
+    &lt;dt&gt;Title&lt;/dt&gt;
+    &lt;dd&gt;&lt;cite itemprop="http://purl.org/dc/terms/title"&gt;Just a Geek&lt;/cite&gt;&lt;/dd&gt;
+    &lt;dt&gt;By&lt;/dt&gt;
+    &lt;dd&gt;&lt;span itemprop="http://purl.org/dc/terms/creator"&gt;Wil Wheaton&lt;/span&gt;&lt;/dd&gt;
+    &lt;dt&gt;Format&lt;/dt&gt;
+    &lt;dd itemprop="http://purl.org/vocab/frbr/core#realization"
+    itemscope
+    itemtype="http://purl.org/vocab/frbr/core#Expression"
+    itemid="http://purl.oreilly.com/products/9780596007683.BOOK"&gt;
+    &lt;link itemprop="http://purl.org/dc/terms/type" href="http://purl.oreilly.com/product-types/BOOK"&gt;
+    Print
+    &lt;/dd&gt;
+    &lt;dd itemprop="http://purl.org/vocab/frbr/core#realization"
+    itemscope
+    itemtype="http://purl.org/vocab/frbr/core#Expression"
+    itemid="http://purl.oreilly.com/products/9780596802189.EBOOK"&gt;
+    &lt;link itemprop="http://purl.org/dc/terms/type" href="http://purl.oreilly.com/product-types/EBOOK"&gt;
+    Ebook
+    &lt;/dd&gt;
 &lt;/dl&gt;</pre>
 </div>
 <p>
@@ -3690,27 +3687,27 @@ Microdata情報のJSON-LDの表現はコンテキストを避け代わりにフ�
 <div class="example">
 <div class="example-title"><span>例 79</span>: Same book description in JSON-LD (avoiding contexts)</div>
 <pre class="example">[
-{
-"@id": "http://purl.oreilly.com/works/45U8QJGZSQKDH8N",
-"@type": "http://purl.org/vocab/frbr/core#Work",
-"http://purl.org/dc/terms/title": "Just a Geek",
-"http://purl.org/dc/terms/creator": "Whil Wheaton",
-"http://purl.org/vocab/frbr/core#realization":
-[
-"http://purl.oreilly.com/products/9780596007683.BOOK",
-"http://purl.oreilly.com/products/9780596802189.EBOOK"
-]
-},
-{
-"@id": "http://purl.oreilly.com/products/9780596007683.BOOK",
-"@type": "http://purl.org/vocab/frbr/core#Expression",
-"http://purl.org/dc/terms/type": "http://purl.oreilly.com/product-types/BOOK"
-},
-{
-"@id": "http://purl.oreilly.com/products/9780596802189.EBOOK",
-"@type": "http://purl.org/vocab/frbr/core#Expression",
-"http://purl.org/dc/terms/type": "http://purl.oreilly.com/product-types/EBOOK"
-}
+    {
+        "@id": "http://purl.oreilly.com/works/45U8QJGZSQKDH8N",
+        "@type": "http://purl.org/vocab/frbr/core#Work",
+        "http://purl.org/dc/terms/title": "Just a Geek",
+        "http://purl.org/dc/terms/creator": "Whil Wheaton",
+        "http://purl.org/vocab/frbr/core#realization":
+        [
+            "http://purl.oreilly.com/products/9780596007683.BOOK",
+            "http://purl.oreilly.com/products/9780596802189.EBOOK"
+        ]
+    },
+    {
+        "@id": "http://purl.oreilly.com/products/9780596007683.BOOK",
+        "@type": "http://purl.org/vocab/frbr/core#Expression",
+        "http://purl.org/dc/terms/type": "http://purl.oreilly.com/product-types/BOOK"
+    },
+    {
+        "@id": "http://purl.oreilly.com/products/9780596802189.EBOOK",
+        "@type": "http://purl.org/vocab/frbr/core#Expression",
+        "http://purl.org/dc/terms/type": "http://purl.oreilly.com/product-types/EBOOK"
+    }
 ]</pre>
 </div>
 </section>
