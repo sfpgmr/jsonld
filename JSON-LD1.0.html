@@ -2323,8 +2323,7 @@ JSON-LD文書の本文に<code>@set</code>を使用することは、それは�
 <p>
 JSON-LDは有向<a class="tref internalDFN" title="graph" href="#dfn-graph">グラフ</a>をシリアル化する。
 
-それは
-That means that すべての<a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a>は<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>から他の<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>か<a class="tref internalDFN" title="json-ld-value" href="#dfn-json-ld-value">値</a>へ向いている。
+それはすべての<a class="tref internalDFN" title="property" href="#dfn-property">プロパティ</a>は<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>から他の<a class="tref internalDFN" title="node" href="#dfn-node">ノード</a>か<a class="tref internalDFN" title="json-ld-value" href="#dfn-json-ld-value">値</a>へ向いていることを意味する。
 
 しかしながら、ときとして、逆方向にシリアライズすることが望ましいことがある。
 
@@ -2375,7 +2374,7 @@ That means that すべての<a class="tref internalDFN" title="property" href="#
 }</pre>
 </div>
 <p>
-<code>@reverse</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>はまた次の例で示されるように逆プロパティを作成することで<a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>中で使用することができる。
+また<code>@reverse</code><a class="tref internalDFN" title="keyword" href="#dfn-keyword">キーワード</a>は次の例で示されるように<a class="tref internalDFN" title="expanded-term-definition" href="#dfn-expanded-term-definition">拡張用語定義</a>中で逆プロパティを定義し使用することができる。
 </p>
 
 <div class="example">
@@ -2446,9 +2445,9 @@ That means that すべての<a class="tref internalDFN" title="property" href="#
 
 上の例は<a class="tref internalDFN" title="iri" href="#dfn-iri"><abbr title="Internationalized Resource Identifier">IRI</abbr></a> <code>http://example.org/graphs/73</code>によって識別される<a class="tref internalDFN" title="named-graph" href="#dfn-named-graph">名前付きグラフ</a>を表している。
 
-グラフはについてManuとGreggについての文で構成されている。
+グラフはManuとGreggについての文で構成されている。
 
-グラフ自身についてのメタデータは、グラフがいつ生成されたかを指定する<code>generatedAt</code>プロパティで表現される。
+グラフ自身のメタデータは、グラフがいつ生成されたかを指定する<code>generatedAt</code>プロパティで表現される。
 
 上の情報の別の表現を以下の表で表わす。</p>
 <table class="example">
@@ -2549,7 +2548,7 @@ JSON-LD文書のトップレベル構造が<a class="tref internalDFN" title="js
 これは配列中の複数の<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>使用し各<a class="tref internalDFN" title="node-object" href="#dfn-node-object">ノード・オブジェクト</a>内の<code>@context</code>を定義することと等価である。
 </p>
 <div class="example">
-<div class="example-title"><span>例 51</span>: コンテキストは@graphが使用されいない場合重複する必要がある</div>
+<div class="example-title"><span>例 51</span>: @graphが使用されていない場合コンテキストは重複する必要がある</div>
 <pre class="example">[
     {
         <span class="highlight">"@context": ...,</span>
@@ -2628,7 +2627,7 @@ JSON-LDはすべてのノードが<code>@id</code>を使用して識別する必
 
 </p>
 <div class="example">
-<div class="example-title"><span>例 53</span>: Aliasing keywords</div>
+<div class="example-title"><span>例 53</span>: 別名キーワード</div>
 <pre class="example">{
     "@context":
     {
@@ -2695,11 +2694,11 @@ JSON-LDでは、このようなデータは、コンテキスト内<code>@contai
 }</pre>
 </div>
 <p>
-上記の例では、<strong>post</strong><a class="tref internalDFN" title="term" href="#dfn-term">用語</a>は、<a class="tref internalDFN" title="index-map" href="#dfn-index-map">索引マップ</a>としてマークされています。<strong>en</strong>と<strong>de</strong>キーは、意味的に無視されるが、JSON-LDのプロセッサによって、構文的に保存される。これにより開発者は次のコードスニペット<code>obj.post.de</code>を使用して<strong>post</strong>のドイツ語版にアクセスすることができる。
+上記の例では、<strong>post</strong><a class="tref internalDFN" title="term" href="#dfn-term">用語</a>は、<a class="tref internalDFN" title="index-map" href="#dfn-index-map">索引マップ</a>としてマークされている。<strong>en</strong>と<strong>de</strong>キーは、意味的に無視されるが、JSON-LDのプロセッサによって、構文的に保存される。これにより開発者は次のコードスニペット<code>obj.post.de</code>を使用して<strong>post</strong>のドイツ語版にアクセスすることができる。
 </p>
 <p>
 上記のデータの解釈は以下の表に表される。
-索引キーは、以下のリンク・データには表示されないが、文書がJSON-LDのプロセッサを使用して（<a class="sectionRef sec-ref" href="#compacted-document-form">6.18 圧縮された文書形式</a>節と<a class="sectionRef sec-ref" href="#expanded-document-form">section 6.17 拡張文書形式</a>節を参照）圧縮されるか拡張された場合でも存在し続けることに注意すること。
+索引キーは、以下のリンク・データには表示されないが、文書がJSON-LDのプロセッサを使用して（<a class="sectionRef sec-ref" href="#compacted-document-form">6.18 圧縮された文書形式</a>節と<a class="sectionRef sec-ref" href="#expanded-document-form"> 6.17 拡張文書形式</a>節を参照）圧縮されるか拡張された場合でも存在し続けることに注意すること。
 </p>
 <table class="example">
 <thead>
@@ -2758,7 +2757,7 @@ JSON-LDでは、このようなデータは、コンテキスト内<code>@contai
 <p><em>このセクションは非規範的である。</em></p>
 <p>
 
-JSON-LD処理アルゴリズムとAPI仕様[<cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>]はJSON-LDの文書を<em>拡張</em> する方法を定義する。拡張は、JSON-LDドキュメントを取得し、すべてのIRI・型・値がもはや<code>@context</code>が不要となるまでに拡張されるように<code>@context</code>を適用するプロセスである。
+JSON-LD処理アルゴリズムとAPI仕様[<cite><a class="bibref" href="#bib-JSON-LD-API">JSON-LD-API</a></cite>]はJSON-LDの文書を<em>拡張</em> する方法を定義する。拡張とはJSON-LDドキュメントを取得し、すべてのIRI・型・値が<code>@context</code>が不要となるまでに拡張されるように<code>@context</code>を適用するプロセスである。
 </p>
 <p>たとえば、以下のJSON-LDの入力文書を仮定する。</p>
 <div class="example">
